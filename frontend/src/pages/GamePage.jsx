@@ -15,7 +15,9 @@ const GamePage = () => {
   const [timer, setTimer] = useState(0);
   const [sessionStats, setSessionStats] = useState([]);
   const [showInstructions, setShowInstructions] = useState(true);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const timerRef = useRef(null);
+  const animationFrameRef = useRef(null);
 
   useEffect(() => {
     const savedSettings = localStorage.getItem('gameSettings');
