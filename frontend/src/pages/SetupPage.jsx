@@ -18,8 +18,20 @@ const PRESET_COLORS = [
 
 const SetupPage = () => {
   const navigate = useNavigate();
-  const [color1, setColor1] = useState('#FF0000');
-  const [color2, setColor2] = useState('#00FFFF');
+  
+  // Загружаем сохранённые настройки цветов или используем значения по умолчанию
+  const getSavedColors = () => {
+    const saved = localStorage.getItem('savedColorSettings');
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      return { color1: parsed.color1, color2: parsed.color2 };
+    }
+    return { color1: '#FF0000', color2: '#00FFFF' };
+  };
+  
+  const savedColors = getSavedColors();
+  const [color1, setColor1] = useState(savedColors.color1);
+  const [color2, setColor2] = useState(savedColors.color2);
   const [difficulty, setDifficulty] = useState('easy');
 
   const handleStart = () => {
