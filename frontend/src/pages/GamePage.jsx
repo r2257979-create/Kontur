@@ -362,7 +362,24 @@ const GamePage = () => {
         </div>
 
         {showResult && (
-          <div className="bg-gradient-to-r from-slate-700 to-slate-800 rounded-2xl shadow-2xl p-8 max-w-2xl w-full animate-in fade-in slide-in-from-bottom-4 duration-300">
+          <div 
+            className="bg-gradient-to-r from-slate-700 to-slate-800 rounded-2xl shadow-2xl p-8 max-w-2xl w-full"
+            style={{
+              animation: 'slideUp 0.4s ease-out'
+            }}
+          >
+            <style>{`
+              @keyframes slideUp {
+                from {
+                  opacity: 0;
+                  transform: translateY(20px);
+                }
+                to {
+                  opacity: 1;
+                  transform: translateY(0);
+                }
+              }
+            `}</style>
             <div className="flex items-center gap-6">
               <div className="bg-green-500 w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0">
                 <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
