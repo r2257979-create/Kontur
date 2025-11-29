@@ -54,6 +54,13 @@ const SetupPage = () => {
           <CardDescription className="text-lg">
             Configure your anaglyph color settings for strabismus treatment
           </CardDescription>
+          {localStorage.getItem('savedColorSettings') && (
+            <div className="mt-2 px-4 py-2 bg-green-100 border border-green-300 rounded-lg">
+              <p className="text-sm text-green-800">
+                ✓ Используются ранее сохранённые настройки цветов
+              </p>
+            </div>
+          )}
         </CardHeader>
         <CardContent className="space-y-8">
           <div className="space-y-6">
