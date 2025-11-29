@@ -50,12 +50,24 @@ const CalibrationPage = () => {
   };
 
   const handleContinue = () => {
+    const finalColor1 = rgbToHex(color1RGB.r, color1RGB.g, color1RGB.b);
+    const finalColor2 = rgbToHex(color2RGB.r, color2RGB.g, color2RGB.b);
+    
     const updatedSettings = {
       ...settings,
-      color1: rgbToHex(color1RGB.r, color1RGB.g, color1RGB.b),
-      color2: rgbToHex(color2RGB.r, color2RGB.g, color2RGB.b)
+      color1: finalColor1,
+      color2: finalColor2
     };
+    
+    // Сохраняем настройки для текущей игры
     localStorage.setItem('gameSettings', JSON.stringify(updatedSettings));
+    
+    // Сохраняем цвета как постоянные настройки для будущих запусков
+    localStorage.setItem('savedColorSettings', JSON.stringify({
+      color1: finalColor1,
+      color2: finalColor2
+    }));
+    
     navigate('/game');
   };
 
