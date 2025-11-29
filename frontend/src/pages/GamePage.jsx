@@ -60,6 +60,22 @@ const GamePage = () => {
     }
   }, [settings, currentFigureIndex, showResult, showInstructions]);
 
+  useEffect(() => {
+    // Animation loop to draw the tracing circle
+    const animate = () => {
+      if (canvasRef.current && !showResult && !showInstructions) {
+        drawScene();
+      }
+      animationFrameRef.current = requestAnimationFrame(animate);
+    };
+    animate();
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
+  }, [settings, currentFigureIndex, showResult, showInstructions, mousePos, tracedPath]);
+
   const drawFigure = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
