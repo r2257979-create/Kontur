@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { figures } from '../mock/mockData';
-import { Timer, Eye } from 'lucide-react';
+import { Timer, Eye, Square } from 'lucide-react';
 
 const GamePage = () => {
   const navigate = useNavigate();
@@ -17,6 +17,7 @@ const GamePage = () => {
   const [showInstructions, setShowInstructions] = useState(true);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const timerRef = useRef(null);
+  const animationFrameRef = useRef(null);
 
   useEffect(() => {
     const savedSettings = localStorage.getItem('gameSettings');
@@ -55,13 +56,29 @@ const GamePage = () => {
 
   useEffect(() => {
     if (settings && !showResult && !showInstructions) {
-      drawScene();
+      drawFigure();
     }
-  }, [settings, currentFigureIndex, showResult, showInstructions, mousePos, tracedPath, isTracing]);
+  }, [settings, currentFigureIndex, showResult, showInstructions]);
 
-  const drawScene = () => {
+  useEffect(() => {
+    // Animation loop to draw the tracing circle
+    const animate = () => {
+      if (canvasRef.current && !showResult && !showInstructions) {
+        drawScene();
+      }
+      animationFrameRef.current = requestAnimationFrame(animate);
+    };
+    animate();
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
+  }, [settings, currentFigureIndex, showResult, showInstructions, mousePos, tracedPath]);
+
+  const drawFigure = () => {
     const canvas = canvasRef.current;
-    if (!canvas || !settings) return;
+    if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -69,38 +86,11 @@ const GamePage = () => {
     const figure = getFigures()[currentFigureIndex];
     if (!figure) return;
 
-    // Draw the figure in Color 1
     ctx.strokeStyle = settings.color1;
-    ctx.lineWidth = 4;
+    ctx.lineWidth = 3;
     ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
+
     drawShape(ctx, figure);
-
-    // Draw traced path in Color 2
-    if (tracedPath.length > 1) {
-      ctx.strokeStyle = settings.color2;
-      ctx.lineWidth = 3;
-      ctx.beginPath();
-      ctx.moveTo(tracedPath[0].x, tracedPath[0].y);
-      for (let i = 1; i < tracedPath.length; i++) {
-        ctx.lineTo(tracedPath[i].x, tracedPath[i].y);
-      }
-      ctx.stroke();
-    }
-
-    // Draw the tracing circle at mouse position (Color 2) - only when mouse is over canvas
-    if (mousePos.x > 0 && mousePos.y > 0 && mousePos.x < canvas.width && mousePos.y < canvas.height) {
-      ctx.fillStyle = settings.color2;
-      ctx.beginPath();
-      ctx.arc(mousePos.x, mousePos.y, 12, 0, 2 * Math.PI);
-      ctx.fill();
-      
-      // Add a small white center for visibility
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
-      ctx.beginPath();
-      ctx.arc(mousePos.x, mousePos.y, 4, 0, 2 * Math.PI);
-      ctx.fill();
-    }
   };
 
   const drawShape = (ctx, figure) => {
@@ -130,13 +120,13 @@ const GamePage = () => {
         drawHeart(ctx, centerX, centerY, size);
         break;
       case 'letter':
-        ctx.font = `bold ${size * 2}px Arial`;
+        ctx.font = `${size * 2}px Arial`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.strokeText(figure.shape, centerX, centerY);
         return;
       case 'number':
-        ctx.font = `bold ${size * 2}px Arial`;
+        ctx.font = `${size * 2}px Arial`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.strokeText(figure.shape, centerX, centerY);
@@ -187,17 +177,28 @@ const GamePage = () => {
   };
 
   const handleMouseMove = (e) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!isTracing || showResult || showInstructions) return;
 
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
     const rect = canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
-    setMousePos({ x, y });
 
-    if (isTracing && !showResult && !showInstructions) {
-      setTracedPath((prev) => [...prev, { x, y }]);
+    setTracedPath((prev) => [...prev, { x, y }]);
+
+    ctx.fillStyle = settings.color2;
+    ctx.beginPath();
+    ctx.arc(x, y, 8, 0, 2 * Math.PI);
+    ctx.fill();
+
+    if (tracedPath.length > 0) {
+      ctx.strokeStyle = settings.color2;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(tracedPath[tracedPath.length - 1].x, tracedPath[tracedPath.length - 1].y);
+      ctx.lineTo(x, y);
+      ctx.stroke();
     }
   };
 
@@ -217,30 +218,23 @@ const GamePage = () => {
     drawResultOverlay();
   };
 
-  const handleMouseLeave = () => {
-    setMousePos({ x: -100, y: -100 });
-    if (isTracing) {
-      setIsTracing(false);
-    }
-  };
-
   const drawResultOverlay = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
 
-    ctx.globalAlpha = 0.85;
+    ctx.globalAlpha = 0.7;
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.globalAlpha = 1.0;
 
     ctx.strokeStyle = settings.color1;
-    ctx.lineWidth = 4;
+    ctx.lineWidth = 3;
     const figure = getFigures()[currentFigureIndex];
     drawShape(ctx, figure);
 
     if (tracedPath.length > 1) {
       ctx.strokeStyle = settings.color2;
-      ctx.lineWidth = 3;
+      ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.moveTo(tracedPath[0].x, tracedPath[0].y);
       for (let i = 1; i < tracedPath.length; i++) {
@@ -318,9 +312,8 @@ const GamePage = () => {
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseLeave}
-            className="bg-white rounded-2xl shadow-2xl"
-            style={{ cursor: 'none' }}
+            onMouseLeave={() => setIsTracing(false)}
+            className="bg-white rounded-2xl shadow-2xl cursor-crosshair"
           />
 
           {showInstructions && (
@@ -335,19 +328,15 @@ const GamePage = () => {
                   </p>
                   <p className="flex items-start gap-3">
                     <span className="text-2xl">2️⃣</span>
-                    <span>One eye will see the figure, the other will see the tracing circle</span>
+                    <span>Trace the figure you see with your mouse</span>
                   </p>
                   <p className="flex items-start gap-3">
                     <span className="text-2xl">3️⃣</span>
-                    <span>Trace the figure with the colored circle by holding mouse button</span>
-                  </p>
-                  <p className="flex items-start gap-3">
-                    <span className="text-2xl">4️⃣</span>
                     <span>After tracing, remove glasses to see accuracy</span>
                   </p>
                   <p className="flex items-start gap-3">
-                    <span className="text-2xl">5️⃣</span>
-                    <span>Press SPACE for next figure, ESC to end session</span>
+                    <span className="text-2xl">4️⃣</span>
+                    <span>Press SPACE for next figure, ESC to end</span>
                   </p>
                 </div>
                 <Button
