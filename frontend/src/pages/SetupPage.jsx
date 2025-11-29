@@ -146,12 +146,28 @@ const SetupPage = () => {
             </div>
           </div>
 
-          <Button
-            onClick={handleStart}
-            className="w-full py-6 text-lg font-semibold bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all duration-200"
-          >
-            Start Training Session
-          </Button>
+          <div className="space-y-3">
+            <Button
+              onClick={handleStart}
+              className="w-full py-6 text-lg font-semibold bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all duration-200"
+            >
+              Start Training Session
+            </Button>
+            
+            {localStorage.getItem('savedColorSettings') && (
+              <Button
+                onClick={() => {
+                  localStorage.removeItem('savedColorSettings');
+                  setColor1('#FF0000');
+                  setColor2('#00FFFF');
+                }}
+                variant="outline"
+                className="w-full py-3 text-sm"
+              >
+                Сбросить сохранённые настройки цветов
+              </Button>
+            )}
+          </div>
         </CardContent>
       </Card>
     </div>
