@@ -24,7 +24,7 @@ const SetupPage = () => {
 
   const handleStart = () => {
     localStorage.setItem('gameSettings', JSON.stringify({ color1, color2, difficulty }));
-    navigate('/game');
+    navigate('/calibration');
   };
 
   return (
