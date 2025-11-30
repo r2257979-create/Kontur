@@ -219,89 +219,20 @@ const CalibrationPage = () => {
               </CardContent>
             </Card>
 
-            {/* Настройка Цвета 1 (Левый глаз) */}
-            <Card className="shadow-lg">
-          <CardHeader>
-            <CardTitle className="text-xl">Тестовый экран</CardTitle>
-            <CardDescription>
-              Через очки: левый глаз должен видеть только КРУГ, правый - только ТОЧКУ
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div 
-              className="rounded-xl p-8 flex items-center justify-center min-h-[400px] relative transition-colors duration-300"
-              style={{ backgroundColor: backgroundColor === 'white' ? '#ffffff' : '#000000' }}
-            >
-              {/* Круг (Цвет 1 - для левого глаза) */}
-              <svg width="300" height="300" className="absolute">
-                <circle 
-                  cx="150" 
-                  cy="150" 
-                  r="120" 
-                  fill="none" 
-                  stroke={color1Hex}
-                  strokeWidth="4"
+          {/* Настройка Цвета 1 (Левый глаз) */}
+          <Card className="shadow-lg">
+            <CardHeader>
+              <div className="flex items-center gap-3">
+                <div 
+                  className="w-12 h-12 rounded-full border-4 border-gray-300"
+                  style={{ backgroundColor: color1Hex }}
                 />
-              </svg>
-              
-              {/* Точка/кружок (Цвет 2 - для правого глаза) */}
-              <div 
-                className="w-6 h-6 rounded-full absolute"
-                style={{ 
-                  backgroundColor: color2Hex,
-                  top: '50%',
-                  left: '50%',
-                  transform: 'translate(-50%, -50%)'
-                }}
-              />
-              
-              {/* Дополнительная тестовая фигура - квадрат */}
-              <svg width="200" height="200" className="absolute" style={{ left: '60%', top: '20%' }}>
-                <rect 
-                  x="0" 
-                  y="0" 
-                  width="150" 
-                  height="150" 
-                  fill="none" 
-                  stroke={color1Hex}
-                  strokeWidth="3"
-                />
-              </svg>
-              
-              {/* Дополнительный кружок */}
-              <div 
-                className="w-5 h-5 rounded-full absolute"
-                style={{ 
-                  backgroundColor: color2Hex,
-                  top: '30%',
-                  left: '70%'
-                }}
-              />
-            </div>
-            
-            <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
-              <p className="text-sm text-blue-800">
-                <strong>Инструкция:</strong> Наденьте очки. Если вы видите оба цвета одним глазом, 
-                отрегулируйте ползунки ниже, пока каждый глаз не будет видеть только свой элемент.
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Настройка Цвета 1 (Левый глаз) */}
-        <Card className="shadow-lg">
-          <CardHeader>
-            <div className="flex items-center gap-3">
-              <div 
-                className="w-12 h-12 rounded-full border-4 border-gray-300"
-                style={{ backgroundColor: color1Hex }}
-              />
-              <div>
-                <CardTitle>Цвет 1 - Фигура (Левый глаз)</CardTitle>
-                <CardDescription>Настройте, чтобы левый глаз видел только фигуру</CardDescription>
+                <div>
+                  <CardTitle>Цвет 1 - Фигура (Левый глаз)</CardTitle>
+                  <CardDescription>Настройте, чтобы левый глаз видел только фигуру</CardDescription>
+                </div>
               </div>
-            </div>
-          </CardHeader>
+            </CardHeader>
           <CardContent className="space-y-6">
             <div className="space-y-3">
               <div className="flex items-center justify-between">
