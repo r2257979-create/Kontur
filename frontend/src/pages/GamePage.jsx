@@ -17,6 +17,7 @@ const GamePage = () => {
   const [showInstructions, setShowInstructions] = useState(true);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [sessionTimer, setSessionTimer] = useState(0);
+  const [shuffledFigures, setShuffledFigures] = useState([]);
   const timerRef = useRef(null);
   const sessionTimerRef = useRef(null);
 
