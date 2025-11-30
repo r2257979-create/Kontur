@@ -96,20 +96,25 @@ const GamePage = () => {
 
   useEffect(() => {
     const handleKeyPress = (e) => {
-      if (e.key === ' ' && showResult) {
+      if (e.key === ' ' && showInstructions) {
+        e.preventDefault();
+        setShowInstructions(false);
+      } else if (e.key === ' ' && !showInstructions && !showResult && waitingForCompletion) {
+        // Первое нажатие пробела - показываем результат
+        e.preventDefault();
+        handleShowResult();
+      } else if (e.key === ' ' && showResult) {
+        // Второе нажатие пробела - переход к следующей фигуре
         e.preventDefault();
         nextFigure();
       } else if (e.key === 'Escape') {
         endSession();
-      } else if (e.key === ' ' && showInstructions) {
-        e.preventDefault();
-        setShowInstructions(false);
       }
     };
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [showResult, showInstructions]);
+  }, [showResult, showInstructions, waitingForCompletion]);
 
   useEffect(() => {
     if (settings && !showResult && !showInstructions) {
