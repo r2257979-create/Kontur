@@ -564,6 +564,13 @@ const GamePage = () => {
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
+  const getRemainingTime = () => {
+    if (!settings) return '';
+    const maxTime = (settings.duration || 10) * 60;
+    const remaining = maxTime - sessionTimer;
+    return formatTime(Math.max(0, remaining));
+  };
+
   if (!settings) return null;
 
   return (
