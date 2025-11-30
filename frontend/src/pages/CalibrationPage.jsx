@@ -110,7 +110,10 @@ const CalibrationPage = () => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="bg-white rounded-xl p-8 flex items-center justify-center min-h-[400px] relative">
+            <div 
+              className="rounded-xl p-8 flex items-center justify-center min-h-[400px] relative transition-colors duration-300"
+              style={{ backgroundColor: backgroundColor === 'white' ? '#ffffff' : '#000000' }}
+            >
               {/* Круг (Цвет 1 - для левого глаза) */}
               <svg width="300" height="300" className="absolute">
                 <circle 
