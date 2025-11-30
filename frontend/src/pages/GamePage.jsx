@@ -582,6 +582,18 @@ const GamePage = () => {
   };
 
   const endSession = () => {
+    // Очищаем все таймеры
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+    if (sessionTimerRef.current) {
+      clearInterval(sessionTimerRef.current);
+      sessionTimerRef.current = null;
+    }
+    if (blinkTimerRef.current) {
+      clearInterval(blinkTimerRef.current);
+    }
+    
     localStorage.setItem('sessionStats', JSON.stringify(sessionStats));
     navigate('/results');
   };
