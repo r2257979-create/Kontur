@@ -27,6 +27,11 @@ const CalibrationPage = () => {
     // Преобразуем hex в RGB
     setColor1RGB(hexToRgb(parsed.color1));
     setColor2RGB(hexToRgb(parsed.color2));
+    
+    // Загружаем фон если есть
+    if (parsed.backgroundColor) {
+      setBackgroundColor(parsed.backgroundColor);
+    }
   }, [navigate]);
 
   const hexToRgb = (hex) => {
