@@ -325,8 +325,11 @@ const GamePage = () => {
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseLeave}
-            className="bg-white rounded-2xl shadow-2xl"
-            style={{ cursor: 'none' }}
+            className="rounded-2xl shadow-2xl"
+            style={{ 
+              cursor: 'none',
+              backgroundColor: settings?.backgroundColor === 'black' ? '#000000' : '#ffffff'
+            }}
           />
 
           {showInstructions && (
