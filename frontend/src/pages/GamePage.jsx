@@ -17,8 +17,10 @@ const GamePage = () => {
   const [showInstructions, setShowInstructions] = useState(true);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [sessionTimer, setSessionTimer] = useState(0);
+  const [blinkState, setBlinkState] = useState('figure'); // 'figure' или 'trace'
   const timerRef = useRef(null);
   const sessionTimerRef = useRef(null);
+  const blinkTimerRef = useRef(null);
 
   useEffect(() => {
     const savedSettings = localStorage.getItem('gameSettings');
