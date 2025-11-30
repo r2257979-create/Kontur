@@ -64,7 +64,11 @@ const GamePage = () => {
     if (!canvas || !settings) return;
 
     const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Заливаем фон выбранным цветом
+    const bgColor = settings.backgroundColor === 'black' ? '#000000' : '#ffffff';
+    ctx.fillStyle = bgColor;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     const figure = getFigures()[currentFigureIndex];
     if (!figure) return;
