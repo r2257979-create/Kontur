@@ -500,7 +500,11 @@ const GamePage = () => {
     };
     setSessionStats((prev) => [...prev, stats]);
 
-    drawResultOverlay();
+    // Запускаем мигание
+    setBlinkState('figure');
+    blinkTimerRef.current = setInterval(() => {
+      setBlinkState(prev => prev === 'figure' ? 'trace' : 'figure');
+    }, 800); // Меняем каждые 800мс
   };
 
   const handleMouseLeave = () => {
