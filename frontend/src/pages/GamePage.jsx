@@ -589,7 +589,17 @@ const GamePage = () => {
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2 text-white">
               <Timer className="w-5 h-5" />
-              <span className="font-mono text-lg">{formatTime(timer)}</span>
+              <div className="flex flex-col">
+                <span className="font-mono text-lg">{formatTime(timer)}</span>
+                <span className="text-xs text-slate-400">Фигура</span>
+              </div>
+            </div>
+            <div className="flex items-center gap-2 text-white bg-slate-700 px-4 py-2 rounded-lg">
+              <Timer className="w-5 h-5 text-green-400" />
+              <div className="flex flex-col">
+                <span className="font-mono text-lg text-green-400">{getRemainingTime()}</span>
+                <span className="text-xs text-slate-400">Осталось</span>
+              </div>
             </div>
             <Button
               onClick={endSession}
