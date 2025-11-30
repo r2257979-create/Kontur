@@ -146,12 +146,12 @@ const CalibrationPage = () => {
                   {backgroundColor === 'black' && '✓ '}Чёрный фон
                 </p>
               </button>
-            </div>
-          </CardContent>
-        </Card>
+                </div>
+              </CardContent>
+            </Card>
 
-        {/* Тестовый экран */}
-        <Card className="shadow-2xl">
+            {/* Настройка Цвета 1 (Левый глаз) */}
+            <Card className="shadow-lg">
           <CardHeader>
             <CardTitle className="text-xl">Тестовый экран</CardTitle>
             <CardDescription>
