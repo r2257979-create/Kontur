@@ -592,6 +592,7 @@ const GamePage = () => {
       setShowResult(false);
       setTracedPath([]);
       setTimer(0);
+      setWaitingForCompletion(false);
     } else {
       endSession();
     }
