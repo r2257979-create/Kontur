@@ -350,6 +350,7 @@ const CalibrationPage = () => {
             </div>
           </CardContent>
         </Card>
+        </div>
 
         {/* Кнопки */}
         <div className="flex gap-4 justify-center pb-8">
