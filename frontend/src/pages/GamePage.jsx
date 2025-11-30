@@ -134,13 +134,13 @@ const GamePage = () => {
         drawHeart(ctx, centerX, centerY, size);
         break;
       case 'letter':
-        ctx.font = `bold ${size * 2}px Arial`;
+        ctx.font = `bold ${size * 3}px Arial`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.strokeText(figure.shape, centerX, centerY);
         return;
       case 'number':
-        ctx.font = `bold ${size * 2}px Arial`;
+        ctx.font = `bold ${size * 3}px Arial`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.strokeText(figure.shape, centerX, centerY);
