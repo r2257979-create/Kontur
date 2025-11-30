@@ -86,7 +86,7 @@ const CalibrationPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-6">
-      <div className="max-w-6xl mx-auto space-y-6">
+      <div className="max-w-7xl mx-auto space-y-6">
         <div className="text-center space-y-2">
           <div className="flex justify-center">
             <div className="bg-gradient-to-br from-orange-500 to-red-600 p-4 rounded-2xl">
