@@ -690,7 +690,7 @@ const GamePage = () => {
 
         {showResult && (
           <div 
-            className="bg-gradient-to-r from-slate-700 to-slate-800 rounded-2xl shadow-2xl p-8 max-w-2xl w-full"
+            className="bg-gradient-to-r from-slate-700 to-slate-800 rounded-2xl shadow-2xl p-6 max-w-3xl w-full"
             style={{
               animation: 'slideUp 0.4s ease-out'
             }}
@@ -706,24 +706,41 @@ const GamePage = () => {
                   transform: translateY(0);
                 }
               }
+              @keyframes pulse {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0.6; }
+              }
             `}</style>
-            <div className="flex items-center gap-6">
-              <div className="bg-green-500 w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0">
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                </svg>
+            <div className="space-y-4">
+              <div className="flex items-center gap-6">
+                <div className="bg-green-500 w-16 h-16 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div className="flex-1 text-white">
+                  <h2 className="text-2xl font-bold mb-2">Фигура завершена!</h2>
+                  <p className="text-lg">Время: {formatTime(timer)}</p>
+                  <p className="text-slate-300 mt-1">
+                    {blinkState === 'figure' ? '▶ Оригинальная фигура' : '▶ Ваша обводка'}
+                  </p>
+                </div>
+                <Button
+                  onClick={nextFigure}
+                  className="px-8 py-6 text-lg font-semibold bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 flex-shrink-0"
+                >
+                  {currentFigureIndex < getFigures().length - 1 ? 'Далее' : 'Результаты'}
+                </Button>
               </div>
-              <div className="flex-1 text-white">
-                <h2 className="text-2xl font-bold mb-2">Figure Completed!</h2>
-                <p className="text-lg">Time: {formatTime(timer)}</p>
-                <p className="text-slate-300 mt-1">Remove your glasses to see how accurately you traced</p>
-              </div>
-              <Button
-                onClick={nextFigure}
-                className="px-8 py-6 text-lg font-semibold bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 flex-shrink-0"
+              
+              <div 
+                className="bg-blue-900 bg-opacity-50 border-2 border-blue-400 rounded-xl p-4 text-center"
+                style={{ animation: 'pulse 2s infinite' }}
               >
-                {currentFigureIndex < getFigures().length - 1 ? 'Next (SPACE)' : 'Results (SPACE)'}
-              </Button>
+                <p className="text-blue-200 text-lg font-semibold">
+                  ⌨️ Нажмите <span className="bg-blue-600 px-3 py-1 rounded mx-2">ПРОБЕЛ</span> для перехода к следующей фигуре
+                </p>
+              </div>
             </div>
           </div>
         )}
