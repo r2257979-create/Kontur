@@ -51,8 +51,11 @@ const SetupPage = () => {
       color1, 
       color2, 
       difficulty,
-      backgroundColor: savedSettings.backgroundColor 
+      backgroundColor: savedSettings.backgroundColor,
+      duration: duration
     }));
+    // Сохраняем длительность для будущих сессий
+    localStorage.setItem('savedDuration', duration.toString());
     navigate('/calibration');
   };
 
