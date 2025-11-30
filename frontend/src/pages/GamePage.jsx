@@ -27,8 +27,24 @@ const GamePage = () => {
       navigate('/');
       return;
     }
-    setSettings(JSON.parse(savedSettings));
+    const parsed = JSON.parse(savedSettings);
+    setSettings(parsed);
+    
+    // Перемешиваем фигуры при первой загрузке
+    const originalFigures = figures[parsed.difficulty] || [];
+    const shuffled = shuffleArray([...originalFigures]);
+    setShuffledFigures(shuffled);
   }, [navigate]);
+
+  // Функция для перемешивания массива (алгоритм Fisher-Yates)
+  const shuffleArray = (array) => {
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+    return newArray;
+  };
 
   useEffect(() => {
     if (!showResult && !showInstructions) {
