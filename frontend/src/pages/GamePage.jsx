@@ -40,18 +40,25 @@ const GamePage = () => {
     return () => clearInterval(timerRef.current);
   }, [showResult, showInstructions]);
 
-  // Таймер для всей сессии
+  // Таймер для всей сессии - запускается один раз
   useEffect(() => {
-    if (settings && !showInstructions) {
+    if (settings && !showInstructions && !sessionTimerRef.current) {
+      console.log('Запуск таймера сессии на', settings.duration, 'минут');
+      
       sessionTimerRef.current = setInterval(() => {
         setSessionTimer((prev) => {
           const newTime = prev + 1;
           const maxTime = (settings.duration || 10) * 60; // В секундах
           
+          console.log('Таймер:', newTime, 'из', maxTime);
+          
           if (newTime >= maxTime) {
             // Время вышло - завершаем сессию
+            console.log('Время вышло! Завершаем сессию');
             clearInterval(sessionTimerRef.current);
+            sessionTimerRef.current = null;
             endSession();
+            return maxTime;
           }
           
           return newTime;
@@ -60,8 +67,13 @@ const GamePage = () => {
     }
     
     return () => {
+      // НЕ очищаем таймер при каждом re-render, только при размонтировании
+      if (!showInstructions) {
+        return;
+      }
       if (sessionTimerRef.current) {
         clearInterval(sessionTimerRef.current);
+        sessionTimerRef.current = null;
       }
     };
   }, [settings, showInstructions]);
