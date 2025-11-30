@@ -232,8 +232,10 @@ const GamePage = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
 
+    // Используем выбранный фон с прозрачностью для результата
+    const bgColor = settings.backgroundColor === 'black' ? '#000000' : '#ffffff';
     ctx.globalAlpha = 0.85;
-    ctx.fillStyle = '#ffffff';
+    ctx.fillStyle = bgColor;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.globalAlpha = 1.0;
 
