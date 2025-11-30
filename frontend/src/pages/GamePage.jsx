@@ -108,9 +108,9 @@ const GamePage = () => {
   };
 
   const drawShape = (ctx, figure) => {
-    const centerX = 400;
-    const centerY = 300;
-    const size = 150;
+    const centerX = 540;
+    const centerY = 405;
+    const size = 180;
 
     ctx.beginPath();
 
