@@ -133,6 +133,66 @@ const GamePage = () => {
       case 'heart':
         drawHeart(ctx, centerX, centerY, size);
         break;
+      case 'house':
+        drawHouse(ctx, centerX, centerY, size);
+        break;
+      case 'sun':
+        drawSun(ctx, centerX, centerY, size);
+        break;
+      case 'flower':
+        drawFlower(ctx, centerX, centerY, size);
+        break;
+      case 'ball':
+        ctx.arc(centerX, centerY, size * 0.8, 0, 2 * Math.PI);
+        break;
+      case 'cat':
+        drawCat(ctx, centerX, centerY, size);
+        break;
+      case 'fish':
+        drawFish(ctx, centerX, centerY, size);
+        break;
+      case 'butterfly':
+        drawButterfly(ctx, centerX, centerY, size);
+        break;
+      case 'car':
+        drawCar(ctx, centerX, centerY, size);
+        break;
+      case 'tree':
+        drawTree(ctx, centerX, centerY, size);
+        break;
+      case 'cup':
+        drawCup(ctx, centerX, centerY, size);
+        break;
+      case 'teddy':
+        drawTeddy(ctx, centerX, centerY, size);
+        break;
+      case 'maze_simple':
+        drawMazeSimple(ctx, centerX, centerY, size);
+        break;
+      case 'dog':
+        drawDog(ctx, centerX, centerY, size);
+        break;
+      case 'bird':
+        drawBird(ctx, centerX, centerY, size);
+        break;
+      case 'spider':
+        drawSpider(ctx, centerX, centerY, size);
+        break;
+      case 'airplane':
+        drawAirplane(ctx, centerX, centerY, size);
+        break;
+      case 'mushroom':
+        drawMushroom(ctx, centerX, centerY, size);
+        break;
+      case 'rabbit':
+        drawRabbit(ctx, centerX, centerY, size);
+        break;
+      case 'snail':
+        drawSnail(ctx, centerX, centerY, size);
+        break;
+      case 'maze_complex':
+        drawMazeComplex(ctx, centerX, centerY, size);
+        break;
       case 'letter':
         ctx.font = `bold ${size * 3}px Arial`;
         ctx.textAlign = 'center';
