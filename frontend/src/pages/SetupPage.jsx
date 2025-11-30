@@ -150,6 +150,28 @@ const SetupPage = () => {
                 ))}
               </div>
             </div>
+
+            <div className="space-y-4">
+              <Label className="text-lg font-semibold">Длительность тренировки</Label>
+              <div className="grid grid-cols-4 gap-3">
+                {[5, 10, 15, 20].map((mins) => (
+                  <button
+                    key={mins}
+                    onClick={() => setDuration(mins)}
+                    className={`py-4 px-4 rounded-xl font-semibold transition-all duration-200 ${
+                      duration === mins
+                        ? 'bg-gradient-to-r from-green-500 to-teal-600 text-white shadow-lg scale-105'
+                        : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
+                    }`}
+                  >
+                    {mins} мин
+                  </button>
+                ))}
+              </div>
+              <p className="text-sm text-slate-500 text-center">
+                Игра автоматически завершится через {duration} минут
+              </p>
+            </div>
           </div>
 
           <div className="bg-slate-100 rounded-xl p-6 space-y-3">
