@@ -319,8 +319,8 @@ const GamePage = () => {
         <div className="relative">
           <canvas
             ref={canvasRef}
-            width={800}
-            height={600}
+            width={1080}
+            height={810}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
