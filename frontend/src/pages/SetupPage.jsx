@@ -24,9 +24,13 @@ const SetupPage = () => {
     const saved = localStorage.getItem('savedColorSettings');
     if (saved) {
       const parsed = JSON.parse(saved);
-      return { color1: parsed.color1, color2: parsed.color2 };
+      return { 
+        color1: parsed.color1, 
+        color2: parsed.color2,
+        backgroundColor: parsed.backgroundColor || 'white'
+      };
     }
-    return { color1: '#FF0000', color2: '#00FFFF' };
+    return { color1: '#FF0000', color2: '#00FFFF', backgroundColor: 'white' };
   };
   
   const savedColors = getSavedColors();
