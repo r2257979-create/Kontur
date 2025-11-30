@@ -101,16 +101,20 @@ const CalibrationPage = () => {
           </p>
         </div>
 
-        {/* Выбор фона */}
-        <Card className="shadow-lg">
-          <CardHeader>
-            <CardTitle className="text-xl">Цвет фона</CardTitle>
-            <CardDescription>
-              Выберите цвет фона для игры - светлый или тёмный
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-2 gap-4">
+        {/* Основной layout с двумя колонками */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Левая колонка - Настройки */}
+          <div className="space-y-6">
+            {/* Выбор фона */}
+            <Card className="shadow-lg">
+              <CardHeader>
+                <CardTitle className="text-xl">Цвет фона</CardTitle>
+                <CardDescription>
+                  Выберите цвет фона для игры - светлый или тёмный
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-2 gap-4">
               <button
                 onClick={() => setBackgroundColor('white')}
                 className={`p-6 rounded-xl border-4 transition-all duration-200 hover:scale-105 ${
