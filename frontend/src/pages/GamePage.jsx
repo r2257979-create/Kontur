@@ -10,7 +10,8 @@ const GamePage = () => {
   const [settings, setSettings] = useState(null);
   const [currentFigureIndex, setCurrentFigureIndex] = useState(0);
   const [isTracing, setIsTracing] = useState(false);
-  const [tracedPath, setTracedPath] = useState([]);
+  const [allTracedPaths, setAllTracedPaths] = useState([]); // Все пути обводки
+  const [currentPath, setCurrentPath] = useState([]); // Текущий путь
   const [showResult, setShowResult] = useState(false);
   const [timer, setTimer] = useState(0);
   const [sessionStats, setSessionStats] = useState([]);
@@ -18,7 +19,6 @@ const GamePage = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [sessionTimer, setSessionTimer] = useState(0);
   const [shuffledFigures, setShuffledFigures] = useState([]);
-  const [waitingForCompletion, setWaitingForCompletion] = useState(false);
   const timerRef = useRef(null);
   const sessionTimerRef = useRef(null);
 
