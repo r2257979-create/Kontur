@@ -62,7 +62,8 @@ const CalibrationPage = () => {
     const updatedSettings = {
       ...settings,
       color1: finalColor1,
-      color2: finalColor2
+      color2: finalColor2,
+      backgroundColor: backgroundColor
     };
     
     // Сохраняем настройки для текущей игры
@@ -71,7 +72,8 @@ const CalibrationPage = () => {
     // Сохраняем цвета как постоянные настройки для будущих запусков
     localStorage.setItem('savedColorSettings', JSON.stringify({
       color1: finalColor1,
-      color2: finalColor2
+      color2: finalColor2,
+      backgroundColor: backgroundColor
     }));
     
     navigate('/game');
