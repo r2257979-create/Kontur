@@ -241,6 +241,198 @@ const GamePage = () => {
     ctx.bezierCurveTo(cx + size / 2, cy - topCurveHeight, cx, cy, cx, cy + size / 4);
   };
 
+  const drawHouse = (ctx, cx, cy, size) => {
+    ctx.moveTo(cx, cy - size);
+    ctx.lineTo(cx + size, cy);
+    ctx.lineTo(cx + size, cy + size);
+    ctx.lineTo(cx - size, cy + size);
+    ctx.lineTo(cx - size, cy);
+    ctx.closePath();
+  };
+
+  const drawSun = (ctx, cx, cy, size) => {
+    ctx.arc(cx, cy, size * 0.5, 0, 2 * Math.PI);
+    ctx.stroke();
+    for (let i = 0; i < 8; i++) {
+      const angle = (i / 8) * 2 * Math.PI;
+      ctx.moveTo(cx + Math.cos(angle) * size * 0.6, cy + Math.sin(angle) * size * 0.6);
+      ctx.lineTo(cx + Math.cos(angle) * size, cy + Math.sin(angle) * size);
+    }
+  };
+
+  const drawFlower = (ctx, cx, cy, size) => {
+    ctx.arc(cx, cy, size * 0.3, 0, 2 * Math.PI);
+    ctx.stroke();
+    for (let i = 0; i < 5; i++) {
+      const angle = (i / 5) * 2 * Math.PI;
+      ctx.moveTo(cx, cy);
+      ctx.arc(cx + Math.cos(angle) * size * 0.5, cy + Math.sin(angle) * size * 0.5, size * 0.3, 0, 2 * Math.PI);
+    }
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cx, cy + size);
+  };
+
+  const drawCat = (ctx, cx, cy, size) => {
+    ctx.arc(cx, cy, size * 0.6, 0, 2 * Math.PI);
+    ctx.moveTo(cx - size * 0.5, cy - size * 0.6);
+    ctx.lineTo(cx - size * 0.3, cy - size);
+    ctx.lineTo(cx - size * 0.2, cy - size * 0.6);
+    ctx.moveTo(cx + size * 0.5, cy - size * 0.6);
+    ctx.lineTo(cx + size * 0.3, cy - size);
+    ctx.lineTo(cx + size * 0.2, cy - size * 0.6);
+  };
+
+  const drawFish = (ctx, cx, cy, size) => {
+    ctx.moveTo(cx - size, cy);
+    ctx.quadraticCurveTo(cx - size * 0.5, cy - size * 0.5, cx + size * 0.3, cy);
+    ctx.quadraticCurveTo(cx - size * 0.5, cy + size * 0.5, cx - size, cy);
+    ctx.moveTo(cx + size * 0.3, cy - size * 0.3);
+    ctx.lineTo(cx + size, cy);
+    ctx.lineTo(cx + size * 0.3, cy + size * 0.3);
+  };
+
+  const drawButterfly = (ctx, cx, cy, size) => {
+    ctx.arc(cx - size * 0.3, cy - size * 0.3, size * 0.4, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.7, cy - size * 0.3);
+    ctx.arc(cx + size * 0.3, cy - size * 0.3, size * 0.4, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.7, cy + size * 0.3);
+    ctx.arc(cx - size * 0.3, cy + size * 0.3, size * 0.4, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.7, cy + size * 0.3);
+    ctx.arc(cx + size * 0.3, cy + size * 0.3, size * 0.4, 0, 2 * Math.PI);
+    ctx.moveTo(cx, cy - size * 0.5);
+    ctx.lineTo(cx, cy + size * 0.5);
+  };
+
+  const drawCar = (ctx, cx, cy, size) => {
+    ctx.rect(cx - size, cy, size * 2, size * 0.6);
+    ctx.rect(cx - size * 0.5, cy - size * 0.5, size, size * 0.5);
+    ctx.arc(cx - size * 0.5, cy + size * 0.6, size * 0.3, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.8, cy + size * 0.6);
+    ctx.arc(cx + size * 0.5, cy + size * 0.6, size * 0.3, 0, 2 * Math.PI);
+  };
+
+  const drawTree = (ctx, cx, cy, size) => {
+    ctx.rect(cx - size * 0.2, cy + size * 0.3, size * 0.4, size * 0.7);
+    ctx.arc(cx, cy - size * 0.3, size * 0.7, 0, 2 * Math.PI);
+  };
+
+  const drawCup = (ctx, cx, cy, size) => {
+    ctx.moveTo(cx - size * 0.6, cy - size * 0.5);
+    ctx.lineTo(cx - size * 0.7, cy + size * 0.5);
+    ctx.lineTo(cx + size * 0.7, cy + size * 0.5);
+    ctx.lineTo(cx + size * 0.6, cy - size * 0.5);
+    ctx.closePath();
+    ctx.moveTo(cx + size * 0.7, cy);
+    ctx.quadraticCurveTo(cx + size, cy, cx + size, cy + size * 0.3);
+    ctx.quadraticCurveTo(cx + size, cy + size * 0.5, cx + size * 0.7, cy + size * 0.5);
+  };
+
+  const drawTeddy = (ctx, cx, cy, size) => {
+    ctx.arc(cx, cy, size * 0.5, 0, 2 * Math.PI);
+    ctx.moveTo(cx - size * 0.2, cy - size * 0.7);
+    ctx.arc(cx - size * 0.5, cy - size * 0.7, size * 0.3, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.8, cy - size * 0.7);
+    ctx.arc(cx + size * 0.5, cy - size * 0.7, size * 0.3, 0, 2 * Math.PI);
+    ctx.moveTo(cx, cy + size * 0.5);
+    ctx.arc(cx, cy + size * 0.8, size * 0.3, 0, 2 * Math.PI);
+  };
+
+  const drawMazeSimple = (ctx, cx, cy, size) => {
+    ctx.rect(cx - size, cy - size, size * 2, size * 2);
+    ctx.moveTo(cx - size, cy);
+    ctx.lineTo(cx + size * 0.5, cy);
+    ctx.moveTo(cx, cy - size);
+    ctx.lineTo(cx, cy + size * 0.5);
+    ctx.moveTo(cx + size * 0.5, cy + size * 0.5);
+    ctx.lineTo(cx + size, cy + size * 0.5);
+  };
+
+  const drawDog = (ctx, cx, cy, size) => {
+    ctx.arc(cx, cy, size * 0.6, 0, 2 * Math.PI);
+    ctx.moveTo(cx - size * 0.6, cy - size * 0.3);
+    ctx.lineTo(cx - size * 0.8, cy - size * 0.8);
+    ctx.lineTo(cx - size * 0.4, cy - size * 0.5);
+    ctx.moveTo(cx + size * 0.6, cy - size * 0.3);
+    ctx.lineTo(cx + size * 0.8, cy - size * 0.8);
+    ctx.lineTo(cx + size * 0.4, cy - size * 0.5);
+    ctx.moveTo(cx, cy + size * 0.6);
+    ctx.lineTo(cx - size * 0.3, cy + size);
+    ctx.moveTo(cx, cy + size * 0.6);
+    ctx.lineTo(cx + size * 0.3, cy + size);
+  };
+
+  const drawBird = (ctx, cx, cy, size) => {
+    ctx.arc(cx, cy, size * 0.4, 0, 2 * Math.PI);
+    ctx.moveTo(cx - size * 0.8, cy - size * 0.3);
+    ctx.quadraticCurveTo(cx - size, cy - size * 0.7, cx - size * 0.5, cy - size * 0.3);
+    ctx.moveTo(cx + size * 0.8, cy - size * 0.3);
+    ctx.quadraticCurveTo(cx + size, cy - size * 0.7, cx + size * 0.5, cy - size * 0.3);
+    ctx.moveTo(cx + size * 0.3, cy);
+    ctx.lineTo(cx + size * 0.7, cy + size * 0.2);
+  };
+
+  const drawSpider = (ctx, cx, cy, size) => {
+    ctx.arc(cx, cy, size * 0.4, 0, 2 * Math.PI);
+    for (let i = 0; i < 8; i++) {
+      const angle = (i / 8) * 2 * Math.PI;
+      ctx.moveTo(cx + Math.cos(angle) * size * 0.4, cy + Math.sin(angle) * size * 0.4);
+      ctx.lineTo(cx + Math.cos(angle) * size, cy + Math.sin(angle) * size);
+    }
+  };
+
+  const drawAirplane = (ctx, cx, cy, size) => {
+    ctx.moveTo(cx - size, cy);
+    ctx.lineTo(cx + size, cy);
+    ctx.moveTo(cx - size * 0.3, cy - size * 0.7);
+    ctx.lineTo(cx + size * 0.3, cy - size * 0.7);
+    ctx.lineTo(cx, cy);
+    ctx.moveTo(cx + size * 0.7, cy + size * 0.5);
+    ctx.lineTo(cx + size * 0.3, cy + size * 0.5);
+    ctx.lineTo(cx + size * 0.5, cy);
+  };
+
+  const drawMushroom = (ctx, cx, cy, size) => {
+    ctx.arc(cx, cy - size * 0.3, size * 0.7, Math.PI, 0);
+    ctx.moveTo(cx - size * 0.3, cy - size * 0.3);
+    ctx.lineTo(cx - size * 0.3, cy + size * 0.5);
+    ctx.lineTo(cx + size * 0.3, cy + size * 0.5);
+    ctx.lineTo(cx + size * 0.3, cy - size * 0.3);
+  };
+
+  const drawRabbit = (ctx, cx, cy, size) => {
+    ctx.arc(cx, cy, size * 0.5, 0, 2 * Math.PI);
+    ctx.moveTo(cx - size * 0.2, cy - size * 0.5);
+    ctx.lineTo(cx - size * 0.3, cy - size * 1.2);
+    ctx.lineTo(cx - size * 0.1, cy - size * 0.7);
+    ctx.moveTo(cx + size * 0.2, cy - size * 0.5);
+    ctx.lineTo(cx + size * 0.3, cy - size * 1.2);
+    ctx.lineTo(cx + size * 0.1, cy - size * 0.7);
+  };
+
+  const drawSnail = (ctx, cx, cy, size) => {
+    ctx.arc(cx + size * 0.3, cy - size * 0.3, size * 0.5, 0, 2 * Math.PI);
+    ctx.moveTo(cx - size * 0.2, cy - size * 0.3);
+    ctx.quadraticCurveTo(cx - size * 0.5, cy, cx - size * 0.8, cy + size * 0.3);
+    ctx.moveTo(cx - size * 0.8, cy);
+    ctx.lineTo(cx - size, cy - size * 0.3);
+    ctx.moveTo(cx - size * 0.8, cy);
+    ctx.lineTo(cx - size, cy + size * 0.3);
+  };
+
+  const drawMazeComplex = (ctx, cx, cy, size) => {
+    ctx.rect(cx - size, cy - size, size * 2, size * 2);
+    ctx.moveTo(cx - size, cy - size * 0.5);
+    ctx.lineTo(cx + size * 0.3, cy - size * 0.5);
+    ctx.moveTo(cx - size * 0.5, cy - size);
+    ctx.lineTo(cx - size * 0.5, cy + size * 0.3);
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cx + size, cy);
+    ctx.moveTo(cx + size * 0.5, cy - size);
+    ctx.lineTo(cx + size * 0.5, cy + size);
+    ctx.moveTo(cx - size * 0.3, cy + size * 0.5);
+    ctx.lineTo(cx + size * 0.3, cy + size * 0.5);
+  };
+
   const handleMouseDown = (e) => {
     if (showResult || showInstructions) return;
     setIsTracing(true);
