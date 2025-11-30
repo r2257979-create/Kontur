@@ -38,6 +38,32 @@ const GamePage = () => {
     return () => clearInterval(timerRef.current);
   }, [showResult, showInstructions]);
 
+  // Таймер для всей сессии
+  useEffect(() => {
+    if (settings && !showInstructions) {
+      sessionTimerRef.current = setInterval(() => {
+        setSessionTimer((prev) => {
+          const newTime = prev + 1;
+          const maxTime = (settings.duration || 10) * 60; // В секундах
+          
+          if (newTime >= maxTime) {
+            // Время вышло - завершаем сессию
+            clearInterval(sessionTimerRef.current);
+            endSession();
+          }
+          
+          return newTime;
+        });
+      }, 1000);
+    }
+    
+    return () => {
+      if (sessionTimerRef.current) {
+        clearInterval(sessionTimerRef.current);
+      }
+    };
+  }, [settings, showInstructions]);
+
   useEffect(() => {
     const handleKeyPress = (e) => {
       if (e.key === ' ' && showResult) {
