@@ -13,6 +13,7 @@ const CalibrationPage = () => {
   // RGB компоненты для каждого цвета
   const [color1RGB, setColor1RGB] = useState({ r: 255, g: 0, b: 0 });
   const [color2RGB, setColor2RGB] = useState({ r: 0, g: 255, b: 255 });
+  const [backgroundColor, setBackgroundColor] = useState('white');
 
   useEffect(() => {
     const savedSettings = localStorage.getItem('gameSettings');
