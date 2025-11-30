@@ -514,33 +514,42 @@ const GamePage = () => {
     }
   };
 
-  const drawResultOverlay = () => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-
-    // Используем выбранный фон с прозрачностью для результата
-    const bgColor = settings.backgroundColor === 'black' ? '#000000' : '#ffffff';
-    ctx.globalAlpha = 0.85;
-    ctx.fillStyle = bgColor;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.globalAlpha = 1.0;
-
-    ctx.strokeStyle = settings.color1;
-    ctx.lineWidth = 4;
-    const figure = getFigures()[currentFigureIndex];
-    drawShape(ctx, figure);
-
-    if (tracedPath.length > 1) {
-      ctx.strokeStyle = settings.color2;
-      ctx.lineWidth = 3;
-      ctx.beginPath();
-      ctx.moveTo(tracedPath[0].x, tracedPath[0].y);
-      for (let i = 1; i < tracedPath.length; i++) {
-        ctx.lineTo(tracedPath[i].x, tracedPath[i].y);
+  // Эффект для отрисовки мигающего сравнения
+  useEffect(() => {
+    if (showResult && settings) {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      
+      const ctx = canvas.getContext('2d');
+      const bgColor = settings.backgroundColor === 'black' ? '#000000' : '#ffffff';
+      
+      // Очищаем canvas
+      ctx.fillStyle = bgColor;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // Цвет для мигания - контрастный к фону
+      const blinkColor = settings.backgroundColor === 'black' ? '#FFFFFF' : '#000000';
+      ctx.lineWidth = 4;
+      ctx.strokeStyle = blinkColor;
+      
+      const figure = getFigures()[currentFigureIndex];
+      
+      if (blinkState === 'figure') {
+        // Показываем только фигуру
+        drawShape(ctx, figure);
+      } else {
+        // Показываем только обводку
+        if (tracedPath.length > 1) {
+          ctx.beginPath();
+          ctx.moveTo(tracedPath[0].x, tracedPath[0].y);
+          for (let i = 1; i < tracedPath.length; i++) {
+            ctx.lineTo(tracedPath[i].x, tracedPath[i].y);
+          }
+          ctx.stroke();
+        }
       }
-      ctx.stroke();
     }
-  };
+  }, [showResult, blinkState, settings, tracedPath, currentFigureIndex]);
 
   const nextFigure = () => {
     const figures = getFigures();
