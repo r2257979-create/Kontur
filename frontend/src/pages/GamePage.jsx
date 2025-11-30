@@ -576,9 +576,6 @@ const GamePage = () => {
       clearInterval(sessionTimerRef.current);
       sessionTimerRef.current = null;
     }
-    if (blinkTimerRef.current) {
-      clearInterval(blinkTimerRef.current);
-    }
     
     localStorage.setItem('sessionStats', JSON.stringify(sessionStats));
     navigate('/results');
