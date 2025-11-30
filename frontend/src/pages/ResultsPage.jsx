@@ -89,47 +89,6 @@ const ResultsPage = () => {
           </Card>
         </div>
 
-        <Card className="shadow-lg">
-          <CardHeader>
-            <CardTitle className="text-2xl">Session Details</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              {stats.map((stat, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-between p-4 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors duration-200"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="bg-gradient-to-br from-blue-500 to-purple-600 w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold">
-                      {index + 1}
-                    </div>
-                    <div>
-                      <p className="font-semibold capitalize">
-                        {stat.figure.type === 'letter' || stat.figure.type === 'number'
-                          ? `${stat.figure.type}: ${stat.figure.shape}`
-                          : stat.figure.type}
-                      </p>
-                      <p className="text-sm text-slate-500">Difficulty: {stat.figure.difficulty}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-6">
-                    <div className="text-right">
-                      <p className="text-sm text-slate-500">Time</p>
-                      <p className="font-mono font-semibold">{formatTime(stat.time)}</p>
-                    </div>
-                    {stat.completed && (
-                      <div className="bg-green-100 px-4 py-2 rounded-lg">
-                        <p className="text-green-700 font-semibold text-sm">Completed</p>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-
         <div className="flex gap-4 justify-center">
           <Button
             onClick={handleNewSession}
