@@ -523,7 +523,14 @@ const GamePage = () => {
   const handleMouseUp = () => {
     if (!isTracing) return;
     setIsTracing(false);
+    setWaitingForCompletion(true);
+    // НЕ останавливаем таймер и НЕ показываем результат
+    // Ждём нажатия пробела от игрока
+  };
+
+  const handleShowResult = () => {
     setShowResult(true);
+    setWaitingForCompletion(false);
     clearInterval(timerRef.current);
 
     const stats = {
