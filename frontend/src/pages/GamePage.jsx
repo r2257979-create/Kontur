@@ -725,6 +725,38 @@ const GamePage = () => {
           )}
         </div>
 
+        {waitingForCompletion && !showResult && (
+            <div 
+              className="bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl shadow-2xl p-6 max-w-2xl w-full"
+              style={{
+                animation: 'slideUp 0.4s ease-out, pulse 2s infinite'
+              }}
+            >
+              <style>{`
+                @keyframes slideUp {
+                  from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                  }
+                  to {
+                    opacity: 1;
+                    transform: translateY(0);
+                  }
+                }
+                @keyframes pulse {
+                  0%, 100% { opacity: 1; transform: scale(1); }
+                  50% { opacity: 0.9; transform: scale(1.02); }
+                }
+              `}</style>
+              <div className="text-center text-white space-y-4">
+                <h2 className="text-3xl font-bold">Обводка завершена?</h2>
+                <p className="text-xl">
+                  Нажмите <span className="bg-white text-orange-600 px-4 py-2 rounded-lg font-bold mx-2">ПРОБЕЛ</span> чтобы увидеть результат
+                </p>
+              </div>
+            </div>
+          )}
+
         {showResult && (
           <div 
             className="bg-gradient-to-r from-slate-700 to-slate-800 rounded-2xl shadow-2xl p-6 max-w-3xl w-full"
