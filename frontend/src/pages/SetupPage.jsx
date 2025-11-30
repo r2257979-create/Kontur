@@ -39,7 +39,13 @@ const SetupPage = () => {
   const [difficulty, setDifficulty] = useState('easy');
 
   const handleStart = () => {
-    localStorage.setItem('gameSettings', JSON.stringify({ color1, color2, difficulty }));
+    const savedSettings = getSavedColors();
+    localStorage.setItem('gameSettings', JSON.stringify({ 
+      color1, 
+      color2, 
+      difficulty,
+      backgroundColor: savedSettings.backgroundColor 
+    }));
     navigate('/calibration');
   };
 
