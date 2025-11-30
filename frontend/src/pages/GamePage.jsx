@@ -556,18 +556,12 @@ const GamePage = () => {
   };
 
   const nextFigure = () => {
-    // Останавливаем мигание
-    if (blinkTimerRef.current) {
-      clearInterval(blinkTimerRef.current);
-    }
-    
     const figures = getFigures();
     if (currentFigureIndex < figures.length - 1) {
       setCurrentFigureIndex((prev) => prev + 1);
       setShowResult(false);
       setTracedPath([]);
       setTimer(0);
-      setBlinkState('figure');
     } else {
       endSession();
     }
