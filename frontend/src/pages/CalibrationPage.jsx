@@ -101,6 +101,51 @@ const CalibrationPage = () => {
           </p>
         </div>
 
+        {/* Выбор фона */}
+        <Card className="shadow-lg">
+          <CardHeader>
+            <CardTitle className="text-xl">Цвет фона</CardTitle>
+            <CardDescription>
+              Выберите цвет фона для игры - светлый или тёмный
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-2 gap-4">
+              <button
+                onClick={() => setBackgroundColor('white')}
+                className={`p-6 rounded-xl border-4 transition-all duration-200 hover:scale-105 ${
+                  backgroundColor === 'white' 
+                    ? 'border-blue-500 shadow-lg scale-105' 
+                    : 'border-gray-300'
+                }`}
+              >
+                <div className="bg-white w-full h-32 rounded-lg border-2 border-gray-300 mb-3 flex items-center justify-center">
+                  <span className="text-gray-800 font-semibold">Светлый</span>
+                </div>
+                <p className="text-center font-semibold">
+                  {backgroundColor === 'white' && '✓ '}Белый фон
+                </p>
+              </button>
+              
+              <button
+                onClick={() => setBackgroundColor('black')}
+                className={`p-6 rounded-xl border-4 transition-all duration-200 hover:scale-105 ${
+                  backgroundColor === 'black' 
+                    ? 'border-blue-500 shadow-lg scale-105' 
+                    : 'border-gray-300'
+                }`}
+              >
+                <div className="bg-black w-full h-32 rounded-lg border-2 border-gray-300 mb-3 flex items-center justify-center">
+                  <span className="text-white font-semibold">Тёмный</span>
+                </div>
+                <p className="text-center font-semibold">
+                  {backgroundColor === 'black' && '✓ '}Чёрный фон
+                </p>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* Тестовый экран */}
         <Card className="shadow-2xl">
           <CardHeader>
