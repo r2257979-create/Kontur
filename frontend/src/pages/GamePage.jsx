@@ -729,7 +729,7 @@ const GamePage = () => {
                   <h2 className="text-2xl font-bold mb-2">Фигура завершена!</h2>
                   <p className="text-lg">Время: {formatTime(timer)}</p>
                   <p className="text-slate-300 mt-1">
-                    {blinkState === 'figure' ? '▶ Оригинальная фигура' : '▶ Ваша обводка'}
+                    Обе линии показаны одним цветом для сравнения
                   </p>
                 </div>
                 <Button
