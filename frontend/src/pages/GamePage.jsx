@@ -599,8 +599,7 @@ const GamePage = () => {
   };
 
   const getFigures = () => {
-    if (!settings) return [];
-    return figures[settings.difficulty] || [];
+    return shuffledFigures;
   };
 
   const formatTime = (seconds) => {
