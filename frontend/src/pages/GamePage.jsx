@@ -318,6 +318,33 @@ const GamePage = () => {
       case 'maze_complex':
         drawMazeComplex(ctx, centerX, centerY, size);
         break;
+      case 'pig':
+        drawPig(ctx, centerX, centerY, size);
+        break;
+      case 'duck':
+        drawDuck(ctx, centerX, centerY, size);
+        break;
+      case 'parrot':
+        drawParrot(ctx, centerX, centerY, size);
+        break;
+      case 'bat':
+        drawBat(ctx, centerX, centerY, size);
+        break;
+      case 'frog':
+        drawFrog(ctx, centerX, centerY, size);
+        break;
+      case 'owl':
+        drawOwl(ctx, centerX, centerY, size);
+        break;
+      case 'snake':
+        drawSnake(ctx, centerX, centerY, size);
+        break;
+      case 'beaver':
+        drawBeaver(ctx, centerX, centerY, size);
+        break;
+      case 'squirrel':
+        drawSquirrel(ctx, centerX, centerY, size);
+        break;
       case 'letter':
         ctx.font = `bold ${size * 3}px Arial`;
         ctx.textAlign = 'center';
