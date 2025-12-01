@@ -49,7 +49,6 @@ const SetupPage = () => {
     localStorage.setItem('gameSettings', JSON.stringify({ 
       color1, 
       color2, 
-      difficulty,
       backgroundColor: savedSettings.backgroundColor,
       duration: duration
     }));
