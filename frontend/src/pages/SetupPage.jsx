@@ -131,25 +131,6 @@ const SetupPage = () => {
             </div>
 
             <div className="space-y-4">
-              <Label className="text-lg font-semibold">Difficulty Level</Label>
-              <div className="grid grid-cols-3 gap-4">
-                {['easy', 'medium', 'hard'].map((level) => (
-                  <button
-                    key={level}
-                    onClick={() => setDifficulty(level)}
-                    className={`py-4 px-6 rounded-xl font-semibold capitalize transition-all duration-200 ${
-                      difficulty === level
-                        ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg scale-105'
-                        : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
-                    }`}
-                  >
-                    {level}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="space-y-4">
               <Label className="text-lg font-semibold">Длительность тренировки</Label>
               <div className="grid grid-cols-4 gap-3">
                 {[5, 10, 15, 20].map((mins) => (
