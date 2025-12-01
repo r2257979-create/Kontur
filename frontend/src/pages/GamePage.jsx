@@ -56,24 +56,26 @@ const GamePage = () => {
     return () => clearInterval(timerRef.current);
   }, [showResult, showInstructions]);
 
-  // Таймер для всей сессии - запускается один раз
+  // Таймер для всей сессии - запускается СТРОГО один раз
   useEffect(() => {
     if (settings && !showInstructions && !sessionTimerRef.current) {
-      console.log('Запуск таймера сессии на', settings.duration, 'минут');
+      const maxTime = (settings.duration || 10) * 60;
+      console.log('🕐 Запуск таймера сессии на', settings.duration, 'минут (', maxTime, 'секунд)');
       
       sessionTimerRef.current = setInterval(() => {
         setSessionTimer((prev) => {
           const newTime = prev + 1;
-          const maxTime = (settings.duration || 10) * 60; // В секундах
           
-          console.log('Таймер:', newTime, 'из', maxTime);
+          if (newTime % 10 === 0) {
+            console.log('⏱️ Прошло:', newTime, 'сек из', maxTime, 'сек');
+          }
           
           if (newTime >= maxTime) {
-            // Время вышло - завершаем сессию
-            console.log('Время вышло! Завершаем сессию');
+            console.log('⏰ Время вышло! Завершаем сессию');
             clearInterval(sessionTimerRef.current);
             sessionTimerRef.current = null;
-            endSession();
+            // Используем setTimeout чтобы избежать проблем с state
+            setTimeout(() => endSession(), 100);
             return maxTime;
           }
           
@@ -82,12 +84,10 @@ const GamePage = () => {
       }, 1000);
     }
     
+    // Очистка только при размонтировании компонента
     return () => {
-      // НЕ очищаем таймер при каждом re-render, только при размонтировании
-      if (!showInstructions) {
-        return;
-      }
       if (sessionTimerRef.current) {
+        console.log('🛑 Очистка таймера при размонтировании');
         clearInterval(sessionTimerRef.current);
         sessionTimerRef.current = null;
       }
