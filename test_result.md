@@ -119,6 +119,9 @@ frontend:
         - working: true
           agent: "testing"
           comment: "PASSED: All setup page functionality working perfectly. Color selection (8 preset colors + custom), duration selection (5,10,15,20 minutes), preview section, and navigation to calibration page all working correctly. UI is responsive and user-friendly."
+        - working: true
+          agent: "testing"
+          comment: "UPDATED NAVIGATION VERIFIED: SetupPage now has TWO buttons as requested - 'Начать игру' (direct game access) and 'Калибровка цветов' (optional calibration). Calibration is no longer mandatory. All color settings, duration options (5,10,15,20 min), and preview section working perfectly. Navigation update successfully implemented."
 
   - task: "CalibrationPage - Color calibration with RGB sliders"
     implemented: true
