@@ -767,41 +767,40 @@ const GamePage = () => {
   };
 
   const drawDuck = (ctx, cx, cy, size) => {
-    // Тело утки
-    ctx.moveTo(cx + size * 0.6, cy);
-    ctx.ellipse(cx, cy + size * 0.1, size * 0.6, size * 0.5, 0, 0, 2 * Math.PI);
+    // Круглое тело
+    ctx.arc(cx, cy + size * 0.15, size * 0.5, 0, 2 * Math.PI);
     
-    // Голова
-    ctx.moveTo(cx - size * 0.3, cy - size * 0.6);
-    ctx.arc(cx - size * 0.3, cy - size * 0.6, size * 0.35, 0, 2 * Math.PI);
+    // Круглая голова
+    ctx.moveTo(cx - size * 0.1, cy - size * 0.5);
+    ctx.arc(cx - size * 0.25, cy - size * 0.5, size * 0.3, 0, 2 * Math.PI);
     
-    // Клюв
-    ctx.moveTo(cx - size * 0.65, cy - size * 0.6);
-    ctx.lineTo(cx - size * 0.9, cy - size * 0.5);
-    ctx.lineTo(cx - size * 0.85, cy - size * 0.65);
-    ctx.lineTo(cx - size * 0.65, cy - size * 0.7);
+    // Большой клюв
+    ctx.moveTo(cx - size * 0.55, cy - size * 0.5);
+    ctx.lineTo(cx - size * 0.8, cy - size * 0.42);
+    ctx.lineTo(cx - size * 0.75, cy - size * 0.58);
+    ctx.lineTo(cx - size * 0.55, cy - size * 0.62);
     ctx.closePath();
     
     // Глаз
-    ctx.moveTo(cx - size * 0.2, cy - size * 0.6);
-    ctx.arc(cx - size * 0.25, cy - size * 0.65, size * 0.08, 0, 2 * Math.PI);
+    ctx.moveTo(cx - size * 0.2, cy - size * 0.5);
+    ctx.arc(cx - size * 0.22, cy - size * 0.52, size * 0.06, 0, 2 * Math.PI);
     
-    // Крылья
-    ctx.moveTo(cx - size * 0.1, cy);
-    ctx.quadraticCurveTo(cx - size * 0.3, cy + size * 0.3, cx - size * 0.15, cy + size * 0.45);
+    // Крыло
+    ctx.moveTo(cx - size * 0.05, cy + size * 0.05);
+    ctx.quadraticCurveTo(cx - size * 0.25, cy + size * 0.25, cx - size * 0.1, cy + size * 0.4);
     
-    // Ноги
-    ctx.moveTo(cx - size * 0.2, cy + size * 0.6);
-    ctx.lineTo(cx - size * 0.2, cy + size * 0.8);
-    ctx.lineTo(cx - size * 0.35, cy + size * 0.85);
-    ctx.moveTo(cx - size * 0.2, cy + size * 0.8);
-    ctx.lineTo(cx - size * 0.05, cy + size * 0.85);
+    // Две ноги с лапками
+    ctx.moveTo(cx - size * 0.15, cy + size * 0.65);
+    ctx.lineTo(cx - size * 0.15, cy + size * 0.8);
+    ctx.lineTo(cx - size * 0.28, cy + size * 0.83);
+    ctx.moveTo(cx - size * 0.15, cy + size * 0.8);
+    ctx.lineTo(cx - size * 0.02, cy + size * 0.83);
     
-    ctx.moveTo(cx + size * 0.1, cy + size * 0.6);
-    ctx.lineTo(cx + size * 0.1, cy + size * 0.8);
-    ctx.lineTo(cx - size * 0.05, cy + size * 0.85);
-    ctx.moveTo(cx + size * 0.1, cy + size * 0.8);
-    ctx.lineTo(cx + size * 0.25, cy + size * 0.85);
+    ctx.moveTo(cx + size * 0.08, cy + size * 0.65);
+    ctx.lineTo(cx + size * 0.08, cy + size * 0.8);
+    ctx.lineTo(cx - size * 0.05, cy + size * 0.83);
+    ctx.moveTo(cx + size * 0.08, cy + size * 0.8);
+    ctx.lineTo(cx + size * 0.21, cy + size * 0.83);
   };
 
   const drawParrot = (ctx, cx, cy, size) => {
