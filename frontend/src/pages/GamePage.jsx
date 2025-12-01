@@ -589,16 +589,18 @@ const GamePage = () => {
     const figure = getFigures()[currentFigureIndex];
     drawShape(ctx, figure);
     
-    // Рисуем обводку игрока
-    if (tracedPath.length > 1) {
-      ctx.lineWidth = 3;
-      ctx.beginPath();
-      ctx.moveTo(tracedPath[0].x, tracedPath[0].y);
-      for (let i = 1; i < tracedPath.length; i++) {
-        ctx.lineTo(tracedPath[i].x, tracedPath[i].y);
+    // Рисуем ВСЕ пути обводки игрока
+    ctx.lineWidth = 3;
+    allTracedPaths.forEach((path) => {
+      if (path.length > 1) {
+        ctx.beginPath();
+        ctx.moveTo(path[0].x, path[0].y);
+        for (let i = 1; i < path.length; i++) {
+          ctx.lineTo(path[i].x, path[i].y);
+        }
+        ctx.stroke();
       }
-      ctx.stroke();
-    }
+    });
   };
 
   const nextFigure = () => {
