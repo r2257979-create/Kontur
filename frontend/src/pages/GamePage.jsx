@@ -608,9 +608,9 @@ const GamePage = () => {
     if (currentFigureIndex < figures.length - 1) {
       setCurrentFigureIndex((prev) => prev + 1);
       setShowResult(false);
-      setTracedPath([]);
+      setAllTracedPaths([]);
+      setCurrentPath([]);
       setTimer(0);
-      setWaitingForCompletion(false);
     } else {
       endSession();
     }
