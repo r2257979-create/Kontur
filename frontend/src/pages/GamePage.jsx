@@ -997,44 +997,44 @@ const GamePage = () => {
   };
 
   const drawBeaver = (ctx, cx, cy, size) => {
-    // Тело бобра
-    ctx.moveTo(cx - size * 0.8, cy - size * 0.2);
-    ctx.quadraticCurveTo(cx - size * 0.6, cy - size * 0.6, cx, cy - size * 0.5);
-    ctx.quadraticCurveTo(cx + size * 0.6, cy - size * 0.6, cx + size * 0.7, cy);
-    ctx.quadraticCurveTo(cx + size * 0.75, cy + size * 0.3, cx + size * 0.5, cy + size * 0.4);
+    // Округлое тело
+    ctx.moveTo(cx - size * 0.7, cy - size * 0.18);
+    ctx.quadraticCurveTo(cx - size * 0.55, cy - size * 0.52, cx, cy - size * 0.45);
+    ctx.quadraticCurveTo(cx + size * 0.55, cy - size * 0.52, cx + size * 0.65, cy + size * 0.02);
+    ctx.quadraticCurveTo(cx + size * 0.68, cy + size * 0.28, cx + size * 0.48, cy + size * 0.35);
     
-    // Голова
-    ctx.moveTo(cx - size * 0.7, cy - size * 0.3);
-    ctx.quadraticCurveTo(cx - size * 0.9, cy - size * 0.2, cx - size * 0.95, cy);
-    ctx.quadraticCurveTo(cx - size * 0.9, cy + size * 0.15, cx - size * 0.75, cy + size * 0.2);
+    // Голова с мордочкой
+    ctx.moveTo(cx - size * 0.65, cy - size * 0.28);
+    ctx.quadraticCurveTo(cx - size * 0.82, cy - size * 0.18, cx - size * 0.88, cy + size * 0.02);
+    ctx.quadraticCurveTo(cx - size * 0.82, cy + size * 0.14, cx - size * 0.7, cy + size * 0.18);
     
     // Глаз
-    ctx.moveTo(cx - size * 0.8, cy - size * 0.1);
-    ctx.arc(cx - size * 0.8, cy - size * 0.12, size * 0.05, 0, 2 * Math.PI);
+    ctx.moveTo(cx - size * 0.75, cy - size * 0.08);
+    ctx.arc(cx - size * 0.75, cy - size * 0.1, size * 0.04, 0, 2 * Math.PI);
     
     // Передние лапки
-    ctx.moveTo(cx - size * 0.5, cy + size * 0.1);
-    ctx.lineTo(cx - size * 0.5, cy + size * 0.35);
-    ctx.lineTo(cx - size * 0.45, cy + size * 0.4);
-    ctx.moveTo(cx - size * 0.2, cy + size * 0.2);
-    ctx.lineTo(cx - size * 0.15, cy + size * 0.45);
-    ctx.lineTo(cx - size * 0.1, cy + size * 0.5);
+    ctx.moveTo(cx - size * 0.45, cy + size * 0.08);
+    ctx.lineTo(cx - size * 0.45, cy + size * 0.32);
+    ctx.lineTo(cx - size * 0.41, cy + size * 0.36);
+    ctx.moveTo(cx - size * 0.18, cy + size * 0.18);
+    ctx.lineTo(cx - size * 0.14, cy + size * 0.42);
+    ctx.lineTo(cx - size * 0.09, cy + size * 0.46);
     
     // Задние лапки
-    ctx.moveTo(cx + size * 0.2, cy + size * 0.35);
-    ctx.lineTo(cx + size * 0.25, cy + size * 0.55);
-    ctx.lineTo(cx + size * 0.3, cy + size * 0.6);
-    ctx.moveTo(cx + size * 0.45, cy + size * 0.3);
+    ctx.moveTo(cx + size * 0.18, cy + size * 0.32);
+    ctx.lineTo(cx + size * 0.22, cy + size * 0.5);
+    ctx.lineTo(cx + size * 0.27, cy + size * 0.55);
+    ctx.moveTo(cx + size * 0.42, cy + size * 0.28);
+    ctx.lineTo(cx + size * 0.46, cy + size * 0.46);
     ctx.lineTo(cx + size * 0.5, cy + size * 0.5);
-    ctx.lineTo(cx + size * 0.55, cy + size * 0.55);
     
-    // Хвост (плоский и широкий)
-    ctx.moveTo(cx + size * 0.5, cy + size * 0.4);
-    ctx.quadraticCurveTo(cx + size * 0.7, cy + size * 0.5, cx + size * 0.85, cy + size * 0.45);
-    ctx.lineTo(cx + size * 0.9, cy + size * 0.55);
-    ctx.lineTo(cx + size * 0.88, cy + size * 0.65);
-    ctx.lineTo(cx + size * 0.7, cy + size * 0.7);
-    ctx.quadraticCurveTo(cx + size * 0.6, cy + size * 0.65, cx + size * 0.5, cy + size * 0.5);
+    // Широкий плоский хвост
+    ctx.moveTo(cx + size * 0.48, cy + size * 0.35);
+    ctx.quadraticCurveTo(cx + size * 0.65, cy + size * 0.45, cx + size * 0.78, cy + size * 0.42);
+    ctx.lineTo(cx + size * 0.82, cy + size * 0.5);
+    ctx.lineTo(cx + size * 0.8, cy + size * 0.6);
+    ctx.lineTo(cx + size * 0.65, cy + size * 0.65);
+    ctx.quadraticCurveTo(cx + size * 0.56, cy + size * 0.6, cx + size * 0.48, cy + size * 0.46);
   };
 
   const drawSquirrel = (ctx, cx, cy, size) => {
