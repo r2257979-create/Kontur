@@ -222,6 +222,48 @@ const GamePage = () => {
       case 'ball':
         ctx.arc(centerX, centerY, size * 0.8, 0, 2 * Math.PI);
         break;
+      case 'apple':
+        drawApple(ctx, centerX, centerY, size);
+        break;
+      case 'pear':
+        drawPear(ctx, centerX, centerY, size);
+        break;
+      case 'ladybug':
+        drawLadybug(ctx, centerX, centerY, size);
+        break;
+      case 'chick':
+        drawChick(ctx, centerX, centerY, size);
+        break;
+      case 'hedgehog':
+        drawHedgehog(ctx, centerX, centerY, size);
+        break;
+      case 'horse':
+        drawHorse(ctx, centerX, centerY, size);
+        break;
+      case 'whale':
+        drawWhale(ctx, centerX, centerY, size);
+        break;
+      case 'hippo':
+        drawHippo(ctx, centerX, centerY, size);
+        break;
+      case 'dolphin':
+        drawDolphin(ctx, centerX, centerY, size);
+        break;
+      case 'sheep':
+        drawSheep(ctx, centerX, centerY, size);
+        break;
+      case 'elephant':
+        drawElephant(ctx, centerX, centerY, size);
+        break;
+      case 'train':
+        drawTrain(ctx, centerX, centerY, size);
+        break;
+      case 'ship':
+        drawShip(ctx, centerX, centerY, size);
+        break;
+      case 'turtle':
+        drawTurtle(ctx, centerX, centerY, size);
+        break;
       case 'cat':
         drawCat(ctx, centerX, centerY, size);
         break;
