@@ -101,3 +101,98 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+user_problem_statement: "Протестируйте приложение Kontur-2 для лечения косоглазия. Это приложение-игра, где игрок обводит фигуры для тренировки глаз. Проверьте главную страницу (SetupPage), игровую страницу (GamePage), новые фигуры животных, и экран результата с пунктирными и сплошными линиями."
+
+frontend:
+  - task: "SetupPage - Color selection and duration setup"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/pages/SetupPage.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Initial assessment - needs testing for color selection, duration settings, and navigation to game"
+
+  - task: "CalibrationPage - Color calibration with RGB sliders"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/pages/CalibrationPage.jsx"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Initial assessment - needs testing for RGB color calibration and background selection"
+
+  - task: "GamePage - Main game functionality with figure tracing"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/pages/GamePage.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Initial assessment - needs testing for game instructions, figure tracing, spacebar controls, and result display with dotted/solid lines"
+
+  - task: "New animal figures implementation"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/mock/mockData.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Initial assessment - needs verification that new animal figures (pig, duck, parrot, bat, frog, owl, snake, beaver, squirrel) are present and rendering correctly"
+
+  - task: "ResultsPage - Session statistics display"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/pages/ResultsPage.jsx"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Initial assessment - needs testing for session statistics display and new session functionality"
+
+  - task: "Result screen with dotted and solid lines comparison"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/pages/GamePage.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "Initial assessment - critical feature needs testing to verify original figure shows as dotted line and player trace shows as solid line in same color"
+
+metadata:
+  created_by: "testing_agent"
+  version: "1.0"
+  test_sequence: 1
+  run_ui: true
+
+test_plan:
+  current_focus:
+    - "SetupPage - Color selection and duration setup"
+    - "GamePage - Main game functionality with figure tracing"
+    - "New animal figures implementation"
+    - "Result screen with dotted and solid lines comparison"
+  stuck_tasks: []
+  test_all: false
+  test_priority: "high_first"
+
+agent_communication:
+    - agent: "testing"
+      message: "Starting comprehensive testing of Kontur-2 vision therapy application. Will test setup page, game functionality, new animal figures, and critical result screen with dotted/solid line comparison. Testing will be conducted using Playwright automation at http://localhost:3000."
