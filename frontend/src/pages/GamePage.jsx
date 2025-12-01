@@ -122,6 +122,13 @@ const GamePage = () => {
     }
   }, [settings, currentFigureIndex, showResult, showInstructions, mousePos, allTracedPaths, currentPath, isTracing]);
 
+  // Эффект для отрисовки результата
+  useEffect(() => {
+    if (showResult && settings) {
+      drawResultOverlay();
+    }
+  }, [showResult, settings, allTracedPaths]);
+
   const drawScene = () => {
     const canvas = canvasRef.current;
     if (!canvas || !settings) return;
