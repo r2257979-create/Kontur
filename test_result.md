@@ -212,3 +212,5 @@ agent_communication:
       message: "Starting comprehensive testing of Kontur-2 vision therapy application. Will test setup page, game functionality, new animal figures, and critical result screen with dotted/solid line comparison. Testing will be conducted using Playwright automation at http://localhost:3000."
     - agent: "testing"
       message: "TESTING COMPLETED SUCCESSFULLY: All features of Kontur-2 application are working perfectly. The critical result screen feature with dotted/solid line comparison is implemented correctly and working as specified. All new animal figures are present. The application is ready for use."
+    - agent: "testing"
+      message: "IMPROVED ANIMAL FIGURES TESTING COMPLETED: Successfully tested the 9 new improved animal figures as requested. Captured screenshots of all 45 figures in the application. All new animal drawing functions are implemented and working correctly. The figures are properly randomized and display with appropriate complexity for tracing exercises."
