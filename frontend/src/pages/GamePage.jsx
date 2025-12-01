@@ -136,33 +136,47 @@ const GamePage = () => {
     const figure = getFigures()[currentFigureIndex];
     if (!figure) return;
 
-    // Draw the figure in Color 1
+    // Рисуем фигуру Color 1
     ctx.strokeStyle = settings.color1;
     ctx.lineWidth = 4;
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
     drawShape(ctx, figure);
 
-    // Draw traced path in Color 2
-    if (tracedPath.length > 1) {
-      ctx.strokeStyle = settings.color2;
-      ctx.lineWidth = 3;
+    // Рисуем ВСЕ предыдущие пути обводки Color 2
+    ctx.strokeStyle = settings.color2;
+    ctx.lineWidth = 3;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    
+    allTracedPaths.forEach((path) => {
+      if (path.length > 1) {
+        ctx.beginPath();
+        ctx.moveTo(path[0].x, path[0].y);
+        for (let i = 1; i < path.length; i++) {
+          ctx.lineTo(path[i].x, path[i].y);
+        }
+        ctx.stroke();
+      }
+    });
+
+    // Рисуем текущий путь (пока ещё рисуем)
+    if (currentPath.length > 1) {
       ctx.beginPath();
-      ctx.moveTo(tracedPath[0].x, tracedPath[0].y);
-      for (let i = 1; i < tracedPath.length; i++) {
-        ctx.lineTo(tracedPath[i].x, tracedPath[i].y);
+      ctx.moveTo(currentPath[0].x, currentPath[0].y);
+      for (let i = 1; i < currentPath.length; i++) {
+        ctx.lineTo(currentPath[i].x, currentPath[i].y);
       }
       ctx.stroke();
     }
 
-    // Draw the tracing circle at mouse position (Color 2) - only when mouse is over canvas
+    // Рисуем кружок на позиции мыши
     if (mousePos.x > 0 && mousePos.y > 0 && mousePos.x < canvas.width && mousePos.y < canvas.height) {
       ctx.fillStyle = settings.color2;
       ctx.beginPath();
       ctx.arc(mousePos.x, mousePos.y, 12, 0, 2 * Math.PI);
       ctx.fill();
       
-      // Add a small white center for visibility
       ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
       ctx.beginPath();
       ctx.arc(mousePos.x, mousePos.y, 4, 0, 2 * Math.PI);
