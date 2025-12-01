@@ -688,7 +688,7 @@ const GamePage = () => {
         </div>
       </div>
 
-      <div className="flex-1 flex flex-col items-center justify-center p-6 gap-6">
+      <div className="flex-1 flex flex-col items-center justify-center p-6 gap-4">
         <div className="relative">
           <canvas
             ref={canvasRef}
