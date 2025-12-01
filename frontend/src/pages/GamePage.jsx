@@ -547,7 +547,6 @@ const GamePage = () => {
 
   const handleShowResult = () => {
     setShowResult(true);
-    setWaitingForCompletion(false);
     clearInterval(timerRef.current);
 
     const stats = {
