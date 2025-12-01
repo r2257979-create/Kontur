@@ -735,37 +735,35 @@ const GamePage = () => {
   };
 
   const drawPig = (ctx, cx, cy, size) => {
-    // Тело свиньи - большой овал
-    ctx.moveTo(cx + size * 0.8, cy);
-    ctx.ellipse(cx, cy, size * 0.8, size * 0.55, 0, 0, 2 * Math.PI);
+    // Большое тело-овал
+    ctx.ellipse(cx + size * 0.1, cy, size * 0.7, size * 0.45, 0, 0, 2 * Math.PI);
     
     // Голова
-    ctx.moveTo(cx - size * 0.5, cy - size * 0.4);
-    ctx.lineTo(cx - size * 0.8, cy - size * 0.5);
-    ctx.lineTo(cx - size * 0.9, cy - size * 0.3);
-    ctx.lineTo(cx - size * 0.9, cy - size * 0.1);
-    ctx.lineTo(cx - size * 0.95, cy);
-    ctx.lineTo(cx - size * 0.9, cy + size * 0.1);
-    ctx.lineTo(cx - size * 0.85, cy + size * 0.2);
-    ctx.lineTo(cx - size * 0.7, cy + size * 0.3);
+    ctx.moveTo(cx - size * 0.4, cy - size * 0.3);
+    ctx.lineTo(cx - size * 0.65, cy - size * 0.35);
+    ctx.lineTo(cx - size * 0.8, cy - size * 0.2);
+    ctx.lineTo(cx - size * 0.85, cy);
+    ctx.lineTo(cx - size * 0.8, cy + size * 0.15);
+    ctx.lineTo(cx - size * 0.65, cy + size * 0.25);
+    ctx.lineTo(cx - size * 0.4, cy + size * 0.3);
     
     // Пятачок
-    ctx.moveTo(cx - size * 0.95, cy - size * 0.05);
-    ctx.ellipse(cx - size * 1.05, cy, size * 0.12, size * 0.08, 0, 0, 2 * Math.PI);
+    ctx.moveTo(cx - size * 0.75, cy - size * 0.05);
+    ctx.ellipse(cx - size * 0.85, cy, size * 0.12, size * 0.09, 0, 0, 2 * Math.PI);
     
-    // Ноги
-    ctx.moveTo(cx - size * 0.5, cy + size * 0.55);
-    ctx.lineTo(cx - size * 0.5, cy + size * 0.75);
-    ctx.moveTo(cx - size * 0.15, cy + size * 0.55);
-    ctx.lineTo(cx - size * 0.15, cy + size * 0.75);
-    ctx.moveTo(cx + size * 0.15, cy + size * 0.55);
-    ctx.lineTo(cx + size * 0.15, cy + size * 0.75);
-    ctx.moveTo(cx + size * 0.45, cy + size * 0.55);
-    ctx.lineTo(cx + size * 0.45, cy + size * 0.75);
+    // Четыре ноги
+    ctx.moveTo(cx - size * 0.3, cy + size * 0.45);
+    ctx.lineTo(cx - size * 0.3, cy + size * 0.7);
+    ctx.moveTo(cx, cy + size * 0.45);
+    ctx.lineTo(cx, cy + size * 0.7);
+    ctx.moveTo(cx + size * 0.3, cy + size * 0.45);
+    ctx.lineTo(cx + size * 0.3, cy + size * 0.7);
+    ctx.moveTo(cx + size * 0.55, cy + size * 0.45);
+    ctx.lineTo(cx + size * 0.55, cy + size * 0.7);
     
-    // Хвостик
-    ctx.moveTo(cx + size * 0.75, cy);
-    ctx.quadraticCurveTo(cx + size * 0.85, cy - size * 0.1, cx + size * 0.82, cy - size * 0.2);
+    // Закрученный хвостик
+    ctx.moveTo(cx + size * 0.75, cy - size * 0.05);
+    ctx.quadraticCurveTo(cx + size * 0.82, cy - size * 0.15, cx + size * 0.78, cy - size * 0.25);
   };
 
   const drawDuck = (ctx, cx, cy, size) => {
