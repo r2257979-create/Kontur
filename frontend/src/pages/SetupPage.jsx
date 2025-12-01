@@ -184,7 +184,15 @@ const SetupPage = () => {
               onClick={handleStart}
               className="w-full py-6 text-lg font-semibold bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all duration-200"
             >
-              Start Training Session
+              Начать игру
+            </Button>
+            
+            <Button
+              onClick={handleCalibration}
+              variant="outline"
+              className="w-full py-4 text-base font-medium border-2 border-blue-400 text-blue-600 hover:bg-blue-50"
+            >
+              Калибровка цветов
             </Button>
             
             {localStorage.getItem('savedColorSettings') && (
