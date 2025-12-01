@@ -878,41 +878,40 @@ const GamePage = () => {
   };
 
   const drawFrog = (ctx, cx, cy, size) => {
-    // Тело лягушки
-    ctx.moveTo(cx + size * 0.5, cy);
-    ctx.ellipse(cx, cy, size * 0.5, size * 0.4, 0, 0, 2 * Math.PI);
+    // Приплюснутое круглое тело
+    ctx.ellipse(cx, cy, size * 0.45, size * 0.35, 0, 0, 2 * Math.PI);
     
-    // Большие глаза
-    ctx.moveTo(cx - size * 0.15, cy - size * 0.6);
-    ctx.arc(cx - size * 0.25, cy - size * 0.5, size * 0.25, 0, 2 * Math.PI);
-    ctx.moveTo(cx + size * 0.35, cy - size * 0.6);
-    ctx.arc(cx + size * 0.25, cy - size * 0.5, size * 0.25, 0, 2 * Math.PI);
+    // Огромные глаза на макушке
+    ctx.moveTo(cx - size * 0.05, cy - size * 0.55);
+    ctx.arc(cx - size * 0.22, cy - size * 0.45, size * 0.22, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.44, cy - size * 0.55);
+    ctx.arc(cx + size * 0.22, cy - size * 0.45, size * 0.22, 0, 2 * Math.PI);
     
     // Зрачки
-    ctx.moveTo(cx - size * 0.2, cy - size * 0.5);
-    ctx.arc(cx - size * 0.25, cy - size * 0.5, size * 0.1, 0, 2 * Math.PI);
-    ctx.moveTo(cx + size * 0.3, cy - size * 0.5);
-    ctx.arc(cx + size * 0.25, cy - size * 0.5, size * 0.1, 0, 2 * Math.PI);
+    ctx.moveTo(cx - size * 0.17, cy - size * 0.45);
+    ctx.arc(cx - size * 0.22, cy - size * 0.45, size * 0.08, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.27, cy - size * 0.45);
+    ctx.arc(cx + size * 0.22, cy - size * 0.45, size * 0.08, 0, 2 * Math.PI);
     
     // Улыбка
-    ctx.moveTo(cx - size * 0.3, cy);
-    ctx.quadraticCurveTo(cx, cy + size * 0.15, cx + size * 0.3, cy);
+    ctx.moveTo(cx - size * 0.28, cy + size * 0.02);
+    ctx.quadraticCurveTo(cx, cy + size * 0.15, cx + size * 0.28, cy + size * 0.02);
     
-    // Передние лапки
-    ctx.moveTo(cx - size * 0.4, cy);
-    ctx.lineTo(cx - size * 0.7, cy + size * 0.2);
-    ctx.lineTo(cx - size * 0.8, cy + size * 0.3);
-    ctx.moveTo(cx + size * 0.4, cy);
-    ctx.lineTo(cx + size * 0.7, cy + size * 0.2);
-    ctx.lineTo(cx + size * 0.8, cy + size * 0.3);
+    // Передние короткие лапки
+    ctx.moveTo(cx - size * 0.38, cy + size * 0.05);
+    ctx.lineTo(cx - size * 0.62, cy + size * 0.18);
+    ctx.lineTo(cx - size * 0.72, cy + size * 0.25);
+    ctx.moveTo(cx + size * 0.38, cy + size * 0.05);
+    ctx.lineTo(cx + size * 0.62, cy + size * 0.18);
+    ctx.lineTo(cx + size * 0.72, cy + size * 0.25);
     
-    // Задние лапки
-    ctx.moveTo(cx - size * 0.3, cy + size * 0.4);
-    ctx.lineTo(cx - size * 0.5, cy + size * 0.6);
-    ctx.lineTo(cx - size * 0.8, cy + size * 0.55);
-    ctx.moveTo(cx + size * 0.3, cy + size * 0.4);
-    ctx.lineTo(cx + size * 0.5, cy + size * 0.6);
-    ctx.lineTo(cx + size * 0.8, cy + size * 0.55);
+    // Задние длинные лапки с пальцами
+    ctx.moveTo(cx - size * 0.28, cy + size * 0.35);
+    ctx.lineTo(cx - size * 0.45, cy + size * 0.55);
+    ctx.lineTo(cx - size * 0.72, cy + size * 0.5);
+    ctx.moveTo(cx + size * 0.28, cy + size * 0.35);
+    ctx.lineTo(cx + size * 0.45, cy + size * 0.55);
+    ctx.lineTo(cx + size * 0.72, cy + size * 0.5);
   };
 
   const drawOwl = (ctx, cx, cy, size) => {
