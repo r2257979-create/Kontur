@@ -36,7 +36,6 @@ const SetupPage = () => {
   const savedColors = getSavedColors();
   const [color1, setColor1] = useState(savedColors.color1);
   const [color2, setColor2] = useState(savedColors.color2);
-  const [difficulty, setDifficulty] = useState('easy');
   
   // Загружаем сохранённую длительность или используем 10 минут по умолчанию
   const getSavedDuration = () => {
