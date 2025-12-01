@@ -6,7 +6,10 @@ export const figures = {
     { type: 'house', difficulty: 'easy', shape: 'house', name: 'Домик' },
     { type: 'sun', difficulty: 'easy', shape: 'sun', name: 'Солнце' },
     { type: 'flower', difficulty: 'easy', shape: 'flower', name: 'Цветок' },
-    { type: 'ball', difficulty: 'easy', shape: 'ball', name: 'Мяч' }
+    { type: 'ball', difficulty: 'easy', shape: 'ball', name: 'Мяч' },
+    { type: 'apple', difficulty: 'easy', shape: 'apple', name: 'Яблоко' },
+    { type: 'pear', difficulty: 'easy', shape: 'pear', name: 'Груша' },
+    { type: 'star', difficulty: 'easy', shape: 'star', name: 'Звезда' }
   ],
   medium: [
     { type: 'cat', difficulty: 'medium', shape: 'cat', name: 'Кошка' },
@@ -16,17 +19,25 @@ export const figures = {
     { type: 'tree', difficulty: 'medium', shape: 'tree', name: 'Дерево' },
     { type: 'cup', difficulty: 'medium', shape: 'cup', name: 'Чашка' },
     { type: 'teddy', difficulty: 'medium', shape: 'teddy', name: 'Мишка' },
-    { type: 'maze_simple', difficulty: 'medium', shape: 'maze_simple', name: 'Простой лабиринт' }
+    { type: 'ladybug', difficulty: 'medium', shape: 'ladybug', name: 'Божья коровка' },
+    { type: 'mushroom', difficulty: 'medium', shape: 'mushroom', name: 'Гриб' },
+    { type: 'chick', difficulty: 'medium', shape: 'chick', name: 'Цыплёнок' },
+    { type: 'turtle', difficulty: 'medium', shape: 'turtle', name: 'Черепаха' },
+    { type: 'hedgehog', difficulty: 'medium', shape: 'hedgehog', name: 'Ёж' }
   ],
   hard: [
     { type: 'dog', difficulty: 'hard', shape: 'dog', name: 'Собака' },
     { type: 'bird', difficulty: 'hard', shape: 'bird', name: 'Птица' },
-    { type: 'spider', difficulty: 'hard', shape: 'spider', name: 'Паук' },
-    { type: 'airplane', difficulty: 'hard', shape: 'airplane', name: 'Самолёт' },
-    { type: 'mushroom', difficulty: 'hard', shape: 'mushroom', name: 'Гриб' },
     { type: 'rabbit', difficulty: 'hard', shape: 'rabbit', name: 'Кролик' },
+    { type: 'horse', difficulty: 'hard', shape: 'horse', name: 'Лошадь' },
+    { type: 'whale', difficulty: 'hard', shape: 'whale', name: 'Кит' },
+    { type: 'hippo', difficulty: 'hard', shape: 'hippo', name: 'Бегемот' },
+    { type: 'dolphin', difficulty: 'hard', shape: 'dolphin', name: 'Дельфин' },
+    { type: 'sheep', difficulty: 'hard', shape: 'sheep', name: 'Овца' },
     { type: 'snail', difficulty: 'hard', shape: 'snail', name: 'Улитка' },
-    { type: 'maze_complex', difficulty: 'hard', shape: 'maze_complex', name: 'Сложный лабиринт' }
+    { type: 'elephant', difficulty: 'hard', shape: 'elephant', name: 'Слон' },
+    { type: 'train', difficulty: 'hard', shape: 'train', name: 'Паровозик' },
+    { type: 'ship', difficulty: 'hard', shape: 'ship', name: 'Корабль' }
   ]
 };
 
