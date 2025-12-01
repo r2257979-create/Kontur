@@ -31,9 +31,8 @@ const GamePage = () => {
     const parsed = JSON.parse(savedSettings);
     setSettings(parsed);
     
-    // Перемешиваем фигуры при первой загрузке
-    const originalFigures = figures[parsed.difficulty] || [];
-    const shuffled = shuffleArray([...originalFigures]);
+    // Перемешиваем все фигуры при первой загрузке
+    const shuffled = shuffleArray([...figures]);
     setShuffledFigures(shuffled);
   }, [navigate]);
 
