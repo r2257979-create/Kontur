@@ -780,11 +780,13 @@ const GamePage = () => {
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
     
-    // Рисуем оригинальную фигуру
+    // Рисуем оригинальную фигуру ПУНКТИРОМ
+    ctx.setLineDash([10, 10]); // Пунктирная линия: 10px линия, 10px пробел
     const figure = getFigures()[currentFigureIndex];
     drawShape(ctx, figure);
     
-    // Рисуем ВСЕ пути обводки игрока
+    // Рисуем ВСЕ пути обводки игрока СПЛОШНОЙ ЛИНИЕЙ
+    ctx.setLineDash([]); // Сплошная линия
     ctx.lineWidth = 3;
     allTracedPaths.forEach((path) => {
       if (path.length > 1) {
@@ -796,6 +798,9 @@ const GamePage = () => {
         ctx.stroke();
       }
     });
+    
+    // Сбрасываем пунктир для будущих отрисовок
+    ctx.setLineDash([]);
   };
 
   const nextFigure = () => {
