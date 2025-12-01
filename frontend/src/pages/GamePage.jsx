@@ -743,37 +743,25 @@ const GamePage = () => {
           )}
         </div>
 
-        {waitingForCompletion && !showResult && (
-            <div 
-              className="bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl shadow-2xl p-6 max-w-2xl w-full"
-              style={{
-                animation: 'slideUp 0.4s ease-out, pulse 2s infinite'
-              }}
-            >
-              <style>{`
-                @keyframes slideUp {
-                  from {
-                    opacity: 0;
-                    transform: translateY(20px);
-                  }
-                  to {
-                    opacity: 1;
-                    transform: translateY(0);
-                  }
-                }
-                @keyframes pulse {
-                  0%, 100% { opacity: 1; transform: scale(1); }
-                  50% { opacity: 0.9; transform: scale(1.02); }
-                }
-              `}</style>
-              <div className="text-center text-white space-y-4">
-                <h2 className="text-3xl font-bold">Обводка завершена?</h2>
-                <p className="text-xl">
-                  Нажмите <span className="bg-white text-orange-600 px-4 py-2 rounded-lg font-bold mx-2">ПРОБЕЛ</span> чтобы увидеть результат
-                </p>
-              </div>
-            </div>
-          )}
+        {/* Постоянная подсказка во время обводки */}
+        {!showInstructions && !showResult && (
+          <div 
+            className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl shadow-lg p-4 max-w-2xl w-full"
+            style={{
+              animation: 'pulse 2s infinite'
+            }}
+          >
+            <style>{`
+              @keyframes pulse {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0.85; }
+              }
+            `}</style>
+            <p className="text-center text-white text-xl font-semibold">
+              ⌨️ Когда закончите обводить, нажмите <span className="bg-white text-blue-600 px-3 py-1 rounded-lg font-bold mx-2">ПРОБЕЛ</span>
+            </p>
+          </div>
+        )}
 
         {showResult && (
           <div 
