@@ -841,41 +841,40 @@ const GamePage = () => {
   };
 
   const drawBat = (ctx, cx, cy, size) => {
-    // Тело летучей мыши
-    ctx.moveTo(cx + size * 0.25, cy);
-    ctx.ellipse(cx, cy, size * 0.25, size * 0.35, 0, 0, 2 * Math.PI);
+    // Маленькое круглое тело
+    ctx.arc(cx, cy, size * 0.22, 0, 2 * Math.PI);
     
-    // Голова
-    ctx.moveTo(cx + size * 0.2, cy - size * 0.5);
-    ctx.arc(cx, cy - size * 0.5, size * 0.2, 0, 2 * Math.PI);
+    // Круглая голова
+    ctx.moveTo(cx + size * 0.18, cy - size * 0.42);
+    ctx.arc(cx, cy - size * 0.42, size * 0.18, 0, 2 * Math.PI);
     
-    // Уши
-    ctx.moveTo(cx - size * 0.15, cy - size * 0.7);
-    ctx.lineTo(cx - size * 0.2, cy - size * 0.85);
-    ctx.lineTo(cx - size * 0.1, cy - size * 0.75);
-    ctx.moveTo(cx + size * 0.15, cy - size * 0.7);
-    ctx.lineTo(cx + size * 0.2, cy - size * 0.85);
-    ctx.lineTo(cx + size * 0.1, cy - size * 0.75);
+    // Заостренные уши
+    ctx.moveTo(cx - size * 0.12, cy - size * 0.6);
+    ctx.lineTo(cx - size * 0.18, cy - size * 0.78);
+    ctx.lineTo(cx - size * 0.08, cy - size * 0.65);
+    ctx.moveTo(cx + size * 0.12, cy - size * 0.6);
+    ctx.lineTo(cx + size * 0.18, cy - size * 0.78);
+    ctx.lineTo(cx + size * 0.08, cy - size * 0.65);
     
     // Глаза
-    ctx.moveTo(cx - size * 0.08, cy - size * 0.5);
-    ctx.arc(cx - size * 0.08, cy - size * 0.5, size * 0.04, 0, 2 * Math.PI);
-    ctx.moveTo(cx + size * 0.08, cy - size * 0.5);
-    ctx.arc(cx + size * 0.08, cy - size * 0.5, size * 0.04, 0, 2 * Math.PI);
+    ctx.moveTo(cx - size * 0.06, cy - size * 0.42);
+    ctx.arc(cx - size * 0.06, cy - size * 0.42, size * 0.03, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.06, cy - size * 0.42);
+    ctx.arc(cx + size * 0.06, cy - size * 0.42, size * 0.03, 0, 2 * Math.PI);
     
-    // Левое крыло
-    ctx.moveTo(cx - size * 0.25, cy);
-    ctx.quadraticCurveTo(cx - size * 0.7, cy - size * 0.3, cx - size * 0.9, cy - size * 0.1);
-    ctx.quadraticCurveTo(cx - size * 0.85, cy + size * 0.1, cx - size * 0.7, cy + size * 0.2);
-    ctx.quadraticCurveTo(cx - size * 0.5, cy, cx - size * 0.35, cy + size * 0.15);
-    ctx.lineTo(cx - size * 0.25, cy);
+    // Левое крыло - упрощенное
+    ctx.moveTo(cx - size * 0.22, cy - size * 0.05);
+    ctx.quadraticCurveTo(cx - size * 0.6, cy - size * 0.25, cx - size * 0.75, cy - size * 0.08);
+    ctx.quadraticCurveTo(cx - size * 0.72, cy + size * 0.08, cx - size * 0.58, cy + size * 0.15);
+    ctx.quadraticCurveTo(cx - size * 0.4, cy - size * 0.02, cx - size * 0.28, cy + size * 0.12);
+    ctx.lineTo(cx - size * 0.22, cy);
     
-    // Правое крыло
-    ctx.moveTo(cx + size * 0.25, cy);
-    ctx.quadraticCurveTo(cx + size * 0.7, cy - size * 0.3, cx + size * 0.9, cy - size * 0.1);
-    ctx.quadraticCurveTo(cx + size * 0.85, cy + size * 0.1, cx + size * 0.7, cy + size * 0.2);
-    ctx.quadraticCurveTo(cx + size * 0.5, cy, cx + size * 0.35, cy + size * 0.15);
-    ctx.lineTo(cx + size * 0.25, cy);
+    // Правое крыло - упрощенное
+    ctx.moveTo(cx + size * 0.22, cy - size * 0.05);
+    ctx.quadraticCurveTo(cx + size * 0.6, cy - size * 0.25, cx + size * 0.75, cy - size * 0.08);
+    ctx.quadraticCurveTo(cx + size * 0.72, cy + size * 0.08, cx + size * 0.58, cy + size * 0.15);
+    ctx.quadraticCurveTo(cx + size * 0.4, cy - size * 0.02, cx + size * 0.28, cy + size * 0.12);
+    ctx.lineTo(cx + size * 0.22, cy);
   };
 
   const drawFrog = (ctx, cx, cy, size) => {
