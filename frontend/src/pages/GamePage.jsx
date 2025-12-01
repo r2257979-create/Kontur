@@ -120,7 +120,7 @@ const GamePage = () => {
     if (settings && !showResult && !showInstructions) {
       drawScene();
     }
-  }, [settings, currentFigureIndex, showResult, showInstructions, mousePos, tracedPath, isTracing]);
+  }, [settings, currentFigureIndex, showResult, showInstructions, mousePos, allTracedPaths, currentPath, isTracing]);
 
   const drawScene = () => {
     const canvas = canvasRef.current;
