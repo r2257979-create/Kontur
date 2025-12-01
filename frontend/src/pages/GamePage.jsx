@@ -1038,49 +1038,52 @@ const GamePage = () => {
   };
 
   const drawSquirrel = (ctx, cx, cy, size) => {
-    // Тело белки
-    ctx.moveTo(cx + size * 0.3, cy);
-    ctx.ellipse(cx, cy, size * 0.3, size * 0.45, 0, 0, 2 * Math.PI);
+    // Округлое тело
+    ctx.ellipse(cx, cy, size * 0.28, size * 0.42, 0, 0, 2 * Math.PI);
     
-    // Голова
-    ctx.moveTo(cx - size * 0.25, cy - size * 0.6);
-    ctx.arc(cx - size * 0.3, cy - size * 0.7, size * 0.25, 0, 2 * Math.PI);
+    // Круглая голова
+    ctx.moveTo(cx - size * 0.08, cy - size * 0.58);
+    ctx.arc(cx - size * 0.28, cy - size * 0.65, size * 0.23, 0, 2 * Math.PI);
     
-    // Ушки с кисточками
-    ctx.moveTo(cx - size * 0.45, cy - size * 0.95);
-    ctx.lineTo(cx - size * 0.4, cy - size * 1.05);
-    ctx.lineTo(cx - size * 0.35, cy - size * 0.95);
-    ctx.moveTo(cx - size * 0.15, cy - size * 0.95);
-    ctx.lineTo(cx - size * 0.2, cy - size * 1.05);
-    ctx.lineTo(cx - size * 0.25, cy - size * 0.95);
+    // Заостренные ушки с кисточками
+    ctx.moveTo(cx - size * 0.42, cy - size * 0.88);
+    ctx.lineTo(cx - size * 0.38, cy - size * 0.98);
+    ctx.lineTo(cx - size * 0.34, cy - size * 0.88);
+    ctx.moveTo(cx - size * 0.16, cy - size * 0.88);
+    ctx.lineTo(cx - size * 0.2, cy - size * 0.98);
+    ctx.lineTo(cx - size * 0.24, cy - size * 0.88);
     
-    // Мордочка и нос
-    ctx.moveTo(cx - size * 0.48, cy - size * 0.75);
-    ctx.arc(cx - size * 0.52, cy - size * 0.75, size * 0.05, 0, 2 * Math.PI);
+    // Маленький нос
+    ctx.moveTo(cx - size * 0.45, cy - size * 0.7);
+    ctx.arc(cx - size * 0.48, cy - size * 0.7, size * 0.04, 0, 2 * Math.PI);
     
-    // Глаз
-    ctx.moveTo(cx - size * 0.25, cy - size * 0.75);
-    ctx.arc(cx - size * 0.27, cy - size * 0.77, size * 0.08, 0, 2 * Math.PI);
+    // Большой глаз
+    ctx.moveTo(cx - size * 0.22, cy - size * 0.7);
+    ctx.arc(cx - size * 0.25, cy - size * 0.72, size * 0.07, 0, 2 * Math.PI);
     
-    // Передняя лапка (согнутая)
-    ctx.moveTo(cx - size * 0.15, cy - size * 0.3);
-    ctx.quadraticCurveTo(cx - size * 0.25, cy - size * 0.15, cx - size * 0.2, cy);
+    // Рот
+    ctx.moveTo(cx - size * 0.48, cy - size * 0.66);
+    ctx.quadraticCurveTo(cx - size * 0.42, cy - size * 0.62, cx - size * 0.36, cy - size * 0.64);
+    
+    // Передняя лапка
+    ctx.moveTo(cx - size * 0.14, cy - size * 0.28);
+    ctx.quadraticCurveTo(cx - size * 0.23, cy - size * 0.14, cx - size * 0.18, cy);
     
     // Задняя лапка
-    ctx.moveTo(cx + size * 0.1, cy + size * 0.45);
-    ctx.lineTo(cx + size * 0.15, cy + size * 0.65);
-    ctx.lineTo(cx + size * 0.2, cy + size * 0.7);
+    ctx.moveTo(cx + size * 0.08, cy + size * 0.42);
+    ctx.lineTo(cx + size * 0.13, cy + size * 0.6);
+    ctx.lineTo(cx + size * 0.18, cy + size * 0.65);
     
-    // Пушистый хвост (большой и изогнутый)
-    ctx.moveTo(cx + size * 0.2, cy + size * 0.2);
-    ctx.quadraticCurveTo(cx + size * 0.5, cy + size * 0.4, cx + size * 0.7, cy + size * 0.2);
-    ctx.quadraticCurveTo(cx + size * 0.85, cy - size * 0.1, cx + size * 0.8, cy - size * 0.5);
-    ctx.quadraticCurveTo(cx + size * 0.7, cy - size * 0.8, cx + size * 0.4, cy - size * 0.9);
-    // Внутренний контур хвоста для пушистости
-    ctx.moveTo(cx + size * 0.3, cy);
-    ctx.quadraticCurveTo(cx + size * 0.5, cy + size * 0.1, cx + size * 0.65, cy);
-    ctx.quadraticCurveTo(cx + size * 0.75, cy - size * 0.25, cx + size * 0.65, cy - size * 0.5);
-    ctx.quadraticCurveTo(cx + size * 0.55, cy - size * 0.7, cx + size * 0.35, cy - size * 0.75);
+    // Большой пушистый хвост
+    ctx.moveTo(cx + size * 0.18, cy + size * 0.18);
+    ctx.quadraticCurveTo(cx + size * 0.45, cy + size * 0.36, cx + size * 0.62, cy + size * 0.18);
+    ctx.quadraticCurveTo(cx + size * 0.75, cy - size * 0.08, cx + size * 0.72, cy - size * 0.42);
+    ctx.quadraticCurveTo(cx + size * 0.62, cy - size * 0.72, cx + size * 0.36, cy - size * 0.82);
+    // Внутренний контур для объема
+    ctx.moveTo(cx + size * 0.28, cy - size * 0.02);
+    ctx.quadraticCurveTo(cx + size * 0.46, cy + size * 0.08, cx + size * 0.58, cy - size * 0.02);
+    ctx.quadraticCurveTo(cx + size * 0.68, cy - size * 0.22, cx + size * 0.58, cy - size * 0.45);
+    ctx.quadraticCurveTo(cx + size * 0.5, cy - size * 0.64, cx + size * 0.32, cy - size * 0.68);
   };
 
   const handleMouseDown = (e) => {
