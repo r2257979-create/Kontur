@@ -959,41 +959,40 @@ const GamePage = () => {
   };
 
   const drawSnake = (ctx, cx, cy, size) => {
-    // Голова змеи
-    ctx.moveTo(cx - size * 0.9, cy - size * 0.5);
-    ctx.arc(cx - size * 0.8, cy - size * 0.4, size * 0.2, 0, 2 * Math.PI);
+    // Круглая голова
+    ctx.arc(cx - size * 0.75, cy - size * 0.35, size * 0.18, 0, 2 * Math.PI);
     
     // Глаз
-    ctx.moveTo(cx - size * 0.75, cy - size * 0.4);
-    ctx.arc(cx - size * 0.75, cy - size * 0.43, size * 0.05, 0, 2 * Math.PI);
+    ctx.moveTo(cx - size * 0.72, cy - size * 0.35);
+    ctx.arc(cx - size * 0.72, cy - size * 0.38, size * 0.04, 0, 2 * Math.PI);
     
-    // Извилистое тело с узорами
-    ctx.moveTo(cx - size * 0.6, cy - size * 0.35);
-    ctx.quadraticCurveTo(cx - size * 0.4, cy - size * 0.6, cx - size * 0.2, cy - size * 0.4);
-    ctx.quadraticCurveTo(cx, cy - size * 0.2, cx + size * 0.2, cy - size * 0.3);
-    ctx.quadraticCurveTo(cx + size * 0.4, cy - size * 0.4, cx + size * 0.5, cy - size * 0.1);
-    ctx.quadraticCurveTo(cx + size * 0.55, cy + size * 0.2, cx + size * 0.4, cy + size * 0.4);
-    ctx.quadraticCurveTo(cx + size * 0.2, cy + size * 0.6, cx, cy + size * 0.5);
-    ctx.quadraticCurveTo(cx - size * 0.2, cy + size * 0.4, cx - size * 0.4, cy + size * 0.5);
-    ctx.quadraticCurveTo(cx - size * 0.6, cy + size * 0.6, cx - size * 0.75, cy + size * 0.45);
+    // Извилистое тело - упрощенное
+    ctx.moveTo(cx - size * 0.57, cy - size * 0.32);
+    ctx.quadraticCurveTo(cx - size * 0.35, cy - size * 0.55, cx - size * 0.15, cy - size * 0.38);
+    ctx.quadraticCurveTo(cx + size * 0.05, cy - size * 0.2, cx + size * 0.22, cy - size * 0.28);
+    ctx.quadraticCurveTo(cx + size * 0.42, cy - size * 0.38, cx + size * 0.52, cy - size * 0.08);
+    ctx.quadraticCurveTo(cx + size * 0.58, cy + size * 0.18, cx + size * 0.42, cy + size * 0.38);
+    ctx.quadraticCurveTo(cx + size * 0.22, cy + size * 0.55, cx, cy + size * 0.48);
+    ctx.quadraticCurveTo(cx - size * 0.18, cy + size * 0.38, cx - size * 0.38, cy + size * 0.48);
+    ctx.quadraticCurveTo(cx - size * 0.55, cy + size * 0.58, cx - size * 0.68, cy + size * 0.42);
     
-    // Узоры на теле (ромбики)
-    ctx.moveTo(cx - size * 0.3, cy - size * 0.5);
-    ctx.lineTo(cx - size * 0.2, cy - size * 0.4);
-    ctx.lineTo(cx - size * 0.3, cy - size * 0.3);
-    ctx.lineTo(cx - size * 0.4, cy - size * 0.4);
+    // Упрощенные узоры (меньше ромбиков)
+    ctx.moveTo(cx - size * 0.28, cy - size * 0.46);
+    ctx.lineTo(cx - size * 0.18, cy - size * 0.38);
+    ctx.lineTo(cx - size * 0.28, cy - size * 0.3);
+    ctx.lineTo(cx - size * 0.38, cy - size * 0.38);
     ctx.closePath();
     
-    ctx.moveTo(cx + size * 0.1, cy - size * 0.4);
-    ctx.lineTo(cx + size * 0.2, cy - size * 0.3);
-    ctx.lineTo(cx + size * 0.3, cy - size * 0.4);
-    ctx.lineTo(cx + size * 0.2, cy - size * 0.5);
+    ctx.moveTo(cx + size * 0.12, cy - size * 0.35);
+    ctx.lineTo(cx + size * 0.22, cy - size * 0.27);
+    ctx.lineTo(cx + size * 0.32, cy - size * 0.35);
+    ctx.lineTo(cx + size * 0.22, cy - size * 0.43);
     ctx.closePath();
     
-    ctx.moveTo(cx + size * 0.3, cy + size * 0.2);
-    ctx.lineTo(cx + size * 0.4, cy + size * 0.3);
-    ctx.lineTo(cx + size * 0.3, cy + size * 0.4);
-    ctx.lineTo(cx + size * 0.2, cy + size * 0.3);
+    ctx.moveTo(cx + size * 0.32, cy + size * 0.2);
+    ctx.lineTo(cx + size * 0.4, cy + size * 0.28);
+    ctx.lineTo(cx + size * 0.32, cy + size * 0.36);
+    ctx.lineTo(cx + size * 0.24, cy + size * 0.28);
     ctx.closePath();
   };
 
