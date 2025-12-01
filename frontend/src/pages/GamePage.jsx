@@ -744,6 +744,7 @@ const GamePage = () => {
   };
 
   const handleShowResult = () => {
+    console.log('📊 Показываем результат. Путей обводки:', allTracedPaths.length);
     setShowResult(true);
     clearInterval(timerRef.current);
 
@@ -753,9 +754,6 @@ const GamePage = () => {
       completed: true
     };
     setSessionStats((prev) => [...prev, stats]);
-
-    // Рисуем обе линии одним цветом
-    drawResultOverlay();
   };
 
   const handleMouseLeave = () => {
