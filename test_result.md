@@ -214,6 +214,17 @@ agent_communication:
     - agent: "testing"
       message: "Starting comprehensive testing of Kontur-2 vision therapy application. Will test setup page, game functionality, new animal figures, and critical result screen with dotted/solid line comparison. Testing will be conducted using Playwright automation at http://localhost:3000."
     - agent: "testing"
+  - task: "Updated Navigation System - Optional Calibration"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/pages/SetupPage.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "testing"
+          comment: "NAVIGATION UPDATE SUCCESSFUL: Verified that calibration is now OPTIONAL. Main page has TWO buttons: 'Начать игру' (direct game access without calibration) and 'Калибровка цветов' (optional calibration page). Both navigation paths tested and working correctly. Users can now start the game immediately or choose to calibrate colors first. This addresses the user requirement to make calibration optional rather than mandatory."
       message: "TESTING COMPLETED SUCCESSFULLY: All features of Kontur-2 application are working perfectly. The critical result screen feature with dotted/solid line comparison is implemented correctly and working as specified. All new animal figures are present. The application is ready for use."
     - agent: "testing"
       message: "IMPROVED ANIMAL FIGURES TESTING COMPLETED: Successfully tested the 9 new improved animal figures as requested. Captured screenshots of all 45 figures in the application. All new animal drawing functions are implemented and working correctly. The figures are properly randomized and display with appropriate complexity for tracing exercises."
