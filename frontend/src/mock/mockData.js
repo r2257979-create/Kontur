@@ -32,7 +32,15 @@ export const figures = [
   { type: 'snail', shape: 'snail', name: 'Улитка' },
   { type: 'elephant', shape: 'elephant', name: 'Слон' },
   { type: 'train', shape: 'train', name: 'Паровозик' },
-  { type: 'ship', shape: 'ship', name: 'Корабль' }
+  { type: 'ship', shape: 'ship', name: 'Корабль' },
+  { type: 'duck', shape: 'duck', name: 'Утка' },
+  { type: 'pig', shape: 'pig', name: 'Свинья' },
+  { type: 'parrot', shape: 'parrot', name: 'Попугай' },
+  { type: 'bat', shape: 'bat', name: 'Летучая мышь' },
+  { type: 'frog', shape: 'frog', name: 'Лягушка' },
+  { type: 'owl', shape: 'owl', name: 'Сова' },
+  { type: 'snake', shape: 'snake', name: 'Змея' },
+  { type: 'beaver', shape: 'beaver', name: 'Бобёр' }
 ];
 
 export const mockSessionStats = {
