@@ -915,48 +915,47 @@ const GamePage = () => {
   };
 
   const drawOwl = (ctx, cx, cy, size) => {
-    // Тело совы
-    ctx.moveTo(cx + size * 0.5, cy);
-    ctx.ellipse(cx, cy + size * 0.2, size * 0.5, size * 0.6, 0, 0, 2 * Math.PI);
+    // Круглое тело
+    ctx.ellipse(cx, cy + size * 0.15, size * 0.45, size * 0.55, 0, 0, 2 * Math.PI);
     
-    // Голова
-    ctx.moveTo(cx + size * 0.45, cy - size * 0.3);
-    ctx.arc(cx, cy - size * 0.3, size * 0.45, 0, 2 * Math.PI);
+    // Круглая голова
+    ctx.moveTo(cx + size * 0.4, cy - size * 0.25);
+    ctx.arc(cx, cy - size * 0.25, size * 0.4, 0, 2 * Math.PI);
     
-    // Большие глаза
-    ctx.moveTo(cx - size * 0.1, cy - size * 0.3);
-    ctx.arc(cx - size * 0.25, cy - size * 0.35, size * 0.2, 0, 2 * Math.PI);
-    ctx.moveTo(cx + size * 0.4, cy - size * 0.3);
-    ctx.arc(cx + size * 0.25, cy - size * 0.35, size * 0.2, 0, 2 * Math.PI);
+    // Огромные круглые глаза
+    ctx.moveTo(cx - size * 0.08, cy - size * 0.28);
+    ctx.arc(cx - size * 0.22, cy - size * 0.3, size * 0.18, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.4, cy - size * 0.28);
+    ctx.arc(cx + size * 0.22, cy - size * 0.3, size * 0.18, 0, 2 * Math.PI);
     
     // Зрачки
-    ctx.moveTo(cx - size * 0.2, cy - size * 0.35);
-    ctx.arc(cx - size * 0.25, cy - size * 0.35, size * 0.08, 0, 2 * Math.PI);
-    ctx.moveTo(cx + size * 0.3, cy - size * 0.35);
-    ctx.arc(cx + size * 0.25, cy - size * 0.35, size * 0.08, 0, 2 * Math.PI);
+    ctx.moveTo(cx - size * 0.18, cy - size * 0.3);
+    ctx.arc(cx - size * 0.22, cy - size * 0.3, size * 0.07, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.26, cy - size * 0.3);
+    ctx.arc(cx + size * 0.22, cy - size * 0.3, size * 0.07, 0, 2 * Math.PI);
     
-    // Клюв
-    ctx.moveTo(cx, cy - size * 0.2);
-    ctx.lineTo(cx - size * 0.08, cy - size * 0.05);
-    ctx.lineTo(cx + size * 0.08, cy - size * 0.05);
+    // Маленький клюв треугольник
+    ctx.moveTo(cx, cy - size * 0.18);
+    ctx.lineTo(cx - size * 0.07, cy - size * 0.05);
+    ctx.lineTo(cx + size * 0.07, cy - size * 0.05);
     ctx.closePath();
     
-    // Перья на груди (V-образные)
-    ctx.moveTo(cx - size * 0.2, cy + size * 0.1);
-    ctx.lineTo(cx - size * 0.15, cy + size * 0.25);
-    ctx.lineTo(cx - size * 0.2, cy + size * 0.4);
-    ctx.moveTo(cx, cy + size * 0.1);
-    ctx.lineTo(cx, cy + size * 0.25);
-    ctx.lineTo(cx - size * 0.05, cy + size * 0.4);
-    ctx.moveTo(cx + size * 0.2, cy + size * 0.1);
-    ctx.lineTo(cx + size * 0.15, cy + size * 0.25);
-    ctx.lineTo(cx + size * 0.2, cy + size * 0.4);
+    // V-образные перья на груди
+    ctx.moveTo(cx - size * 0.18, cy + size * 0.08);
+    ctx.lineTo(cx - size * 0.14, cy + size * 0.22);
+    ctx.lineTo(cx - size * 0.18, cy + size * 0.36);
+    ctx.moveTo(cx, cy + size * 0.08);
+    ctx.lineTo(cx, cy + size * 0.22);
+    ctx.lineTo(cx - size * 0.04, cy + size * 0.36);
+    ctx.moveTo(cx + size * 0.18, cy + size * 0.08);
+    ctx.lineTo(cx + size * 0.14, cy + size * 0.22);
+    ctx.lineTo(cx + size * 0.18, cy + size * 0.36);
     
-    // Лапки
-    ctx.moveTo(cx - size * 0.15, cy + size * 0.8);
-    ctx.lineTo(cx - size * 0.15, cy + size * 0.95);
-    ctx.moveTo(cx + size * 0.15, cy + size * 0.8);
-    ctx.lineTo(cx + size * 0.15, cy + size * 0.95);
+    // Короткие лапки
+    ctx.moveTo(cx - size * 0.12, cy + size * 0.7);
+    ctx.lineTo(cx - size * 0.12, cy + size * 0.82);
+    ctx.moveTo(cx + size * 0.12, cy + size * 0.7);
+    ctx.lineTo(cx + size * 0.12, cy + size * 0.82);
   };
 
   const drawSnake = (ctx, cx, cy, size) => {
