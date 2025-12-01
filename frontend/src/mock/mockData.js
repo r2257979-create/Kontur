@@ -40,7 +40,8 @@ export const figures = [
   { type: 'frog', shape: 'frog', name: 'Лягушка' },
   { type: 'owl', shape: 'owl', name: 'Сова' },
   { type: 'snake', shape: 'snake', name: 'Змея' },
-  { type: 'beaver', shape: 'beaver', name: 'Бобёр' }
+  { type: 'beaver', shape: 'beaver', name: 'Бобёр' },
+  { type: 'squirrel', shape: 'squirrel', name: 'Белка' }
 ];
 
 export const mockSessionStats = {
