@@ -99,7 +99,7 @@ const GamePage = () => {
       if (e.key === ' ' && showInstructions) {
         e.preventDefault();
         setShowInstructions(false);
-      } else if (e.key === ' ' && !showInstructions && !showResult && waitingForCompletion) {
+      } else if (e.key === ' ' && !showInstructions && !showResult) {
         // Первое нажатие пробела - показываем результат
         e.preventDefault();
         handleShowResult();
@@ -114,7 +114,7 @@ const GamePage = () => {
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [showResult, showInstructions, waitingForCompletion]);
+  }, [showResult, showInstructions]);
 
   useEffect(() => {
     if (settings && !showResult && !showInstructions) {
