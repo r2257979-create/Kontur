@@ -210,153 +210,154 @@ const GamePage = () => {
         ctx.lineTo(centerX - size, centerY + size);
         ctx.closePath();
         break;
-      case 'star':
+      case 'rectangle':
+        ctx.rect(centerX - size * 1.3, centerY - size * 0.7, size * 2.6, size * 1.4);
+        break;
+      case 'oval':
+        ctx.ellipse(centerX, centerY, size * 1.3, size * 0.7, 0, 0, 2 * Math.PI);
+        break;
+      case 'diamond':
+        ctx.moveTo(centerX, centerY - size);
+        ctx.lineTo(centerX + size, centerY);
+        ctx.lineTo(centerX, centerY + size);
+        ctx.lineTo(centerX - size, centerY);
+        ctx.closePath();
+        break;
+      case 'star5':
         drawStar(ctx, centerX, centerY, 5, size, size / 2);
+        break;
+      case 'star4':
+        drawStar(ctx, centerX, centerY, 4, size, size / 2);
+        break;
+      case 'star6':
+        drawStar(ctx, centerX, centerY, 6, size, size / 2);
+        break;
+      case 'star8':
+        drawStar(ctx, centerX, centerY, 8, size, size / 2);
         break;
       case 'heart':
         drawHeart(ctx, centerX, centerY, size);
         break;
-      case 'house':
-        drawHouse(ctx, centerX, centerY, size);
+      case 'pentagon':
+        drawPolygon(ctx, centerX, centerY, 5, size);
         break;
-      case 'sun':
-        drawSun(ctx, centerX, centerY, size);
+      case 'hexagon':
+        drawPolygon(ctx, centerX, centerY, 6, size);
+        break;
+      case 'octagon':
+        drawPolygon(ctx, centerX, centerY, 8, size);
+        break;
+      case 'semicircle':
+        ctx.arc(centerX, centerY, size, 0, Math.PI);
+        ctx.lineTo(centerX - size, centerY);
+        break;
+      case 'quartercircle':
+        ctx.arc(centerX, centerY, size, 0, Math.PI / 2);
+        ctx.lineTo(centerX, centerY);
+        ctx.closePath();
+        break;
+      case 'cross':
+        drawCross(ctx, centerX, centerY, size);
+        break;
+      case 'plus':
+        drawPlus(ctx, centerX, centerY, size);
+        break;
+      case 'arrowup':
+        drawArrowUp(ctx, centerX, centerY, size);
+        break;
+      case 'arrowright':
+        drawArrowRight(ctx, centerX, centerY, size);
+        break;
+      case 'arrowdown':
+        drawArrowDown(ctx, centerX, centerY, size);
+        break;
+      case 'arrowleft':
+        drawArrowLeft(ctx, centerX, centerY, size);
+        break;
+      case 'parallelogram':
+        drawParallelogram(ctx, centerX, centerY, size);
+        break;
+      case 'trapezoid':
+        drawTrapezoid(ctx, centerX, centerY, size);
+        break;
+      case 'rightTriangle':
+        drawRightTriangle(ctx, centerX, centerY, size);
+        break;
+      case 'circles2':
+        drawCircles2(ctx, centerX, centerY, size);
+        break;
+      case 'circles3':
+        drawCircles3(ctx, centerX, centerY, size);
+        break;
+      case 'squares2':
+        drawSquares2(ctx, centerX, centerY, size);
+        break;
+      case 'triangles2':
+        drawTriangles2(ctx, centerX, centerY, size);
+        break;
+      case 'crescent':
+        drawCrescent(ctx, centerX, centerY, size);
+        break;
+      case 'drop':
+        drawDrop(ctx, centerX, centerY, size);
+        break;
+      case 'eight':
+        drawEight(ctx, centerX, centerY, size);
+        break;
+      case 'infinity':
+        drawInfinity(ctx, centerX, centerY, size);
+        break;
+      case 'zigzag':
+        drawZigzag(ctx, centerX, centerY, size);
+        break;
+      case 'wave':
+        drawWave(ctx, centerX, centerY, size);
+        break;
+      case 'sine':
+        drawSine(ctx, centerX, centerY, size);
+        break;
+      case 'spiralSquare':
+        drawSpiralSquare(ctx, centerX, centerY, size);
+        break;
+      case 'spiralRound':
+        drawSpiralRound(ctx, centerX, centerY, size);
+        break;
+      case 'crossX':
+        drawCrossX(ctx, centerX, centerY, size);
+        break;
+      case 'lightning':
+        drawLightning(ctx, centerX, centerY, size);
+        break;
+      case 'cloud':
+        drawCloud(ctx, centerX, centerY, size);
+        break;
+      case 'arch':
+        drawArch(ctx, centerX, centerY, size);
+        break;
+      case 'letterL':
+        drawLetterL(ctx, centerX, centerY, size);
+        break;
+      case 'letterT':
+        drawLetterT(ctx, centerX, centerY, size);
+        break;
+      case 'letterH':
+        drawLetterH(ctx, centerX, centerY, size);
+        break;
+      case 'maze1':
+        drawMaze1(ctx, centerX, centerY, size);
+        break;
+      case 'maze2':
+        drawMaze2(ctx, centerX, centerY, size);
+        break;
+      case 'maze3':
+        drawMaze3(ctx, centerX, centerY, size);
+        break;
+      case 'grid':
+        drawGrid(ctx, centerX, centerY, size);
         break;
       case 'flower':
         drawFlower(ctx, centerX, centerY, size);
         break;
-      case 'ball':
-        ctx.arc(centerX, centerY, size * 0.8, 0, 2 * Math.PI);
-        break;
-      case 'apple':
-        drawApple(ctx, centerX, centerY, size);
-        break;
-      case 'pear':
-        drawPear(ctx, centerX, centerY, size);
-        break;
-      case 'ladybug':
-        drawLadybug(ctx, centerX, centerY, size);
-        break;
-      case 'chick':
-        drawChick(ctx, centerX, centerY, size);
-        break;
-      case 'hedgehog':
-        drawHedgehog(ctx, centerX, centerY, size);
-        break;
-      case 'horse':
-        drawHorse(ctx, centerX, centerY, size);
-        break;
-      case 'whale':
-        drawWhale(ctx, centerX, centerY, size);
-        break;
-      case 'hippo':
-        drawHippo(ctx, centerX, centerY, size);
-        break;
-      case 'dolphin':
-        drawDolphin(ctx, centerX, centerY, size);
-        break;
-      case 'sheep':
-        drawSheep(ctx, centerX, centerY, size);
-        break;
-      case 'elephant':
-        drawElephant(ctx, centerX, centerY, size);
-        break;
-      case 'train':
-        drawTrain(ctx, centerX, centerY, size);
-        break;
-      case 'ship':
-        drawShip(ctx, centerX, centerY, size);
-        break;
-      case 'turtle':
-        drawTurtle(ctx, centerX, centerY, size);
-        break;
-      case 'cat':
-        drawCat(ctx, centerX, centerY, size);
-        break;
-      case 'fish':
-        drawFish(ctx, centerX, centerY, size);
-        break;
-      case 'butterfly':
-        drawButterfly(ctx, centerX, centerY, size);
-        break;
-      case 'car':
-        drawCar(ctx, centerX, centerY, size);
-        break;
-      case 'tree':
-        drawTree(ctx, centerX, centerY, size);
-        break;
-      case 'cup':
-        drawCup(ctx, centerX, centerY, size);
-        break;
-      case 'teddy':
-        drawTeddy(ctx, centerX, centerY, size);
-        break;
-      case 'maze_simple':
-        drawMazeSimple(ctx, centerX, centerY, size);
-        break;
-      case 'dog':
-        drawDog(ctx, centerX, centerY, size);
-        break;
-      case 'bird':
-        drawBird(ctx, centerX, centerY, size);
-        break;
-      case 'spider':
-        drawSpider(ctx, centerX, centerY, size);
-        break;
-      case 'airplane':
-        drawAirplane(ctx, centerX, centerY, size);
-        break;
-      case 'mushroom':
-        drawMushroom(ctx, centerX, centerY, size);
-        break;
-      case 'rabbit':
-        drawRabbit(ctx, centerX, centerY, size);
-        break;
-      case 'snail':
-        drawSnail(ctx, centerX, centerY, size);
-        break;
-      case 'maze_complex':
-        drawMazeComplex(ctx, centerX, centerY, size);
-        break;
-      case 'pig':
-        drawPig(ctx, centerX, centerY, size);
-        break;
-      case 'duck':
-        drawDuck(ctx, centerX, centerY, size);
-        break;
-      case 'parrot':
-        drawParrot(ctx, centerX, centerY, size);
-        break;
-      case 'bat':
-        drawBat(ctx, centerX, centerY, size);
-        break;
-      case 'frog':
-        drawFrog(ctx, centerX, centerY, size);
-        break;
-      case 'owl':
-        drawOwl(ctx, centerX, centerY, size);
-        break;
-      case 'snake':
-        drawSnake(ctx, centerX, centerY, size);
-        break;
-      case 'beaver':
-        drawBeaver(ctx, centerX, centerY, size);
-        break;
-      case 'squirrel':
-        drawSquirrel(ctx, centerX, centerY, size);
-        break;
-      case 'letter':
-        ctx.font = `bold ${size * 3}px Arial`;
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.strokeText(figure.shape, centerX, centerY);
-        return;
-      case 'number':
-        ctx.font = `bold ${size * 3}px Arial`;
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.strokeText(figure.shape, centerX, centerY);
-        return;
     }
 
     ctx.stroke();
