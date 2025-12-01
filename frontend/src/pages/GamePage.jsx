@@ -502,7 +502,7 @@ const GamePage = () => {
     const rect = canvasRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    setTracedPath([{ x, y }]);
+    setCurrentPath([{ x, y }]);
   };
 
   const handleMouseMove = (e) => {
@@ -516,16 +516,19 @@ const GamePage = () => {
     setMousePos({ x, y });
 
     if (isTracing && !showResult && !showInstructions) {
-      setTracedPath((prev) => [...prev, { x, y }]);
+      setCurrentPath((prev) => [...prev, { x, y }]);
     }
   };
 
   const handleMouseUp = () => {
     if (!isTracing) return;
     setIsTracing(false);
-    setWaitingForCompletion(true);
-    // НЕ останавливаем таймер и НЕ показываем результат
-    // Ждём нажатия пробела от игрока
+    
+    // Сохраняем текущий путь в список всех путей
+    if (currentPath.length > 1) {
+      setAllTracedPaths((prev) => [...prev, currentPath]);
+    }
+    setCurrentPath([]);
   };
 
   const handleShowResult = () => {
