@@ -804,41 +804,40 @@ const GamePage = () => {
   };
 
   const drawParrot = (ctx, cx, cy, size) => {
-    // Тело попугая
-    ctx.moveTo(cx + size * 0.5, cy);
-    ctx.ellipse(cx, cy, size * 0.5, size * 0.7, 0, 0, 2 * Math.PI);
+    // Круглое тело
+    ctx.arc(cx, cy + size * 0.1, size * 0.45, 0, 2 * Math.PI);
     
-    // Голова
-    ctx.moveTo(cx + size * 0.4, cy - size * 0.7);
-    ctx.arc(cx, cy - size * 0.7, size * 0.4, 0, 2 * Math.PI);
+    // Круглая голова
+    ctx.moveTo(cx + size * 0.35, cy - size * 0.6);
+    ctx.arc(cx, cy - size * 0.6, size * 0.35, 0, 2 * Math.PI);
     
-    // Клюв загнутый
-    ctx.moveTo(cx - size * 0.35, cy - size * 0.75);
-    ctx.quadraticCurveTo(cx - size * 0.55, cy - size * 0.8, cx - size * 0.6, cy - size * 0.65);
-    ctx.quadraticCurveTo(cx - size * 0.55, cy - size * 0.55, cx - size * 0.4, cy - size * 0.6);
+    // Загнутый клюв
+    ctx.moveTo(cx - size * 0.32, cy - size * 0.65);
+    ctx.quadraticCurveTo(cx - size * 0.5, cy - size * 0.75, cx - size * 0.52, cy - size * 0.58);
+    ctx.quadraticCurveTo(cx - size * 0.48, cy - size * 0.48, cx - size * 0.35, cy - size * 0.55);
     
     // Глаз
-    ctx.moveTo(cx - size * 0.1, cy - size * 0.7);
-    ctx.arc(cx - size * 0.15, cy - size * 0.75, size * 0.1, 0, 2 * Math.PI);
+    ctx.moveTo(cx - size * 0.08, cy - size * 0.6);
+    ctx.arc(cx - size * 0.12, cy - size * 0.65, size * 0.08, 0, 2 * Math.PI);
     
     // Крыло
-    ctx.moveTo(cx, cy - size * 0.2);
-    ctx.quadraticCurveTo(cx + size * 0.6, cy, cx + size * 0.5, cy + size * 0.4);
-    ctx.quadraticCurveTo(cx + size * 0.3, cy + size * 0.5, cx, cy + size * 0.3);
+    ctx.moveTo(cx + size * 0.02, cy - size * 0.1);
+    ctx.quadraticCurveTo(cx + size * 0.55, cy + size * 0.05, cx + size * 0.48, cy + size * 0.35);
+    ctx.quadraticCurveTo(cx + size * 0.3, cy + size * 0.45, cx + size * 0.05, cy + size * 0.35);
     
-    // Хвост
-    ctx.moveTo(cx, cy + size * 0.7);
-    ctx.lineTo(cx + size * 0.3, cy + size * 1.2);
-    ctx.moveTo(cx, cy + size * 0.7);
-    ctx.lineTo(cx - size * 0.1, cy + size * 1.2);
-    ctx.moveTo(cx, cy + size * 0.7);
-    ctx.lineTo(cx + size * 0.15, cy + size * 1.25);
+    // Хвост (три пера)
+    ctx.moveTo(cx - size * 0.05, cy + size * 0.55);
+    ctx.lineTo(cx + size * 0.18, cy + size * 0.95);
+    ctx.moveTo(cx - size * 0.05, cy + size * 0.55);
+    ctx.lineTo(cx - size * 0.12, cy + size * 0.95);
+    ctx.moveTo(cx - size * 0.05, cy + size * 0.55);
+    ctx.lineTo(cx + size * 0.03, cy + size * 1.0);
     
     // Лапки
-    ctx.moveTo(cx - size * 0.2, cy + size * 0.7);
-    ctx.lineTo(cx - size * 0.2, cy + size * 0.85);
-    ctx.moveTo(cx + size * 0.1, cy + size * 0.7);
-    ctx.lineTo(cx + size * 0.1, cy + size * 0.85);
+    ctx.moveTo(cx - size * 0.18, cy + size * 0.55);
+    ctx.lineTo(cx - size * 0.18, cy + size * 0.7);
+    ctx.moveTo(cx + size * 0.08, cy + size * 0.55);
+    ctx.lineTo(cx + size * 0.08, cy + size * 0.7);
   };
 
   const drawBat = (ctx, cx, cy, size) => {
