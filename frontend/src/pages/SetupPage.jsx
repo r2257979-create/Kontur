@@ -54,6 +54,18 @@ const SetupPage = () => {
     }));
     // Сохраняем длительность для будущих сессий
     localStorage.setItem('savedDuration', duration.toString());
+    navigate('/game');
+  };
+
+  const handleCalibration = () => {
+    const savedSettings = getSavedColors();
+    localStorage.setItem('gameSettings', JSON.stringify({ 
+      color1, 
+      color2, 
+      backgroundColor: savedSettings.backgroundColor,
+      duration: duration
+    }));
+    localStorage.setItem('savedDuration', duration.toString());
     navigate('/calibration');
   };
 
