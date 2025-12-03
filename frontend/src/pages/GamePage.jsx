@@ -191,9 +191,18 @@ const GamePage = () => {
   };
 
   const drawShape = (ctx, figure) => {
-    const centerX = 540;
-    const centerY = 405;
+    const baseCenterX = 540;
+    const baseCenterY = 405;
     const size = 180;
+    
+    // Случайное смещение ±10% от центра (генерируется один раз для каждой фигуры)
+    if (!figure.offsetX) {
+      figure.offsetX = (Math.random() - 0.5) * 2 * baseCenterX * 0.1;
+      figure.offsetY = (Math.random() - 0.5) * 2 * baseCenterY * 0.1;
+    }
+    
+    const centerX = baseCenterX + figure.offsetX;
+    const centerY = baseCenterY + figure.offsetY;
 
     ctx.beginPath();
 
