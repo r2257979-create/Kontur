@@ -210,10 +210,6 @@ test_plan:
   test_all: true
   test_priority: "completed"
 
-agent_communication:
-    - agent: "testing"
-      message: "Starting comprehensive testing of Kontur-2 vision therapy application. Will test setup page, game functionality, new animal figures, and critical result screen with dotted/solid line comparison. Testing will be conducted using Playwright automation at http://localhost:3000."
-    - agent: "testing"
   - task: "Updated Navigation System - Optional Calibration"
     implemented: true
     working: true
@@ -225,8 +221,39 @@ agent_communication:
         - working: true
           agent: "testing"
           comment: "NAVIGATION UPDATE SUCCESSFUL: Verified that calibration is now OPTIONAL. Main page has TWO buttons: 'Начать игру' (direct game access without calibration) and 'Калибровка цветов' (optional calibration page). Both navigation paths tested and working correctly. Users can now start the game immediately or choose to calibrate colors first. This addresses the user requirement to make calibration optional rather than mandatory."
+
+  - task: "Random shape offset feature - ±10% from center"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/pages/GamePage.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "NEW FEATURE: Random shape offset implementation needs testing. Code shows each shape gets random ±10% offset from center (lines 198-205). Need to verify shapes appear in different positions, not always centered, and don't go outside screen boundaries."
+
+  - task: "11 new shapes added - Fish, Tree, Car, House, Dog, Horse, Bear, Chicken, Boat, Cow, Kangaroo"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/mock/mockData.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "NEW SHAPES: 11 new shapes added to mockData.js (lines 52-62). Need to verify all new shapes appear during gameplay, are recognizable, and have proper drawing functions implemented in GamePage.jsx."
+
+agent_communication:
+    - agent: "testing"
+      message: "Starting comprehensive testing of Kontur-2 vision therapy application. Will test setup page, game functionality, new animal figures, and critical result screen with dotted/solid line comparison. Testing will be conducted using Playwright automation at http://localhost:3000."
+    - agent: "testing"
       message: "TESTING COMPLETED SUCCESSFULLY: All features of Kontur-2 application are working perfectly. The critical result screen feature with dotted/solid line comparison is implemented correctly and working as specified. All new animal figures are present. The application is ready for use."
     - agent: "testing"
       message: "IMPROVED ANIMAL FIGURES TESTING COMPLETED: Successfully tested the 9 new improved animal figures as requested. Captured screenshots of all 45 figures in the application. All new animal drawing functions are implemented and working correctly. The figures are properly randomized and display with appropriate complexity for tracing exercises."
     - agent: "testing"
       message: "UPDATED NAVIGATION TESTING COMPLETED: Successfully verified the updated navigation system in Kontur-2 app. CALIBRATION IS NOW OPTIONAL - users can start game directly with 'Начать игру' button or access calibration separately with 'Калибровка цветов' button. Both navigation paths work correctly. All UI elements (color settings, duration options, preview) are present and functional. The navigation update has been implemented successfully as requested."
+    - agent: "testing"
+      message: "NEW TESTING REQUEST: Testing new changes - random shape offset (±10% from center) and 11 new shapes (Fish, Tree, Car, House, Dog, Horse, Bear, Chicken, Boat, Cow, Kangaroo). Will verify offset functionality and identify new shapes during gameplay."
