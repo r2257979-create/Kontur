@@ -367,6 +367,39 @@ const GamePage = () => {
       case 'flower':
         drawFlower(ctx, centerX, centerY, size);
         break;
+      case 'fish':
+        drawFish(ctx, centerX, centerY, size);
+        break;
+      case 'tree':
+        drawTree(ctx, centerX, centerY, size);
+        break;
+      case 'car':
+        drawCar(ctx, centerX, centerY, size);
+        break;
+      case 'house':
+        drawHouse(ctx, centerX, centerY, size);
+        break;
+      case 'dog':
+        drawDog(ctx, centerX, centerY, size);
+        break;
+      case 'horse':
+        drawHorse(ctx, centerX, centerY, size);
+        break;
+      case 'bear':
+        drawBear(ctx, centerX, centerY, size);
+        break;
+      case 'chicken':
+        drawChicken(ctx, centerX, centerY, size);
+        break;
+      case 'boat':
+        drawBoat(ctx, centerX, centerY, size);
+        break;
+      case 'cow':
+        drawCow(ctx, centerX, centerY, size);
+        break;
+      case 'kangaroo':
+        drawKangaroo(ctx, centerX, centerY, size);
+        break;
     }
 
     ctx.stroke();
