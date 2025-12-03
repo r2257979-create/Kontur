@@ -437,12 +437,21 @@ const GamePage = () => {
   };
 
   const drawHouse = (ctx, cx, cy, size) => {
-    ctx.moveTo(cx, cy - size);
-    ctx.lineTo(cx + size, cy);
-    ctx.lineTo(cx + size, cy + size);
-    ctx.lineTo(cx - size, cy + size);
-    ctx.lineTo(cx - size, cy);
+    // Основание дома
+    ctx.rect(cx - size * 0.6, cy, size * 1.2, size * 0.8);
+    // Крыша
+    ctx.moveTo(cx, cy - size * 0.5);
+    ctx.lineTo(cx + size * 0.8, cy);
+    ctx.lineTo(cx - size * 0.8, cy);
     ctx.closePath();
+    // Дверь
+    ctx.moveTo(cx - size * 0.15, cy + size * 0.3);
+    ctx.lineTo(cx - size * 0.15, cy + size * 0.8);
+    ctx.lineTo(cx + size * 0.15, cy + size * 0.8);
+    ctx.lineTo(cx + size * 0.15, cy + size * 0.3);
+    ctx.closePath();
+    // Окно
+    ctx.rect(cx + size * 0.25, cy + size * 0.3, size * 0.25, size * 0.25);
   };
 
   const drawSun = (ctx, cx, cy, size) => {
