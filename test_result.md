@@ -205,10 +205,12 @@ metadata:
   run_ui: true
 
 test_plan:
-  current_focus: []
+  current_focus:
+    - "Random shape offset feature - ±10% from center"
+    - "11 new shapes added - Fish, Tree, Car, House, Dog, Horse, Bear, Chicken, Boat, Cow, Kangaroo"
   stuck_tasks: []
-  test_all: true
-  test_priority: "completed"
+  test_all: false
+  test_priority: "high_first"
 
   - task: "Updated Navigation System - Optional Calibration"
     implemented: true
