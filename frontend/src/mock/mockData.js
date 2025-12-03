@@ -48,7 +48,18 @@ export const figures = [
   { type: 'maze2', shape: 'maze2', name: 'Лабиринт средний' },
   { type: 'maze3', shape: 'maze3', name: 'Лабиринт сложный' },
   { type: 'grid', shape: 'grid', name: 'Сетка' },
-  { type: 'flower', shape: 'flower', name: 'Цветок' }
+  { type: 'flower', shape: 'flower', name: 'Цветок' },
+  { type: 'fish', shape: 'fish', name: 'Рыба' },
+  { type: 'tree', shape: 'tree', name: 'Дерево' },
+  { type: 'car', shape: 'car', name: 'Автомобиль' },
+  { type: 'house', shape: 'house', name: 'Дом' },
+  { type: 'dog', shape: 'dog', name: 'Собака' },
+  { type: 'horse', shape: 'horse', name: 'Лошадь' },
+  { type: 'bear', shape: 'bear', name: 'Мишка' },
+  { type: 'chicken', shape: 'chicken', name: 'Курица' },
+  { type: 'boat', shape: 'boat', name: 'Лодка' },
+  { type: 'cow', shape: 'cow', name: 'Корова' },
+  { type: 'kangaroo', shape: 'kangaroo', name: 'Кенгуру' }
 ];
 
 export const mockSessionStats = {
