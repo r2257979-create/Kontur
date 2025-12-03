@@ -476,6 +476,69 @@ const GamePage = () => {
     ctx.lineTo(cx, cy + size);
   };
 
+  const drawFish = (ctx, cx, cy, size) => {
+    // Тело рыбы
+    ctx.moveTo(cx - size * 0.8, cy);
+    ctx.quadraticCurveTo(cx - size * 0.4, cy - size * 0.5, cx + size * 0.3, cy);
+    ctx.quadraticCurveTo(cx - size * 0.4, cy + size * 0.5, cx - size * 0.8, cy);
+    // Хвост
+    ctx.moveTo(cx + size * 0.3, cy - size * 0.4);
+    ctx.lineTo(cx + size * 0.8, cy);
+    ctx.lineTo(cx + size * 0.3, cy + size * 0.4);
+    // Плавник
+    ctx.moveTo(cx - size * 0.2, cy - size * 0.4);
+    ctx.lineTo(cx - size * 0.1, cy - size * 0.6);
+    ctx.lineTo(cx, cy - size * 0.4);
+    // Глаз
+    ctx.moveTo(cx - size * 0.42, cy - size * 0.15);
+    ctx.arc(cx - size * 0.45, cy - size * 0.15, size * 0.08, 0, 2 * Math.PI);
+  };
+
+  const drawTree = (ctx, cx, cy, size) => {
+    // Ствол
+    ctx.moveTo(cx - size * 0.15, cy + size * 0.8);
+    ctx.lineTo(cx - size * 0.15, cy + size * 0.2);
+    ctx.lineTo(cx + size * 0.15, cy + size * 0.2);
+    ctx.lineTo(cx + size * 0.15, cy + size * 0.8);
+    ctx.closePath();
+    // Крона - три круга
+    ctx.moveTo(cx + size * 0.6, cy);
+    ctx.arc(cx, cy, size * 0.6, 0, 2 * Math.PI);
+    ctx.moveTo(cx - size * 0.2, cy - size * 0.6);
+    ctx.arc(cx - size * 0.5, cy - size * 0.3, size * 0.4, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.7, cy - size * 0.6);
+    ctx.arc(cx + size * 0.5, cy - size * 0.3, size * 0.4, 0, 2 * Math.PI);
+  };
+
+  const drawCar = (ctx, cx, cy, size) => {
+    // Кузов
+    ctx.moveTo(cx - size * 0.8, cy + size * 0.3);
+    ctx.lineTo(cx - size * 0.6, cy - size * 0.1);
+    ctx.lineTo(cx - size * 0.3, cy - size * 0.3);
+    ctx.lineTo(cx + size * 0.3, cy - size * 0.3);
+    ctx.lineTo(cx + size * 0.6, cy - size * 0.1);
+    ctx.lineTo(cx + size * 0.8, cy + size * 0.3);
+    ctx.lineTo(cx + size * 0.8, cy + size * 0.5);
+    ctx.lineTo(cx - size * 0.8, cy + size * 0.5);
+    ctx.closePath();
+    // Окна
+    ctx.moveTo(cx - size * 0.5, cy - size * 0.05);
+    ctx.lineTo(cx - size * 0.35, cy - size * 0.25);
+    ctx.lineTo(cx - size * 0.05, cy - size * 0.25);
+    ctx.lineTo(cx - size * 0.05, cy - size * 0.05);
+    ctx.closePath();
+    ctx.moveTo(cx + size * 0.05, cy - size * 0.05);
+    ctx.lineTo(cx + size * 0.05, cy - size * 0.25);
+    ctx.lineTo(cx + size * 0.35, cy - size * 0.25);
+    ctx.lineTo(cx + size * 0.5, cy - size * 0.05);
+    ctx.closePath();
+    // Колеса
+    ctx.moveTo(cx - size * 0.45, cy + size * 0.5);
+    ctx.arc(cx - size * 0.5, cy + size * 0.5, size * 0.2, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.65, cy + size * 0.5);
+    ctx.arc(cx + size * 0.5, cy + size * 0.5, size * 0.2, 0, 2 * Math.PI);
+  };
+
   const drawPolygon = (ctx, cx, cy, sides, size) => {
     const angle = (2 * Math.PI) / sides;
     ctx.moveTo(cx + size * Math.cos(0), cy + size * Math.sin(0));
