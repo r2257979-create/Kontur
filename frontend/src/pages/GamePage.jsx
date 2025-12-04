@@ -1103,6 +1103,238 @@ const GamePage = () => {
     ctx.quadraticCurveTo(cx + size * 0.6, cy + size * 0.5, cx + size * 0.7, cy + size * 0.75);
   };
 
+  const drawPeppa = (ctx, cx, cy, size) => {
+    // Голова свинки Пеппы - овал
+    ctx.ellipse(cx - size * 0.3, cy - size * 0.4, size * 0.4, size * 0.5, 0, 0, 2 * Math.PI);
+    // Пятачок
+    ctx.moveTo(cx - size * 0.05, cy - size * 0.35);
+    ctx.ellipse(cx - size * 0.15, cy - size * 0.35, size * 0.15, size * 0.12, 0, 0, 2 * Math.PI);
+    // Ноздри
+    ctx.moveTo(cx - size * 0.08, cy - size * 0.35);
+    ctx.arc(cx - size * 0.1, cy - size * 0.35, size * 0.03, 0, 2 * Math.PI);
+    ctx.moveTo(cx - size * 0.17, cy - size * 0.35);
+    ctx.arc(cx - size * 0.2, cy - size * 0.35, size * 0.03, 0, 2 * Math.PI);
+    // Глаза
+    ctx.moveTo(cx - size * 0.18, cy - size * 0.55);
+    ctx.arc(cx - size * 0.2, cy - size * 0.55, size * 0.06, 0, 2 * Math.PI);
+    ctx.moveTo(cx - size * 0.35, cy - size * 0.55);
+    ctx.arc(cx - size * 0.38, cy - size * 0.55, size * 0.06, 0, 2 * Math.PI);
+    // Улыбка
+    ctx.moveTo(cx - size * 0.45, cy - size * 0.25);
+    ctx.quadraticCurveTo(cx - size * 0.3, cy - size * 0.15, cx - size * 0.15, cy - size * 0.25);
+    // Ушко
+    ctx.moveTo(cx - size * 0.55, cy - size * 0.7);
+    ctx.lineTo(cx - size * 0.6, cy - size * 0.85);
+    ctx.lineTo(cx - size * 0.5, cy - size * 0.75);
+    // Тело
+    ctx.moveTo(cx - size * 0.1, cy - size * 0.1);
+    ctx.lineTo(cx - size * 0.1, cy + size * 0.4);
+    ctx.lineTo(cx + size * 0.3, cy + size * 0.4);
+    ctx.lineTo(cx + size * 0.3, cy - size * 0.1);
+    ctx.closePath();
+    // Ручки
+    ctx.moveTo(cx - size * 0.1, cy);
+    ctx.lineTo(cx - size * 0.25, cy + size * 0.15);
+    ctx.moveTo(cx + size * 0.3, cy);
+    ctx.lineTo(cx + size * 0.45, cy + size * 0.15);
+    // Ножки
+    ctx.moveTo(cx, cy + size * 0.4);
+    ctx.lineTo(cx, cy + size * 0.6);
+    ctx.lineTo(cx - size * 0.05, cy + size * 0.65);
+    ctx.lineTo(cx + size * 0.05, cy + size * 0.65);
+    ctx.moveTo(cx + size * 0.15, cy + size * 0.4);
+    ctx.lineTo(cx + size * 0.15, cy + size * 0.6);
+    ctx.lineTo(cx + size * 0.1, cy + size * 0.65);
+    ctx.lineTo(cx + size * 0.2, cy + size * 0.65);
+  };
+
+  const drawRabbit = (ctx, cx, cy, size) => {
+    // Тело
+    ctx.ellipse(cx, cy + size * 0.1, size * 0.4, size * 0.5, 0, 0, 2 * Math.PI);
+    // Голова
+    ctx.moveTo(cx + size * 0.35, cy - size * 0.5);
+    ctx.arc(cx, cy - size * 0.5, size * 0.35, 0, 2 * Math.PI);
+    // Длинные уши
+    ctx.moveTo(cx - size * 0.15, cy - size * 0.85);
+    ctx.ellipse(cx - size * 0.2, cy - size * 1.05, size * 0.12, size * 0.3, -0.2, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.35, cy - size * 0.85);
+    ctx.ellipse(cx + size * 0.2, cy - size * 1.05, size * 0.12, size * 0.3, 0.2, 0, 2 * Math.PI);
+    // Мордочка
+    ctx.moveTo(cx + size * 0.08, cy - size * 0.45);
+    ctx.arc(cx, cy - size * 0.45, size * 0.08, 0, 2 * Math.PI);
+    // Глаза
+    ctx.moveTo(cx - size * 0.12, cy - size * 0.6);
+    ctx.arc(cx - size * 0.15, cy - size * 0.6, size * 0.06, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.18, cy - size * 0.6);
+    ctx.arc(cx + size * 0.15, cy - size * 0.6, size * 0.06, 0, 2 * Math.PI);
+    // Лапки
+    ctx.moveTo(cx - size * 0.25, cy + size * 0.6);
+    ctx.lineTo(cx - size * 0.25, cy + size * 0.75);
+    ctx.moveTo(cx + size * 0.25, cy + size * 0.6);
+    ctx.lineTo(cx + size * 0.25, cy + size * 0.75);
+    // Хвостик
+    ctx.moveTo(cx + size * 0.45, cy + size * 0.15);
+    ctx.arc(cx + size * 0.45, cy + size * 0.15, size * 0.12, 0, 2 * Math.PI);
+  };
+
+  const drawTeddy = (ctx, cx, cy, size) => {
+    // Тело
+    ctx.arc(cx, cy + size * 0.2, size * 0.5, 0, 2 * Math.PI);
+    // Голова
+    ctx.moveTo(cx + size * 0.4, cy - size * 0.5);
+    ctx.arc(cx, cy - size * 0.5, size * 0.4, 0, 2 * Math.PI);
+    // Уши
+    ctx.moveTo(cx - size * 0.25, cy - size * 0.85);
+    ctx.arc(cx - size * 0.3, cy - size * 0.8, size * 0.15, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.45, cy - size * 0.85);
+    ctx.arc(cx + size * 0.3, cy - size * 0.8, size * 0.15, 0, 2 * Math.PI);
+    // Морда
+    ctx.moveTo(cx + size * 0.25, cy - size * 0.35);
+    ctx.arc(cx, cy - size * 0.35, size * 0.25, 0, 2 * Math.PI);
+    // Нос
+    ctx.moveTo(cx + size * 0.08, cy - size * 0.4);
+    ctx.arc(cx, cy - size * 0.4, size * 0.08, 0, 2 * Math.PI);
+    // Глаза
+    ctx.moveTo(cx - size * 0.12, cy - size * 0.55);
+    ctx.arc(cx - size * 0.15, cy - size * 0.55, size * 0.06, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.18, cy - size * 0.55);
+    ctx.arc(cx + size * 0.15, cy - size * 0.55, size * 0.06, 0, 2 * Math.PI);
+    // Лапы
+    ctx.moveTo(cx - size * 0.35, cy + size * 0.7);
+    ctx.lineTo(cx - size * 0.35, cy + size * 0.9);
+    ctx.moveTo(cx + size * 0.35, cy + size * 0.7);
+    ctx.lineTo(cx + size * 0.35, cy + size * 0.9);
+  };
+
+  const drawElephant = (ctx, cx, cy, size) => {
+    // Тело
+    ctx.ellipse(cx, cy, size * 0.6, size * 0.5, 0, 0, 2 * Math.PI);
+    // Голова
+    ctx.moveTo(cx - size * 0.4, cy - size * 0.6);
+    ctx.arc(cx - size * 0.5, cy - size * 0.5, size * 0.35, 0, 2 * Math.PI);
+    // Хобот длинный
+    ctx.moveTo(cx - size * 0.8, cy - size * 0.5);
+    ctx.quadraticCurveTo(cx - size * 1.0, cy - size * 0.3, cx - size * 1.05, cy);
+    ctx.quadraticCurveTo(cx - size * 1.0, cy + size * 0.2, cx - size * 0.95, cy + size * 0.35);
+    // Ухо большое
+    ctx.moveTo(cx - size * 0.55, cy - size * 0.75);
+    ctx.quadraticCurveTo(cx - size * 0.75, cy - size * 0.65, cx - size * 0.7, cy - size * 0.4);
+    ctx.quadraticCurveTo(cx - size * 0.6, cy - size * 0.45, cx - size * 0.5, cy - size * 0.6);
+    // Глаз
+    ctx.moveTo(cx - size * 0.42, cy - size * 0.55);
+    ctx.arc(cx - size * 0.45, cy - size * 0.55, size * 0.05, 0, 2 * Math.PI);
+    // Ноги
+    ctx.moveTo(cx - size * 0.35, cy + size * 0.5);
+    ctx.lineTo(cx - size * 0.35, cy + size * 0.8);
+    ctx.moveTo(cx - size * 0.1, cy + size * 0.5);
+    ctx.lineTo(cx - size * 0.1, cy + size * 0.8);
+    ctx.moveTo(cx + size * 0.15, cy + size * 0.5);
+    ctx.lineTo(cx + size * 0.15, cy + size * 0.8);
+    ctx.moveTo(cx + size * 0.4, cy + size * 0.5);
+    ctx.lineTo(cx + size * 0.4, cy + size * 0.8);
+    // Хвост
+    ctx.moveTo(cx + size * 0.6, cy);
+    ctx.lineTo(cx + size * 0.75, cy + size * 0.3);
+  };
+
+  const drawButterfly = (ctx, cx, cy, size) => {
+    // Тело
+    ctx.moveTo(cx, cy - size * 0.6);
+    ctx.lineTo(cx, cy + size * 0.6);
+    // Левое верхнее крыло
+    ctx.moveTo(cx, cy - size * 0.3);
+    ctx.quadraticCurveTo(cx - size * 0.5, cy - size * 0.7, cx - size * 0.3, cy - size * 0.1);
+    ctx.quadraticCurveTo(cx - size * 0.1, cy - size * 0.2, cx, cy - size * 0.3);
+    // Правое верхнее крыло
+    ctx.moveTo(cx, cy - size * 0.3);
+    ctx.quadraticCurveTo(cx + size * 0.5, cy - size * 0.7, cx + size * 0.3, cy - size * 0.1);
+    ctx.quadraticCurveTo(cx + size * 0.1, cy - size * 0.2, cx, cy - size * 0.3);
+    // Левое нижнее крыло
+    ctx.moveTo(cx, cy + size * 0.1);
+    ctx.quadraticCurveTo(cx - size * 0.6, cy + size * 0.5, cx - size * 0.35, cy + size * 0.3);
+    ctx.quadraticCurveTo(cx - size * 0.1, cy + size * 0.2, cx, cy + size * 0.1);
+    // Правое нижнее крыло
+    ctx.moveTo(cx, cy + size * 0.1);
+    ctx.quadraticCurveTo(cx + size * 0.6, cy + size * 0.5, cx + size * 0.35, cy + size * 0.3);
+    ctx.quadraticCurveTo(cx + size * 0.1, cy + size * 0.2, cx, cy + size * 0.1);
+    // Усики
+    ctx.moveTo(cx, cy - size * 0.6);
+    ctx.lineTo(cx - size * 0.1, cy - size * 0.75);
+    ctx.moveTo(cx, cy - size * 0.6);
+    ctx.lineTo(cx + size * 0.1, cy - size * 0.75);
+  };
+
+  const drawSnail = (ctx, cx, cy, size) => {
+    // Раковина - спираль
+    ctx.arc(cx + size * 0.2, cy - size * 0.2, size * 0.4, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.35, cy - size * 0.2);
+    ctx.arc(cx + size * 0.2, cy - size * 0.2, size * 0.25, 0, 2 * Math.PI);
+    // Тело
+    ctx.moveTo(cx - size * 0.5, cy + size * 0.3);
+    ctx.quadraticCurveTo(cx - size * 0.3, cy + size * 0.1, cx, cy + size * 0.15);
+    ctx.lineTo(cx + size * 0.2, cy + size * 0.2);
+    ctx.lineTo(cx + size * 0.15, cy + size * 0.35);
+    ctx.lineTo(cx - size * 0.4, cy + size * 0.4);
+    ctx.closePath();
+    // Рожки
+    ctx.moveTo(cx - size * 0.4, cy + size * 0.1);
+    ctx.lineTo(cx - size * 0.45, cy - size * 0.05);
+    ctx.moveTo(cx - size * 0.3, cy + size * 0.1);
+    ctx.lineTo(cx - size * 0.3, cy - size * 0.05);
+  };
+
+  const drawApple = (ctx, cx, cy, size) => {
+    // Яблоко
+    ctx.moveTo(cx, cy - size * 0.7);
+    ctx.quadraticCurveTo(cx - size * 0.8, cy - size * 0.5, cx - size * 0.7, cy + size * 0.2);
+    ctx.quadraticCurveTo(cx - size * 0.4, cy + size * 0.7, cx, cy + size * 0.75);
+    ctx.quadraticCurveTo(cx + size * 0.4, cy + size * 0.7, cx + size * 0.7, cy + size * 0.2);
+    ctx.quadraticCurveTo(cx + size * 0.8, cy - size * 0.5, cx, cy - size * 0.7);
+    // Черенок
+    ctx.moveTo(cx, cy - size * 0.7);
+    ctx.lineTo(cx + size * 0.05, cy - size * 0.85);
+    // Листик
+    ctx.moveTo(cx + size * 0.05, cy - size * 0.85);
+    ctx.quadraticCurveTo(cx + size * 0.2, cy - size * 0.85, cx + size * 0.15, cy - size * 0.75);
+  };
+
+  const drawMushroom = (ctx, cx, cy, size) => {
+    // Шляпка
+    ctx.moveTo(cx - size * 0.6, cy - size * 0.2);
+    ctx.quadraticCurveTo(cx - size * 0.7, cy - size * 0.7, cx, cy - size * 0.8);
+    ctx.quadraticCurveTo(cx + size * 0.7, cy - size * 0.7, cx + size * 0.6, cy - size * 0.2);
+    ctx.lineTo(cx + size * 0.3, cy - size * 0.2);
+    ctx.lineTo(cx - size * 0.3, cy - size * 0.2);
+    ctx.closePath();
+    // Ножка
+    ctx.rect(cx - size * 0.2, cy - size * 0.2, size * 0.4, size * 0.8);
+    // Пятнышки на шляпке
+    ctx.moveTo(cx - size * 0.25, cy - size * 0.5);
+    ctx.arc(cx - size * 0.3, cy - size * 0.5, size * 0.08, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.2, cy - size * 0.55);
+    ctx.arc(cx + size * 0.15, cy - size * 0.55, size * 0.07, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.05, cy - size * 0.65);
+    ctx.arc(cx, cy - size * 0.65, size * 0.06, 0, 2 * Math.PI);
+  };
+
+  const drawCup = (ctx, cx, cy, size) => {
+    // Чашка
+    ctx.moveTo(cx - size * 0.5, cy - size * 0.3);
+    ctx.lineTo(cx - size * 0.6, cy + size * 0.5);
+    ctx.quadraticCurveTo(cx, cy + size * 0.6, cx + size * 0.6, cy + size * 0.5);
+    ctx.lineTo(cx + size * 0.5, cy - size * 0.3);
+    ctx.closePath();
+    // Ручка
+    ctx.moveTo(cx + size * 0.5, cy);
+    ctx.quadraticCurveTo(cx + size * 0.85, cy + size * 0.1, cx + size * 0.65, cy + size * 0.3);
+    // Блюдце
+    ctx.moveTo(cx - size * 0.7, cy + size * 0.6);
+    ctx.lineTo(cx + size * 0.7, cy + size * 0.6);
+    ctx.lineTo(cx + size * 0.6, cy + size * 0.7);
+    ctx.lineTo(cx - size * 0.6, cy + size * 0.7);
+    ctx.closePath();
+  };
+
   const handleMouseDown = (e) => {
     if (showResult || showInstructions) return;
     setIsTracing(true);
