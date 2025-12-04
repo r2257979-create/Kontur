@@ -1145,32 +1145,35 @@ const GamePage = () => {
   };
 
   const drawRabbit = (ctx, cx, cy, size) => {
-    // Тело
-    ctx.ellipse(cx, cy + size * 0.1, size * 0.4, size * 0.5, 0, 0, 2 * Math.PI);
-    // Голова
-    ctx.moveTo(cx + size * 0.35, cy - size * 0.5);
-    ctx.arc(cx, cy - size * 0.5, size * 0.35, 0, 2 * Math.PI);
-    // Длинные уши
-    ctx.moveTo(cx - size * 0.15, cy - size * 0.85);
-    ctx.ellipse(cx - size * 0.2, cy - size * 1.05, size * 0.12, size * 0.3, -0.2, 0, 2 * Math.PI);
-    ctx.moveTo(cx + size * 0.35, cy - size * 0.85);
-    ctx.ellipse(cx + size * 0.2, cy - size * 1.05, size * 0.12, size * 0.3, 0.2, 0, 2 * Math.PI);
-    // Мордочка
-    ctx.moveTo(cx + size * 0.08, cy - size * 0.45);
-    ctx.arc(cx, cy - size * 0.45, size * 0.08, 0, 2 * Math.PI);
-    // Глаза
-    ctx.moveTo(cx - size * 0.12, cy - size * 0.6);
-    ctx.arc(cx - size * 0.15, cy - size * 0.6, size * 0.06, 0, 2 * Math.PI);
-    ctx.moveTo(cx + size * 0.18, cy - size * 0.6);
-    ctx.arc(cx + size * 0.15, cy - size * 0.6, size * 0.06, 0, 2 * Math.PI);
-    // Лапки
-    ctx.moveTo(cx - size * 0.25, cy + size * 0.6);
-    ctx.lineTo(cx - size * 0.25, cy + size * 0.75);
-    ctx.moveTo(cx + size * 0.25, cy + size * 0.6);
-    ctx.lineTo(cx + size * 0.25, cy + size * 0.75);
-    // Хвостик
-    ctx.moveTo(cx + size * 0.45, cy + size * 0.15);
-    ctx.arc(cx + size * 0.45, cy + size * 0.15, size * 0.12, 0, 2 * Math.PI);
+    // Большое круглое тело
+    ctx.arc(cx, cy, size * 0.5, 0, 2 * Math.PI);
+    // Круглая голова
+    ctx.moveTo(cx + size * 0.3, cy - size * 0.6);
+    ctx.arc(cx, cy - size * 0.6, size * 0.3, 0, 2 * Math.PI);
+    // Два длинных уха - простые овалы
+    ctx.moveTo(cx - size * 0.1, cy - size * 0.85);
+    ctx.ellipse(cx - size * 0.15, cy - size * 1.0, size * 0.1, size * 0.25, -0.1, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.25, cy - size * 0.85);
+    ctx.ellipse(cx + size * 0.15, cy - size * 1.0, size * 0.1, size * 0.25, 0.1, 0, 2 * Math.PI);
+    // Мордочка - маленький круг
+    ctx.moveTo(cx + size * 0.06, cy - size * 0.55);
+    ctx.arc(cx, cy - size * 0.55, size * 0.06, 0, 2 * Math.PI);
+    // Глазки - точки
+    ctx.moveTo(cx - size * 0.08, cy - size * 0.68);
+    ctx.arc(cx - size * 0.08, cy - size * 0.68, size * 0.03, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.11, cy - size * 0.68);
+    ctx.arc(cx + size * 0.08, cy - size * 0.68, size * 0.03, 0, 2 * Math.PI);
+    // Передние лапки - овалы
+    ctx.moveTo(cx - size * 0.2, cy + size * 0.3);
+    ctx.ellipse(cx - size * 0.25, cy + size * 0.4, size * 0.12, size * 0.18, 0, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.35, cy + size * 0.3);
+    ctx.ellipse(cx + size * 0.25, cy + size * 0.4, size * 0.12, size * 0.18, 0, 0, 2 * Math.PI);
+    // Задние большие лапы
+    ctx.moveTo(cx + size * 0.52, cy + size * 0.6);
+    ctx.ellipse(cx + size * 0.42, cy + size * 0.65, size * 0.18, size * 0.12, 0, 0, 2 * Math.PI);
+    // Хвостик - маленький пушистый круг
+    ctx.moveTo(cx + size * 0.55, cy + size * 0.05);
+    ctx.arc(cx + size * 0.52, cy + size * 0.05, size * 0.08, 0, 2 * Math.PI);
   };
 
   const drawTeddy = (ctx, cx, cy, size) => {
