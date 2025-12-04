@@ -1343,6 +1343,48 @@ const GamePage = () => {
     ctx.closePath();
   };
 
+  const drawCat = (ctx, cx, cy, size) => {
+    // Голова кота - квадрат со скругленными углами
+    ctx.moveTo(cx - size * 0.35, cy - size * 0.65);
+    ctx.lineTo(cx + size * 0.35, cy - size * 0.65);
+    ctx.lineTo(cx + size * 0.35, cy - size * 0.2);
+    ctx.lineTo(cx - size * 0.35, cy - size * 0.2);
+    ctx.closePath();
+    // Треугольные ушки
+    ctx.moveTo(cx - size * 0.35, cy - size * 0.65);
+    ctx.lineTo(cx - size * 0.45, cy - size * 0.85);
+    ctx.lineTo(cx - size * 0.25, cy - size * 0.65);
+    ctx.moveTo(cx + size * 0.25, cy - size * 0.65);
+    ctx.lineTo(cx + size * 0.45, cy - size * 0.85);
+    ctx.lineTo(cx + size * 0.35, cy - size * 0.65);
+    // Глазки - точки
+    ctx.moveTo(cx - size * 0.15, cy - size * 0.5);
+    ctx.arc(cx - size * 0.15, cy - size * 0.5, size * 0.05, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.2, cy - size * 0.5);
+    ctx.arc(cx + size * 0.15, cy - size * 0.5, size * 0.05, 0, 2 * Math.PI);
+    // Носик - треугольник
+    ctx.moveTo(cx, cy - size * 0.35);
+    ctx.lineTo(cx - size * 0.04, cy - size * 0.28);
+    ctx.lineTo(cx + size * 0.04, cy - size * 0.28);
+    ctx.closePath();
+    // Усы
+    ctx.moveTo(cx - size * 0.35, cy - size * 0.35);
+    ctx.lineTo(cx - size * 0.55, cy - size * 0.35);
+    ctx.moveTo(cx + size * 0.35, cy - size * 0.35);
+    ctx.lineTo(cx + size * 0.55, cy - size * 0.35);
+    // Большое круглое тело
+    ctx.moveTo(cx + size * 0.55, cy + size * 0.2);
+    ctx.arc(cx, cy + size * 0.2, size * 0.55, 0, 2 * Math.PI);
+    // Хвост загнутый
+    ctx.moveTo(cx + size * 0.5, cy + size * 0.3);
+    ctx.quadraticCurveTo(cx + size * 0.75, cy + size * 0.15, cx + size * 0.8, cy - size * 0.1);
+    // Лапки
+    ctx.moveTo(cx - size * 0.25, cy + size * 0.75);
+    ctx.ellipse(cx - size * 0.3, cy + size * 0.78, size * 0.12, size * 0.08, 0, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.35, cy + size * 0.75);
+    ctx.ellipse(cx + size * 0.3, cy + size * 0.78, size * 0.12, size * 0.08, 0, 0, 2 * Math.PI);
+  };
+
   const handleMouseDown = (e) => {
     if (showResult || showInstructions) return;
     setIsTracing(true);
