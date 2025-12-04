@@ -461,6 +461,51 @@ const GamePage = () => {
       case 'flower':
         drawFlower(ctx, centerX, centerY, size);
         break;
+      case 'smiley':
+        drawSmiley(ctx, centerX, centerY, size);
+        break;
+      case 'sun':
+        drawSun(ctx, centerX, centerY, size);
+        break;
+      case 'moon':
+        drawMoon(ctx, centerX, centerY, size);
+        break;
+      case 'balloon':
+        drawBalloon(ctx, centerX, centerY, size);
+        break;
+      case 'icecream':
+        drawIcecream(ctx, centerX, centerY, size);
+        break;
+      case 'rocket':
+        drawRocket(ctx, centerX, centerY, size);
+        break;
+      case 'bell':
+        drawBell(ctx, centerX, centerY, size);
+        break;
+      case 'key':
+        drawKey(ctx, centerX, centerY, size);
+        break;
+      case 'leaf':
+        drawLeaf(ctx, centerX, centerY, size);
+        break;
+      case 'anchor':
+        drawAnchor(ctx, centerX, centerY, size);
+        break;
+      case 'umbrella':
+        drawUmbrella(ctx, centerX, centerY, size);
+        break;
+      case 'crown':
+        drawCrown(ctx, centerX, centerY, size);
+        break;
+      case 'music':
+        drawMusic(ctx, centerX, centerY, size);
+        break;
+      case 'gift':
+        drawGift(ctx, centerX, centerY, size);
+        break;
+      case 'candycane':
+        drawCandycane(ctx, centerX, centerY, size);
+        break;
       case 'fish':
         drawFish(ctx, centerX, centerY, size);
         break;
