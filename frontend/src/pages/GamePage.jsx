@@ -1225,17 +1225,6 @@ const GamePage = () => {
     ctx.quadraticCurveTo(cx, cy + size * 0.5, cx + size * 0.4, cy + size * 0.2);
   };
 
-  const drawSun = (ctx, cx, cy, size) => {
-    // Центральный круг
-    ctx.arc(cx, cy, size * 0.4, 0, 2 * Math.PI);
-    // Лучи (8 штук)
-    for (let i = 0; i < 8; i++) {
-      const angle = (i / 8) * 2 * Math.PI;
-      ctx.moveTo(cx + Math.cos(angle) * size * 0.5, cy + Math.sin(angle) * size * 0.5);
-      ctx.lineTo(cx + Math.cos(angle) * size * 0.9, cy + Math.sin(angle) * size * 0.9);
-    }
-  };
-
   const drawMoon = (ctx, cx, cy, size) => {
     // Полумесяц
     ctx.arc(cx, cy, size * 0.7, 0, 2 * Math.PI);
