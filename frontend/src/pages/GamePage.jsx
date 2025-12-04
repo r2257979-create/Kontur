@@ -427,6 +427,9 @@ const GamePage = () => {
       case 'cup':
         drawCup(ctx, centerX, centerY, size);
         break;
+      case 'cat':
+        drawCat(ctx, centerX, centerY, size);
+        break;
     }
 
     ctx.stroke();
