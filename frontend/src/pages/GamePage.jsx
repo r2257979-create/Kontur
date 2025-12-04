@@ -1104,48 +1104,44 @@ const GamePage = () => {
   };
 
   const drawPeppa = (ctx, cx, cy, size) => {
-    // Голова свинки Пеппы - овал
-    ctx.ellipse(cx - size * 0.3, cy - size * 0.4, size * 0.4, size * 0.5, 0, 0, 2 * Math.PI);
-    // Пятачок
-    ctx.moveTo(cx - size * 0.05, cy - size * 0.35);
-    ctx.ellipse(cx - size * 0.15, cy - size * 0.35, size * 0.15, size * 0.12, 0, 0, 2 * Math.PI);
-    // Ноздри
-    ctx.moveTo(cx - size * 0.08, cy - size * 0.35);
-    ctx.arc(cx - size * 0.1, cy - size * 0.35, size * 0.03, 0, 2 * Math.PI);
-    ctx.moveTo(cx - size * 0.17, cy - size * 0.35);
-    ctx.arc(cx - size * 0.2, cy - size * 0.35, size * 0.03, 0, 2 * Math.PI);
-    // Глаза
-    ctx.moveTo(cx - size * 0.18, cy - size * 0.55);
-    ctx.arc(cx - size * 0.2, cy - size * 0.55, size * 0.06, 0, 2 * Math.PI);
-    ctx.moveTo(cx - size * 0.35, cy - size * 0.55);
-    ctx.arc(cx - size * 0.38, cy - size * 0.55, size * 0.06, 0, 2 * Math.PI);
+    // Простая голова - круг
+    ctx.arc(cx, cy - size * 0.5, size * 0.35, 0, 2 * Math.PI);
+    // Пятачок овал
+    ctx.moveTo(cx + size * 0.12, cy - size * 0.48);
+    ctx.ellipse(cx, cy - size * 0.48, size * 0.12, size * 0.08, 0, 0, 2 * Math.PI);
+    // Две ноздри - точки
+    ctx.moveTo(cx - size * 0.05, cy - size * 0.48);
+    ctx.arc(cx - size * 0.05, cy - size * 0.48, size * 0.02, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.07, cy - size * 0.48);
+    ctx.arc(cx + size * 0.05, cy - size * 0.48, size * 0.02, 0, 2 * Math.PI);
+    // Глаза - точки
+    ctx.moveTo(cx - size * 0.12, cy - size * 0.6);
+    ctx.arc(cx - size * 0.12, cy - size * 0.6, size * 0.04, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.14, cy - size * 0.6);
+    ctx.arc(cx + size * 0.12, cy - size * 0.6, size * 0.04, 0, 2 * Math.PI);
+    // Одно ушко торчит вверх
+    ctx.moveTo(cx - size * 0.25, cy - size * 0.8);
+    ctx.lineTo(cx - size * 0.3, cy - size * 0.95);
+    ctx.lineTo(cx - size * 0.2, cy - size * 0.85);
     // Улыбка
-    ctx.moveTo(cx - size * 0.45, cy - size * 0.25);
-    ctx.quadraticCurveTo(cx - size * 0.3, cy - size * 0.15, cx - size * 0.15, cy - size * 0.25);
-    // Ушко
-    ctx.moveTo(cx - size * 0.55, cy - size * 0.7);
-    ctx.lineTo(cx - size * 0.6, cy - size * 0.85);
-    ctx.lineTo(cx - size * 0.5, cy - size * 0.75);
-    // Тело
-    ctx.moveTo(cx - size * 0.1, cy - size * 0.1);
-    ctx.lineTo(cx - size * 0.1, cy + size * 0.4);
-    ctx.lineTo(cx + size * 0.3, cy + size * 0.4);
-    ctx.lineTo(cx + size * 0.3, cy - size * 0.1);
-    ctx.closePath();
-    // Ручки
-    ctx.moveTo(cx - size * 0.1, cy);
-    ctx.lineTo(cx - size * 0.25, cy + size * 0.15);
-    ctx.moveTo(cx + size * 0.3, cy);
-    ctx.lineTo(cx + size * 0.45, cy + size * 0.15);
-    // Ножки
-    ctx.moveTo(cx, cy + size * 0.4);
-    ctx.lineTo(cx, cy + size * 0.6);
-    ctx.lineTo(cx - size * 0.05, cy + size * 0.65);
-    ctx.lineTo(cx + size * 0.05, cy + size * 0.65);
-    ctx.moveTo(cx + size * 0.15, cy + size * 0.4);
-    ctx.lineTo(cx + size * 0.15, cy + size * 0.6);
-    ctx.lineTo(cx + size * 0.1, cy + size * 0.65);
-    ctx.lineTo(cx + size * 0.2, cy + size * 0.65);
+    ctx.moveTo(cx - size * 0.15, cy - size * 0.38);
+    ctx.quadraticCurveTo(cx, cy - size * 0.32, cx + size * 0.15, cy - size * 0.38);
+    // Простое тело - прямоугольник
+    ctx.rect(cx - size * 0.25, cy - size * 0.2, size * 0.5, size * 0.6);
+    // Ручки - простые линии
+    ctx.moveTo(cx - size * 0.25, cy - size * 0.05);
+    ctx.lineTo(cx - size * 0.4, cy + size * 0.1);
+    ctx.moveTo(cx + size * 0.25, cy - size * 0.05);
+    ctx.lineTo(cx + size * 0.4, cy + size * 0.1);
+    // Ножки с сапожками
+    ctx.moveTo(cx - size * 0.12, cy + size * 0.4);
+    ctx.lineTo(cx - size * 0.12, cy + size * 0.65);
+    ctx.lineTo(cx - size * 0.18, cy + size * 0.7);
+    ctx.lineTo(cx - size * 0.06, cy + size * 0.7);
+    ctx.moveTo(cx + size * 0.12, cy + size * 0.4);
+    ctx.lineTo(cx + size * 0.12, cy + size * 0.65);
+    ctx.lineTo(cx + size * 0.06, cy + size * 0.7);
+    ctx.lineTo(cx + size * 0.18, cy + size * 0.7);
   };
 
   const drawRabbit = (ctx, cx, cy, size) => {
