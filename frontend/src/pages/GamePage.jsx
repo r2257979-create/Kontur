@@ -43,14 +43,29 @@ const GamePage = () => {
 
   // Функция предзагрузки изображений
   const preloadImages = (figuresList) => {
+    const imagePromises = [];
+    
     figuresList.forEach(figure => {
       if (figure.type === 'image' && figure.imagePath) {
-        const img = new Image();
-        img.onload = () => {
-          imageCache.current[figure.imagePath] = img;
-        };
-        img.src = figure.imagePath;
+        const promise = new Promise((resolve) => {
+          const img = new Image();
+          img.onload = () => {
+            imageCache.current[figure.imagePath] = img;
+            resolve();
+          };
+          img.onerror = () => {
+            console.error(`Failed to load image: ${figure.imagePath}`);
+            resolve(); // Продолжаем даже если изображение не загрузилось
+          };
+          img.src = figure.imagePath;
+        });
+        imagePromises.push(promise);
       }
+    });
+    
+    // Когда все изображения загружены, обновляем состояние
+    Promise.all(imagePromises).then(() => {
+      setImagesLoaded(true);
     });
   };
 
