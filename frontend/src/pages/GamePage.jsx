@@ -226,7 +226,7 @@ const GamePage = () => {
   const drawShape = (ctx, figure) => {
     const baseCenterX = 540;
     const baseCenterY = 405;
-    const size = 252; // Увеличено на 40% (180 * 1.4 = 252)
+    const size = 180;
     
     // Случайное смещение ±10% от центра (генерируется один раз для каждой фигуры)
     if (!figure.offsetX) {
