@@ -204,6 +204,34 @@ const GamePage = () => {
     const centerX = baseCenterX + figure.offsetX;
     const centerY = baseCenterY + figure.offsetY;
 
+    // Для изображений - загружаем и рисуем картинку
+    if (figure.type === 'image' && figure.imagePath) {
+      const img = new Image();
+      img.onload = () => {
+        // Вычисляем размеры чтобы картинка поместилась в область
+        const maxWidth = 400;
+        const maxHeight = 400;
+        let imgWidth = img.width;
+        let imgHeight = img.height;
+        
+        // Масштабируем если нужно
+        const scale = Math.min(maxWidth / imgWidth, maxHeight / imgHeight, 1);
+        imgWidth *= scale;
+        imgHeight *= scale;
+        
+        // Рисуем картинку по центру с учетом смещения
+        ctx.drawImage(
+          img,
+          centerX - imgWidth / 2,
+          centerY - imgHeight / 2,
+          imgWidth,
+          imgHeight
+        );
+      };
+      img.src = figure.imagePath;
+      return; // Выходим, не рисуем геометрические фигуры
+    }
+
     ctx.beginPath();
 
     switch (figure.type) {
