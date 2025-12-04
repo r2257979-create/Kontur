@@ -59,7 +59,16 @@ export const figures = [
   { type: 'chicken', shape: 'chicken', name: 'Курица' },
   { type: 'boat', shape: 'boat', name: 'Лодка' },
   { type: 'cow', shape: 'cow', name: 'Корова' },
-  { type: 'kangaroo', shape: 'kangaroo', name: 'Кенгуру' }
+  { type: 'kangaroo', shape: 'kangaroo', name: 'Кенгуру' },
+  { type: 'peppa', shape: 'peppa', name: 'Свинка Пеппа' },
+  { type: 'rabbit', shape: 'rabbit', name: 'Кролик' },
+  { type: 'teddy', shape: 'teddy', name: 'Мишка' },
+  { type: 'elephant', shape: 'elephant', name: 'Слон' },
+  { type: 'butterfly', shape: 'butterfly', name: 'Бабочка' },
+  { type: 'snail', shape: 'snail', name: 'Улитка' },
+  { type: 'apple', shape: 'apple', name: 'Яблоко' },
+  { type: 'mushroom', shape: 'mushroom', name: 'Гриб' },
+  { type: 'cup', shape: 'cup', name: 'Чашка' }
 ];
 
 export const mockSessionStats = {
