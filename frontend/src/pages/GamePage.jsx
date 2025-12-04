@@ -21,6 +21,7 @@ const GamePage = () => {
   const [shuffledFigures, setShuffledFigures] = useState([]);
   const timerRef = useRef(null);
   const sessionTimerRef = useRef(null);
+  const imageCache = useRef({}); // Кэш для загруженных изображений
 
   useEffect(() => {
     const savedSettings = localStorage.getItem('gameSettings');
@@ -34,7 +35,23 @@ const GamePage = () => {
     // Перемешиваем все фигуры при первой загрузке
     const shuffled = shuffleArray([...figures]);
     setShuffledFigures(shuffled);
+    
+    // Предзагружаем все изображения
+    preloadImages(shuffled);
   }, [navigate]);
+
+  // Функция предзагрузки изображений
+  const preloadImages = (figuresList) => {
+    figuresList.forEach(figure => {
+      if (figure.type === 'image' && figure.imagePath) {
+        const img = new Image();
+        img.onload = () => {
+          imageCache.current[figure.imagePath] = img;
+        };
+        img.src = figure.imagePath;
+      }
+    });
+  };
 
   // Функция для перемешивания массива (алгоритм Fisher-Yates)
   const shuffleArray = (array) => {
