@@ -22,6 +22,7 @@ const GamePage = () => {
   const timerRef = useRef(null);
   const sessionTimerRef = useRef(null);
   const imageCache = useRef({}); // Кэш для загруженных изображений
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
     const savedSettings = localStorage.getItem('gameSettings');
