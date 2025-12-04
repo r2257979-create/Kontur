@@ -195,6 +195,14 @@ const SetupPage = () => {
               Калибровка цветов
             </Button>
             
+            <Button
+              onClick={() => navigate('/admin')}
+              variant="outline"
+              className="w-full py-4 text-base font-medium border-2 border-gray-400 text-gray-600 hover:bg-gray-50"
+            >
+              Настройки администратора
+            </Button>
+            
             {localStorage.getItem('savedColorSettings') && (
               <Button
                 onClick={() => {
