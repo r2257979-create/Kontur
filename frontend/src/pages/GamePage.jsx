@@ -1101,7 +1101,7 @@ const GamePage = () => {
     ctx.quadraticCurveTo(cx + size * 0.6, cy + size * 0.5, cx + size * 0.7, cy + size * 0.75);
   };
 
-  const drawPeppa = (ctx, cx, cy, size) => {
+  const handleMouseDown = (e) => {
     // Простая голова - круг
     ctx.arc(cx, cy - size * 0.5, size * 0.35, 0, 2 * Math.PI);
     // Пятачок овал
