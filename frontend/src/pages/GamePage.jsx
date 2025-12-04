@@ -221,10 +221,10 @@ const GamePage = () => {
     const centerX = baseCenterX + figure.offsetX;
     const centerY = baseCenterY + figure.offsetY;
 
-    // Для изображений - загружаем и рисуем картинку
+    // Для изображений - используем предзагруженное изображение
     if (figure.type === 'image' && figure.imagePath) {
-      const img = new Image();
-      img.onload = () => {
+      const img = imageCache.current[figure.imagePath];
+      if (img && img.complete) {
         // Вычисляем размеры чтобы картинка поместилась в область
         const maxWidth = 400;
         const maxHeight = 400;
@@ -244,8 +244,7 @@ const GamePage = () => {
           imgWidth,
           imgHeight
         );
-      };
-      img.src = figure.imagePath;
+      }
       return; // Выходим, не рисуем геометрические фигуры
     }
 
