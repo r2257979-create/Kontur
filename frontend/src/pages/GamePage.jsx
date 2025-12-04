@@ -425,39 +425,6 @@ const GamePage = () => {
       case 'cow':
         drawCow(ctx, centerX, centerY, size);
         break;
-      case 'kangaroo':
-        drawKangaroo(ctx, centerX, centerY, size);
-        break;
-      case 'peppa':
-        drawPeppa(ctx, centerX, centerY, size);
-        break;
-      case 'rabbit':
-        drawRabbit(ctx, centerX, centerY, size);
-        break;
-      case 'teddy':
-        drawTeddy(ctx, centerX, centerY, size);
-        break;
-      case 'elephant':
-        drawElephant(ctx, centerX, centerY, size);
-        break;
-      case 'butterfly':
-        drawButterfly(ctx, centerX, centerY, size);
-        break;
-      case 'snail':
-        drawSnail(ctx, centerX, centerY, size);
-        break;
-      case 'apple':
-        drawApple(ctx, centerX, centerY, size);
-        break;
-      case 'mushroom':
-        drawMushroom(ctx, centerX, centerY, size);
-        break;
-      case 'cup':
-        drawCup(ctx, centerX, centerY, size);
-        break;
-      case 'cat':
-        drawCat(ctx, centerX, centerY, size);
-        break;
     }
 
     ctx.stroke();
