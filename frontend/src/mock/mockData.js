@@ -68,7 +68,8 @@ export const figures = [
   { type: 'snail', shape: 'snail', name: 'Улитка' },
   { type: 'apple', shape: 'apple', name: 'Яблоко' },
   { type: 'mushroom', shape: 'mushroom', name: 'Гриб' },
-  { type: 'cup', shape: 'cup', name: 'Чашка' }
+  { type: 'cup', shape: 'cup', name: 'Чашка' },
+  { type: 'cat', shape: 'cat', name: 'Котик' }
 ];
 
 export const mockSessionStats = {
