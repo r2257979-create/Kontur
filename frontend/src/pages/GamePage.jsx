@@ -1212,6 +1212,238 @@ const GamePage = () => {
     ctx.quadraticCurveTo(cx + size * 0.6, cy + size * 0.5, cx + size * 0.7, cy + size * 0.75);
   };
 
+  const drawSmiley = (ctx, cx, cy, size) => {
+    // Круглое лицо
+    ctx.arc(cx, cy, size * 0.8, 0, 2 * Math.PI);
+    // Глаза
+    ctx.moveTo(cx - size * 0.35, cy - size * 0.25);
+    ctx.arc(cx - size * 0.4, cy - size * 0.25, size * 0.12, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.52, cy - size * 0.25);
+    ctx.arc(cx + size * 0.4, cy - size * 0.25, size * 0.12, 0, 2 * Math.PI);
+    // Улыбка
+    ctx.moveTo(cx - size * 0.4, cy + size * 0.2);
+    ctx.quadraticCurveTo(cx, cy + size * 0.5, cx + size * 0.4, cy + size * 0.2);
+  };
+
+  const drawSun = (ctx, cx, cy, size) => {
+    // Центральный круг
+    ctx.arc(cx, cy, size * 0.4, 0, 2 * Math.PI);
+    // Лучи (8 штук)
+    for (let i = 0; i < 8; i++) {
+      const angle = (i / 8) * 2 * Math.PI;
+      ctx.moveTo(cx + Math.cos(angle) * size * 0.5, cy + Math.sin(angle) * size * 0.5);
+      ctx.lineTo(cx + Math.cos(angle) * size * 0.9, cy + Math.sin(angle) * size * 0.9);
+    }
+  };
+
+  const drawMoon = (ctx, cx, cy, size) => {
+    // Полумесяц
+    ctx.arc(cx, cy, size * 0.7, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.3, cy - size * 0.5);
+    ctx.arc(cx + size * 0.25, cy, size * 0.6, 0, 2 * Math.PI, false);
+  };
+
+  const drawBalloon = (ctx, cx, cy, size) => {
+    // Круглый шар
+    ctx.arc(cx, cy - size * 0.3, size * 0.6, 0, 2 * Math.PI);
+    // Узелок
+    ctx.moveTo(cx, cy + size * 0.3);
+    ctx.lineTo(cx - size * 0.1, cy + size * 0.4);
+    ctx.lineTo(cx + size * 0.1, cy + size * 0.4);
+    // Веревочка
+    ctx.moveTo(cx, cy + size * 0.4);
+    ctx.quadraticCurveTo(cx + size * 0.2, cy + size * 0.6, cx, cy + size * 0.9);
+  };
+
+  const drawIcecream = (ctx, cx, cy, size) => {
+    // Вафельный рожок
+    ctx.moveTo(cx, cy + size * 0.8);
+    ctx.lineTo(cx - size * 0.3, cy);
+    ctx.lineTo(cx + size * 0.3, cy);
+    ctx.closePath();
+    // Сетка на рожке
+    ctx.moveTo(cx - size * 0.2, cy + size * 0.3);
+    ctx.lineTo(cx + size * 0.2, cy + size * 0.3);
+    ctx.moveTo(cx - size * 0.1, cy + size * 0.55);
+    ctx.lineTo(cx + size * 0.1, cy + size * 0.55);
+    // Шарик мороженого
+    ctx.moveTo(cx + size * 0.65, cy - size * 0.3);
+    ctx.arc(cx, cy - size * 0.3, size * 0.65, 0, 2 * Math.PI);
+  };
+
+  const drawRocket = (ctx, cx, cy, size) => {
+    // Корпус ракеты
+    ctx.moveTo(cx, cy - size);
+    ctx.lineTo(cx + size * 0.3, cy - size * 0.6);
+    ctx.lineTo(cx + size * 0.3, cy + size * 0.5);
+    ctx.lineTo(cx - size * 0.3, cy + size * 0.5);
+    ctx.lineTo(cx - size * 0.3, cy - size * 0.6);
+    ctx.closePath();
+    // Иллюминатор
+    ctx.moveTo(cx + size * 0.25, cy - size * 0.2);
+    ctx.arc(cx, cy - size * 0.2, size * 0.25, 0, 2 * Math.PI);
+    // Плавники
+    ctx.moveTo(cx - size * 0.3, cy + size * 0.3);
+    ctx.lineTo(cx - size * 0.6, cy + size * 0.7);
+    ctx.lineTo(cx - size * 0.3, cy + size * 0.5);
+    ctx.moveTo(cx + size * 0.3, cy + size * 0.3);
+    ctx.lineTo(cx + size * 0.6, cy + size * 0.7);
+    ctx.lineTo(cx + size * 0.3, cy + size * 0.5);
+    // Огонь
+    ctx.moveTo(cx - size * 0.2, cy + size * 0.5);
+    ctx.lineTo(cx - size * 0.15, cy + size * 0.8);
+    ctx.moveTo(cx, cy + size * 0.5);
+    ctx.lineTo(cx, cy + size * 0.9);
+    ctx.moveTo(cx + size * 0.2, cy + size * 0.5);
+    ctx.lineTo(cx + size * 0.15, cy + size * 0.8);
+  };
+
+  const drawBell = (ctx, cx, cy, size) => {
+    // Колокол
+    ctx.moveTo(cx - size * 0.5, cy + size * 0.5);
+    ctx.quadraticCurveTo(cx - size * 0.6, cy, cx - size * 0.3, cy - size * 0.5);
+    ctx.lineTo(cx + size * 0.3, cy - size * 0.5);
+    ctx.quadraticCurveTo(cx + size * 0.6, cy, cx + size * 0.5, cy + size * 0.5);
+    ctx.closePath();
+    // Верхушка
+    ctx.rect(cx - size * 0.1, cy - size * 0.7, size * 0.2, size * 0.2);
+    // Язычок
+    ctx.moveTo(cx, cy + size * 0.5);
+    ctx.lineTo(cx, cy + size * 0.75);
+    ctx.arc(cx, cy + size * 0.8, size * 0.08, 0, 2 * Math.PI);
+  };
+
+  const drawKey = (ctx, cx, cy, size) => {
+    // Круглая головка ключа
+    ctx.arc(cx - size * 0.5, cy, size * 0.3, 0, 2 * Math.PI);
+    ctx.moveTo(cx - size * 0.35, cy);
+    ctx.arc(cx - size * 0.5, cy, size * 0.15, 0, 2 * Math.PI);
+    // Стержень
+    ctx.rect(cx - size * 0.2, cy - size * 0.08, size * 1.0, size * 0.16);
+    // Зубчики
+    ctx.rect(cx + size * 0.5, cy + size * 0.08, size * 0.15, size * 0.2);
+    ctx.rect(cx + size * 0.7, cy + size * 0.08, size * 0.1, size * 0.15);
+  };
+
+  const drawLeaf = (ctx, cx, cy, size) => {
+    // Контур листа
+    ctx.moveTo(cx, cy - size * 0.8);
+    ctx.quadraticCurveTo(cx + size * 0.6, cy - size * 0.4, cx + size * 0.5, cy + size * 0.3);
+    ctx.quadraticCurveTo(cx + size * 0.2, cy + size * 0.7, cx, cy + size * 0.8);
+    ctx.quadraticCurveTo(cx - size * 0.2, cy + size * 0.7, cx - size * 0.5, cy + size * 0.3);
+    ctx.quadraticCurveTo(cx - size * 0.6, cy - size * 0.4, cx, cy - size * 0.8);
+    // Центральная жилка
+    ctx.moveTo(cx, cy - size * 0.8);
+    ctx.lineTo(cx, cy + size * 0.8);
+    // Боковые жилки
+    for (let i = -3; i <= 3; i++) {
+      const y = cy + i * size * 0.25;
+      ctx.moveTo(cx, y);
+      ctx.lineTo(cx + size * 0.3, y + size * 0.1);
+    }
+  };
+
+  const drawAnchor = (ctx, cx, cy, size) => {
+    // Вертикальный стержень
+    ctx.moveTo(cx, cy - size * 0.7);
+    ctx.lineTo(cx, cy + size * 0.5);
+    // Кольцо сверху
+    ctx.moveTo(cx + size * 0.15, cy - size * 0.7);
+    ctx.arc(cx, cy - size * 0.7, size * 0.15, 0, 2 * Math.PI);
+    // Поперечина
+    ctx.moveTo(cx - size * 0.5, cy - size * 0.2);
+    ctx.lineTo(cx + size * 0.5, cy - size * 0.2);
+    // Нижние лапы
+    ctx.moveTo(cx, cy + size * 0.5);
+    ctx.quadraticCurveTo(cx - size * 0.5, cy + size * 0.6, cx - size * 0.6, cy + size * 0.3);
+    ctx.lineTo(cx - size * 0.5, cy + size * 0.2);
+    ctx.moveTo(cx, cy + size * 0.5);
+    ctx.quadraticCurveTo(cx + size * 0.5, cy + size * 0.6, cx + size * 0.6, cy + size * 0.3);
+    ctx.lineTo(cx + size * 0.5, cy + size * 0.2);
+  };
+
+  const drawUmbrella = (ctx, cx, cy, size) => {
+    // Купол
+    ctx.moveTo(cx - size * 0.7, cy);
+    ctx.quadraticCurveTo(cx - size * 0.6, cy - size * 0.5, cx - size * 0.35, cy - size * 0.3);
+    ctx.quadraticCurveTo(cx - size * 0.2, cy - size * 0.6, cx, cy - size * 0.7);
+    ctx.quadraticCurveTo(cx + size * 0.2, cy - size * 0.6, cx + size * 0.35, cy - size * 0.3);
+    ctx.quadraticCurveTo(cx + size * 0.6, cy - size * 0.5, cx + size * 0.7, cy);
+    // Спицы
+    ctx.moveTo(cx, cy - size * 0.7);
+    ctx.lineTo(cx - size * 0.7, cy);
+    ctx.moveTo(cx, cy - size * 0.7);
+    ctx.lineTo(cx, cy);
+    ctx.moveTo(cx, cy - size * 0.7);
+    ctx.lineTo(cx + size * 0.7, cy);
+    // Ручка
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cx, cy + size * 0.6);
+    ctx.arc(cx - size * 0.15, cy + size * 0.7, size * 0.15, 0, Math.PI);
+  };
+
+  const drawCrown = (ctx, cx, cy, size) => {
+    // Основание короны
+    ctx.moveTo(cx - size * 0.6, cy + size * 0.3);
+    ctx.lineTo(cx - size * 0.6, cy);
+    ctx.lineTo(cx - size * 0.4, cy - size * 0.4);
+    ctx.lineTo(cx - size * 0.2, cy);
+    ctx.lineTo(cx, cy - size * 0.5);
+    ctx.lineTo(cx + size * 0.2, cy);
+    ctx.lineTo(cx + size * 0.4, cy - size * 0.4);
+    ctx.lineTo(cx + size * 0.6, cy);
+    ctx.lineTo(cx + size * 0.6, cy + size * 0.3);
+    ctx.closePath();
+    // Драгоценные камни
+    ctx.moveTo(cx + size * 0.08, cy);
+    ctx.arc(cx, cy, size * 0.08, 0, 2 * Math.PI);
+    ctx.moveTo(cx - size * 0.32, cy + size * 0.15);
+    ctx.arc(cx - size * 0.4, cy + size * 0.15, size * 0.08, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.48, cy + size * 0.15);
+    ctx.arc(cx + size * 0.4, cy + size * 0.15, size * 0.08, 0, 2 * Math.PI);
+  };
+
+  const drawMusic = (ctx, cx, cy, size) => {
+    // Нотная головка
+    ctx.arc(cx - size * 0.3, cy + size * 0.5, size * 0.25, 0, 2 * Math.PI);
+    // Штиль
+    ctx.moveTo(cx - size * 0.05, cy + size * 0.5);
+    ctx.lineTo(cx - size * 0.05, cy - size * 0.6);
+    // Флажок
+    ctx.moveTo(cx - size * 0.05, cy - size * 0.6);
+    ctx.quadraticCurveTo(cx + size * 0.4, cy - size * 0.5, cx + size * 0.3, cy - size * 0.2);
+  };
+
+  const drawGift = (ctx, cx, cy, size) => {
+    // Коробка
+    ctx.rect(cx - size * 0.5, cy - size * 0.2, size, size * 0.8);
+    // Лента вертикальная
+    ctx.rect(cx - size * 0.1, cy - size * 0.2, size * 0.2, size * 0.8);
+    // Лента горизонтальная
+    ctx.rect(cx - size * 0.5, cy + size * 0.1, size, size * 0.2);
+    // Бант сверху
+    ctx.moveTo(cx - size * 0.4, cy - size * 0.2);
+    ctx.quadraticCurveTo(cx - size * 0.5, cy - size * 0.5, cx - size * 0.3, cy - size * 0.6);
+    ctx.quadraticCurveTo(cx - size * 0.2, cy - size * 0.7, cx, cy - size * 0.6);
+    ctx.quadraticCurveTo(cx + size * 0.2, cy - size * 0.7, cx + size * 0.3, cy - size * 0.6);
+    ctx.quadraticCurveTo(cx + size * 0.5, cy - size * 0.5, cx + size * 0.4, cy - size * 0.2);
+  };
+
+  const drawCandycane = (ctx, cx, cy, size) => {
+    // Прямая часть леденца
+    ctx.moveTo(cx, cy - size * 0.3);
+    ctx.lineTo(cx, cy + size * 0.8);
+    // Изогнутая часть сверху
+    ctx.moveTo(cx, cy - size * 0.3);
+    ctx.arc(cx - size * 0.3, cy - size * 0.3, size * 0.3, 0, Math.PI);
+    // Полоски на леденце
+    for (let i = 0; i < 5; i++) {
+      const y = cy + i * size * 0.22 - size * 0.1;
+      ctx.moveTo(cx - size * 0.1, y);
+      ctx.lineTo(cx + size * 0.1, y);
+    }
+  };
+
   const handleMouseDown = (e) => {
     if (showResult || showInstructions) return;
     setIsTracing(true);
