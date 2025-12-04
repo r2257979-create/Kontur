@@ -149,10 +149,10 @@ const GamePage = () => {
   }, [showResult, showInstructions]);
 
   useEffect(() => {
-    if (settings && !showResult && !showInstructions) {
+    if (settings && !showResult && !showInstructions && imagesLoaded) {
       drawScene();
     }
-  }, [settings, currentFigureIndex, showResult, showInstructions, mousePos, allTracedPaths, currentPath, isTracing]);
+  }, [settings, currentFigureIndex, showResult, showInstructions, mousePos, allTracedPaths, currentPath, isTracing, imagesLoaded]);
 
   // Эффект для отрисовки результата
   useEffect(() => {
