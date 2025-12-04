@@ -1177,32 +1177,38 @@ const GamePage = () => {
   };
 
   const drawTeddy = (ctx, cx, cy, size) => {
-    // Тело
-    ctx.arc(cx, cy + size * 0.2, size * 0.5, 0, 2 * Math.PI);
-    // Голова
-    ctx.moveTo(cx + size * 0.4, cy - size * 0.5);
-    ctx.arc(cx, cy - size * 0.5, size * 0.4, 0, 2 * Math.PI);
-    // Уши
-    ctx.moveTo(cx - size * 0.25, cy - size * 0.85);
-    ctx.arc(cx - size * 0.3, cy - size * 0.8, size * 0.15, 0, 2 * Math.PI);
-    ctx.moveTo(cx + size * 0.45, cy - size * 0.85);
-    ctx.arc(cx + size * 0.3, cy - size * 0.8, size * 0.15, 0, 2 * Math.PI);
-    // Морда
-    ctx.moveTo(cx + size * 0.25, cy - size * 0.35);
-    ctx.arc(cx, cy - size * 0.35, size * 0.25, 0, 2 * Math.PI);
-    // Нос
-    ctx.moveTo(cx + size * 0.08, cy - size * 0.4);
-    ctx.arc(cx, cy - size * 0.4, size * 0.08, 0, 2 * Math.PI);
-    // Глаза
-    ctx.moveTo(cx - size * 0.12, cy - size * 0.55);
-    ctx.arc(cx - size * 0.15, cy - size * 0.55, size * 0.06, 0, 2 * Math.PI);
-    ctx.moveTo(cx + size * 0.18, cy - size * 0.55);
-    ctx.arc(cx + size * 0.15, cy - size * 0.55, size * 0.06, 0, 2 * Math.PI);
-    // Лапы
-    ctx.moveTo(cx - size * 0.35, cy + size * 0.7);
-    ctx.lineTo(cx - size * 0.35, cy + size * 0.9);
-    ctx.moveTo(cx + size * 0.35, cy + size * 0.7);
-    ctx.lineTo(cx + size * 0.35, cy + size * 0.9);
+    // Большое круглое тело
+    ctx.arc(cx, cy, size * 0.45, 0, 2 * Math.PI);
+    // Круглая голова
+    ctx.moveTo(cx + size * 0.35, cy - size * 0.5);
+    ctx.arc(cx, cy - size * 0.5, size * 0.35, 0, 2 * Math.PI);
+    // Круглые ушки
+    ctx.moveTo(cx - size * 0.2, cy - size * 0.8);
+    ctx.arc(cx - size * 0.25, cy - size * 0.75, size * 0.12, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.37, cy - size * 0.8);
+    ctx.arc(cx + size * 0.25, cy - size * 0.75, size * 0.12, 0, 2 * Math.PI);
+    // Мордочка - овал
+    ctx.moveTo(cx + size * 0.2, cy - size * 0.4);
+    ctx.ellipse(cx, cy - size * 0.38, size * 0.2, size * 0.15, 0, 0, 2 * Math.PI);
+    // Носик - черная точка
+    ctx.moveTo(cx + size * 0.06, cy - size * 0.42);
+    ctx.arc(cx, cy - size * 0.42, size * 0.06, 0, 2 * Math.PI);
+    // Глазки - точки
+    ctx.moveTo(cx - size * 0.1, cy - size * 0.55);
+    ctx.arc(cx - size * 0.1, cy - size * 0.55, size * 0.04, 0, 2 * Math.PI);
+    ctx.moveTo(cx + size * 0.14, cy - size * 0.55);
+    ctx.arc(cx + size * 0.1, cy - size * 0.55, size * 0.04, 0, 2 * Math.PI);
+    // Горшочек меда (необязательно, можно без него)
+    ctx.moveTo(cx + size * 0.6, cy);
+    ctx.lineTo(cx + size * 0.55, cy - size * 0.25);
+    ctx.quadraticCurveTo(cx + size * 0.65, cy - size * 0.35, cx + size * 0.75, cy - size * 0.25);
+    ctx.lineTo(cx + size * 0.7, cy);
+    ctx.closePath();
+    // Лапки
+    ctx.moveTo(cx - size * 0.3, cy + size * 0.45);
+    ctx.lineTo(cx - size * 0.3, cy + size * 0.65);
+    ctx.moveTo(cx + size * 0.3, cy + size * 0.45);
+    ctx.lineTo(cx + size * 0.3, cy + size * 0.65);
   };
 
   const drawElephant = (ctx, cx, cy, size) => {
