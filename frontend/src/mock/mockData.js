@@ -63,7 +63,22 @@ export const figures = [
   { type: 'crown', shape: 'crown', name: 'Корона' },
   { type: 'music', shape: 'music', name: 'Нота' },
   { type: 'gift', shape: 'gift', name: 'Подарок' },
-  { type: 'candycane', shape: 'candycane', name: 'Леденец' }
+  { type: 'candycane', shape: 'candycane', name: 'Леденец' },
+  { type: 'butterfly', shape: 'butterfly', name: 'Бабочка' },
+  { type: 'simplefish', shape: 'simplefish', name: 'Рыбка' },
+  { type: 'simplehouse', shape: 'simplehouse', name: 'Домик' },
+  { type: 'simplecar', shape: 'simplecar', name: 'Машинка' },
+  { type: 'sailboat', shape: 'sailboat', name: 'Кораблик' },
+  { type: 'airplane', shape: 'airplane', name: 'Самолёт' },
+  { type: 'christmastree', shape: 'christmastree', name: 'Ёлочка' },
+  { type: 'snowman', shape: 'snowman', name: 'Снеговик' },
+  { type: 'apple', shape: 'apple', name: 'Яблоко' },
+  { type: 'mushroom', shape: 'mushroom', name: 'Гриб' },
+  { type: 'teacup', shape: 'teacup', name: 'Чашка' },
+  { type: 'glasses', shape: 'glasses', name: 'Очки' },
+  { type: 'clock', shape: 'clock', name: 'Часы' },
+  { type: 'phone', shape: 'phone', name: 'Телефон' },
+  { type: 'envelope', shape: 'envelope', name: 'Конверт' }
 ];
 
 export const mockSessionStats = {
