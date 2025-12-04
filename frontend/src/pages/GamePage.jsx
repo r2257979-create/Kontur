@@ -506,6 +506,51 @@ const GamePage = () => {
       case 'candycane':
         drawCandycane(ctx, centerX, centerY, size);
         break;
+      case 'butterfly':
+        drawButterflyNew(ctx, centerX, centerY, size);
+        break;
+      case 'simplefish':
+        drawSimpleFish(ctx, centerX, centerY, size);
+        break;
+      case 'simplehouse':
+        drawSimpleHouse(ctx, centerX, centerY, size);
+        break;
+      case 'simplecar':
+        drawSimpleCar(ctx, centerX, centerY, size);
+        break;
+      case 'sailboat':
+        drawSailboat(ctx, centerX, centerY, size);
+        break;
+      case 'airplane':
+        drawAirplane(ctx, centerX, centerY, size);
+        break;
+      case 'christmastree':
+        drawChristmasTree(ctx, centerX, centerY, size);
+        break;
+      case 'snowman':
+        drawSnowman(ctx, centerX, centerY, size);
+        break;
+      case 'apple':
+        drawAppleNew(ctx, centerX, centerY, size);
+        break;
+      case 'mushroom':
+        drawMushroomNew(ctx, centerX, centerY, size);
+        break;
+      case 'teacup':
+        drawTeacup(ctx, centerX, centerY, size);
+        break;
+      case 'glasses':
+        drawGlasses(ctx, centerX, centerY, size);
+        break;
+      case 'clock':
+        drawClock(ctx, centerX, centerY, size);
+        break;
+      case 'phone':
+        drawPhone(ctx, centerX, centerY, size);
+        break;
+      case 'envelope':
+        drawEnvelope(ctx, centerX, centerY, size);
+        break;
       case 'fish':
         drawFish(ctx, centerX, centerY, size);
         break;
