@@ -252,9 +252,43 @@ const GamePage = () => {
         imgWidth *= scale;
         imgHeight *= scale;
         
-        // Рисуем картинку по центру с учетом смещения
+        // Создаем временный canvas для перекрашивания изображения
+        const tempCanvas = document.createElement('canvas');
+        tempCanvas.width = imgWidth;
+        tempCanvas.height = imgHeight;
+        const tempCtx = tempCanvas.getContext('2d');
+        
+        // Рисуем изображение на временный canvas
+        tempCtx.drawImage(img, 0, 0, imgWidth, imgHeight);
+        
+        // Получаем данные пикселей
+        const imageData = tempCtx.getImageData(0, 0, imgWidth, imgHeight);
+        const data = imageData.data;
+        
+        // Преобразуем цвет color1 из hex в RGB
+        const hex = ctx.strokeStyle;
+        const r = parseInt(hex.slice(1, 3), 16);
+        const g = parseInt(hex.slice(3, 5), 16);
+        const b = parseInt(hex.slice(5, 7), 16);
+        
+        // Перекрашиваем темные пиксели в выбранный цвет
+        for (let i = 0; i < data.length; i += 4) {
+          const brightness = (data[i] + data[i + 1] + data[i + 2]) / 3;
+          // Если пиксель темный (контур), перекрашиваем в color1
+          if (brightness < 200) {
+            data[i] = r;     // Red
+            data[i + 1] = g; // Green
+            data[i + 2] = b; // Blue
+            // Альфа-канал оставляем как есть
+          }
+        }
+        
+        // Записываем обратно перекрашенные пиксели
+        tempCtx.putImageData(imageData, 0, 0);
+        
+        // Рисуем перекрашенное изображение на основной canvas
         ctx.drawImage(
-          img,
+          tempCanvas,
           centerX - imgWidth / 2,
           centerY - imgHeight / 2,
           imgWidth,
