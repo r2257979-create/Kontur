@@ -4,6 +4,7 @@ import SetupPage from './pages/SetupPage';
 import CalibrationPage from './pages/CalibrationPage';
 import GamePage from './pages/GamePage';
 import ResultsPage from './pages/ResultsPage';
+import AdminPanel from './pages/AdminPanel';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/calibration" element={<CalibrationPage />} />
           <Route path="/game" element={<GamePage />} />
           <Route path="/results" element={<ResultsPage />} />
+          <Route path="/admin" element={<AdminPanel />} />
         </Routes>
       </BrowserRouter>
     </div>
